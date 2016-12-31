@@ -545,7 +545,7 @@ declare module NativeUI {
         Tick = 22
     }
 
-    export class UIMenuListItem {
+    export class UIMenuListItem extends UIMenuItem {
         Index: number;
         constructor(text: string, items: any, index: number);
         constructor(text: string, items: any, index: number, description: string);
@@ -559,10 +559,11 @@ declare module NativeUI {
         OnListChanged: IEvent<(sender: NativeUI.UIMenuListItem, newIndex: number) => void>;
     }
 
-    export class UIResRectangle {
+    export class UIResRectangle extends UIMenuItem {
         constructor();
         constructor(pos: System.Drawing.Point, size: System.Drawing.Size);
         constructor(pos: System.Drawing.Point, size: System.Drawing.Size, color: System.Drawing.Color);
+        Draw(): void;
         Draw(offset: System.Drawing.SizeF): void;
     }
 
