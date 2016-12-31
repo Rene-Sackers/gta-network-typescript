@@ -474,29 +474,6 @@ declare module NativeUI {
         Back = 5
     }
 
-    export class UIMenuCheckboxItem {
-        Checked: boolean;
-        constructor(text: string, check: boolean);
-        constructor(text: string, check: boolean, description: string);
-        Position(y: number): void;
-        ProcessControl(control: NativeUI.UIMenu_MenuControls): boolean;
-        Draw(): void;
-        CheckboxEventTrigger(): void;
-        SetRightBadge(badge: NativeUI.UIMenuItem_BadgeStyle): void;
-        SetRightLabel(text: string): void;
-        CheckboxEvent: IEvent<(sender: NativeUI.UIMenuCheckboxItem, Checked: boolean) => void>;
-    }
-
-    export class UIMenuColoredItem {
-        MainColor: System.Drawing.Color;
-        HighlightColor: System.Drawing.Color;
-        TextColor: System.Drawing.Color;
-        HighlightedTextColor: System.Drawing.Color;
-        constructor(label: string, color: System.Drawing.Color, highlightColor: System.Drawing.Color);
-        constructor(label: string, description: string, color: System.Drawing.Color, highlightColor: System.Drawing.Color);
-        Draw(): void;
-    }
-
     export class UIMenuItem {
         Selected: boolean;
         Hovered: boolean;
@@ -517,6 +494,29 @@ declare module NativeUI {
         SetRightBadge(badge: NativeUI.UIMenuItem_BadgeStyle): void;
         SetRightLabel(text: string): void;
         Activated: IEvent<(sender: NativeUI.UIMenu, selectedItem: NativeUI.UIMenuItem) => void>;
+    }
+
+    export class UIMenuCheckboxItem extends UIMenuItem {
+        Checked: boolean;
+        constructor(text: string, check: boolean);
+        constructor(text: string, check: boolean, description: string);
+        Position(y: number): void;
+        ProcessControl(control: NativeUI.UIMenu_MenuControls): boolean;
+        Draw(): void;
+        CheckboxEventTrigger(): void;
+        SetRightBadge(badge: NativeUI.UIMenuItem_BadgeStyle): void;
+        SetRightLabel(text: string): void;
+        CheckboxEvent: IEvent<(sender: NativeUI.UIMenuCheckboxItem, Checked: boolean) => void>;
+    }
+
+    export class UIMenuColoredItem extends UIMenuItem {
+        MainColor: System.Drawing.Color;
+        HighlightColor: System.Drawing.Color;
+        TextColor: System.Drawing.Color;
+        HighlightedTextColor: System.Drawing.Color;
+        constructor(label: string, color: System.Drawing.Color, highlightColor: System.Drawing.Color);
+        constructor(label: string, description: string, color: System.Drawing.Color, highlightColor: System.Drawing.Color);
+        Draw(): void;
     }
 
     enum UIMenuItem_BadgeStyle {
