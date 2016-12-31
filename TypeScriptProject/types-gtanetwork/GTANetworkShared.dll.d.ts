@@ -9,9 +9,7 @@
 //
 //****************************************************************
 
-
-
-export class Attachment {
+declare class Attachment {
     NetHandle: number;
     PositionOffset: Vector3;
     RotationOffset: Vector3;
@@ -19,7 +17,7 @@ export class Attachment {
     constructor();
 }
 
-export class BitReader {
+declare class BitReader {
     CurrentIndex: number;
     constructor(array: any);
     CanRead(bytes: number): boolean;
@@ -34,7 +32,7 @@ export class BitReader {
     ReadUInt64(): number;
 }
 
-export class BlipProperties {
+declare class BlipProperties {
     Sprite: number;
     Scale: number;
     Color: number;
@@ -45,12 +43,12 @@ export class BlipProperties {
     constructor();
 }
 
-export class BooleanArgument {
+declare class BooleanArgument {
     Data: boolean;
     constructor();
 }
 
-export class ClientsideScript {
+declare class ClientsideScript {
     ResourceParent: string;
     Script: string;
     Filename: string;
@@ -58,7 +56,7 @@ export class ClientsideScript {
     constructor();
 }
 
-export enum ConnectionChannel {
+declare enum ConnectionChannel {
     Default = 0,
     FileTransfer = 1,
     NativeCall = 2,
@@ -73,7 +71,7 @@ export enum ConnectionChannel {
     UnoccupiedVeh = 11
 }
 
-export class ConnectionRequest {
+declare class ConnectionRequest {
     SocialClubName: string;
     Password: string;
     DisplayName: string;
@@ -82,21 +80,21 @@ export class ConnectionRequest {
     constructor();
 }
 
-export class ConnectionResponse {
+declare class ConnectionResponse {
     CharacterHandle: number;
     Settings: SharedSettings;
     ServerVersion: number;
     constructor();
 }
 
-export class CreateEntity {
+declare class CreateEntity {
     NetHandle: number;
     EntityType: number;
     Properties: EntityProperties;
     constructor();
 }
 
-export class DataDownloadStart {
+declare class DataDownloadStart {
     Id: number;
     FileType: number;
     FileName: string;
@@ -106,12 +104,12 @@ export class DataDownloadStart {
     constructor();
 }
 
-export class DeleteEntity {
+declare class DeleteEntity {
     NetHandle: number;
     constructor();
 }
 
-export class Delta_BlipProperties {
+declare class Delta_BlipProperties {
     //Sprite?: number;
 	Sprite: number;
     //Scale?: number;
@@ -128,7 +126,7 @@ export class Delta_BlipProperties {
     constructor();
 }
 
-export class Delta_EntityProperties {
+declare class Delta_EntityProperties {
     Position: Vector3;
     Rotation: Vector3;
     //ModelHash?: number;
@@ -151,7 +149,7 @@ export class Delta_EntityProperties {
     constructor();
 }
 
-export class Delta_MarkerProperties {
+declare class Delta_MarkerProperties {
     Direction: Vector3;
     //MarkerType?: number;
 	MarkerType: number;
@@ -165,7 +163,7 @@ export class Delta_MarkerProperties {
     constructor();
 }
 
-export class Delta_ParticleProperties {
+declare class Delta_ParticleProperties {
     Library: string;
     Name: string;
     //Scale?: number;
@@ -177,12 +175,12 @@ export class Delta_ParticleProperties {
     constructor();
 }
 
-export class Delta_PedProperties {
+declare class Delta_PedProperties {
     LoopingAnimation: string;
     constructor();
 }
 
-export class Delta_PickupProperties {
+declare class Delta_PickupProperties {
     //Amount?: number;
 	Amount: number;
     //PickedUp?: boolean;
@@ -194,7 +192,7 @@ export class Delta_PickupProperties {
     constructor();
 }
 
-export class Delta_PlayerProperties {
+declare class Delta_PlayerProperties {
     Props: number[];
     Textures: number[];
     //BlipSprite?: number;
@@ -215,7 +213,7 @@ export class Delta_PlayerProperties {
     constructor();
 }
 
-export class Delta_TextLabelProperties {
+declare class Delta_TextLabelProperties {
     Text: string;
     //Red?: number;
 	Red: number;
@@ -232,7 +230,7 @@ export class Delta_TextLabelProperties {
     constructor();
 }
 
-export class Delta_VehicleProperties {
+declare class Delta_VehicleProperties {
     //PrimaryColor?: number;
 	PrimaryColor: number;
     //SecondaryColor?: number;
@@ -261,7 +259,7 @@ export class Delta_VehicleProperties {
     constructor();
 }
 
-export class Delta_WorldProperties {
+declare class Delta_WorldProperties {
     //Hours?: number;
 	Hours: number;
     //Minutes?: number;
@@ -272,7 +270,7 @@ export class Delta_WorldProperties {
     constructor();
 }
 
-export class DiscoveryResponse {
+declare class DiscoveryResponse {
     ServerName: string;
     MaxPlayers: number;
     PlayerCount: number;
@@ -283,13 +281,13 @@ export class DiscoveryResponse {
     constructor();
 }
 
-export class EntityArgument {
+declare class EntityArgument {
     NetHandle: number;
     constructor();
     constructor(netHandle: number);
 }
 
-export enum EntityFlag {
+declare enum EntityFlag {
     Collisionless = 1,
     EngineOff = 2,
     SpecialLight = 4,
@@ -297,13 +295,13 @@ export enum EntityFlag {
     VehicleLocked = 16
 }
 
-export class EntityPointerArgument {
+declare class EntityPointerArgument {
     NetHandle: number;
     constructor(netHandle: number);
     constructor();
 }
 
-export class EntityProperties {
+declare class EntityProperties {
     Position: Vector3;
     Rotation: Vector3;
     ModelHash: number;
@@ -320,7 +318,7 @@ export class EntityProperties {
     constructor();
 }
 
-export enum EntityType {
+declare enum EntityType {
     Vehicle = 1,
     Prop = 2,
     Blip = 3,
@@ -333,7 +331,7 @@ export enum EntityType {
     World = 255
 }
 
-export class Extensions {
+declare class Extensions {
     static Clamp(value: number, min: number, max: number): number;
     static FromArgb(a: number, r: number, g: number, b: number): number;
     //static ToArgb(argb: number, a: number&, r: number&, g: number&, b: number&): void;
@@ -345,19 +343,19 @@ export class Extensions {
     static Get(dict: number, key: number): number;
 }
 
-export class FileDeclaration {
+declare class FileDeclaration {
     type: FileType;
     path: string;
     hash: string;
     constructor(_path: string, _hash: string, _type: FileType);
 }
 
-export class FileManifest {
+declare class FileManifest {
     exportedFiles: string[];
     constructor();
 }
 
-export enum FileType {
+declare enum FileType {
     Normal = 0,
     Map = 1,
     Script = 2,
@@ -365,12 +363,12 @@ export enum FileType {
     CustomData = 4
 }
 
-export class FloatArgument {
+declare class FloatArgument {
     Data: number;
     constructor();
 }
 
-export class GTANSchemeListener {
+declare class GTANSchemeListener {
     constructor();
     Create(): void;
     Dispose(): void;
@@ -378,45 +376,45 @@ export class GTANSchemeListener {
     Set(ip: string): void;
 }
 
-export class ImpatientWebClient {
+declare class ImpatientWebClient {
     Timeout: number;
     constructor();
     constructor(timeout: number);
 }
 
-export class IntArgument {
+declare class IntArgument {
     Data: number;
     constructor();
 }
 
-export class LauncherSettings {
+declare class LauncherSettings {
     GameParams: string[];
     constructor();
 }
 
-export interface LauncherSettings_ISubprocessBehaviour {
+declare interface LauncherSettings_ISubprocessBehaviour {
     Start(args: string[]): void;
 }
 
-export enum Lights {
+declare enum Lights {
     NormalLights = 0,
     Highbeams = 1
 }
 
-export class ListArgument {
+declare class ListArgument {
     Data: NativeArgument[];
     constructor();
 }
 
-export class LocalGamePlayerArgument {
+declare class LocalGamePlayerArgument {
     constructor();
 }
 
-export class LocalPlayerArgument {
+declare class LocalPlayerArgument {
     constructor();
 }
 
-export class MarkerProperties {
+declare class MarkerProperties {
     Direction: Vector3;
     MarkerType: number;
     Red: number;
@@ -426,7 +424,7 @@ export class MarkerProperties {
     constructor();
 }
 
-export class MasterServerAnnounce {
+declare class MasterServerAnnounce {
     Port: number;
     MaxPlayers: number;
     ServerName: string;
@@ -437,11 +435,11 @@ export class MasterServerAnnounce {
     constructor();
 }
 
-export class MimeType {
+declare class MimeType {
     static GetMimeType(extension: string): string;
 }
 
-export class Movement {
+declare class Movement {
     Duration: number;
     Start: number;
     StartVector: Vector3;
@@ -450,12 +448,12 @@ export class Movement {
     constructor();
 }
 
-export class NativeArgument {
+declare class NativeArgument {
     Id: string;
     constructor();
 }
 
-export class NativeData {
+declare class NativeData {
     Hash: number;
     Arguments_: NativeArgument[];
     ReturnType: NativeArgument;
@@ -463,19 +461,19 @@ export class NativeData {
     constructor();
 }
 
-export class NativeResponse {
+declare class NativeResponse {
     Response: NativeArgument;
     Id: number;
     constructor();
 }
 
-export class NativeTickCall {
+declare class NativeTickCall {
     Native: NativeData;
     Identifier: string;
     constructor();
 }
 
-export class NetHandle {
+declare class NetHandle {
     IsNull: boolean;
     Value: number;
     constructor(handle: number);
@@ -484,7 +482,7 @@ export class NetHandle {
     ToString(): string;
 }
 
-export enum NonStandardVehicleMod {
+declare enum NonStandardVehicleMod {
     BulletproofTyres = 61,
     NumberPlateStyle = 62,
     PearlescentColor = 63,
@@ -502,13 +500,13 @@ export enum NonStandardVehicleMod {
     TrimColor = 75
 }
 
-export class OpponentPedHandleArgument {
+declare class OpponentPedHandleArgument {
     Data: number;
     constructor(opponentHandle: number);
     constructor();
 }
 
-export class PacketOptimization {
+declare class PacketOptimization {
     static WritePureSync(data: PedData): any;
     static WriteLightSync(data: PedData): any;
     static WritePureSync(data: VehicleData): any;
@@ -539,7 +537,7 @@ export class PacketOptimization {
     static ResetBit(value: number, flag: number): number;
 }
 
-export enum PacketType {
+declare enum PacketType {
     ChatData = 1,
     PlayerDisconnect = 2,
     NpcVehPositionData = 4,
@@ -579,7 +577,7 @@ export enum PacketType {
     BasicUnoccupiedVehSync = 38
 }
 
-export class ParseableVersion {
+declare class ParseableVersion {
     Major: number;
     Minor: number;
     Revision: number;
@@ -596,7 +594,7 @@ export class ParseableVersion {
     static FromAssembly(assembly: any): ParseableVersion;
 }
 
-export class ParticleProperties {
+declare class ParticleProperties {
     Library: string;
     Name: string;
     Scale: number;
@@ -605,7 +603,7 @@ export class ParticleProperties {
     constructor();
 }
 
-export class PedData {
+declare class PedData {
     Position: Vector3;
     //NetHandle?: number;
 	NetHandle: number;
@@ -634,7 +632,7 @@ export class PedData {
     constructor();
 }
 
-export enum PedDataFlags {
+declare enum PedDataFlags {
     Jumping = 1,
     Shooting = 2,
     Aiming = 4,
@@ -655,12 +653,12 @@ export enum PedDataFlags {
     PlayerDead = 131072
 }
 
-export class PedProperties {
+declare class PedProperties {
     LoopingAnimation: string;
     constructor();
 }
 
-export enum PickupHash {
+declare enum PickupHash {
     PortablePackage = -2136239332,
     WeaponBullpupRifle = -2124585240,
     WeaponBat = -2115084258,
@@ -741,7 +739,7 @@ export enum PickupHash {
     WeaponStickyBomb = 2081529176
 }
 
-export class PickupProperties {
+declare class PickupProperties {
     Amount: number;
     PickedUp: boolean;
     RespawnTime: number;
@@ -749,16 +747,16 @@ export class PickupProperties {
     constructor();
 }
 
-export class PickupToWeapon {
+declare class PickupToWeapon {
     static Translate(pickup: number): number;
 }
 
-export class PlayerDisconnect {
+declare class PlayerDisconnect {
     Id: number;
     constructor();
 }
 
-export class PlayerProperties {
+declare class PlayerProperties {
     Props: number[];
     Textures: number[];
     BlipSprite: number;
@@ -774,7 +772,7 @@ export class PlayerProperties {
     constructor();
 }
 
-export class PlayerSettings {
+declare class PlayerSettings {
     DisplayName: string;
     MasterServerAddress: string;
     FavoriteServers: string[];
@@ -793,7 +791,7 @@ export class PlayerSettings {
     constructor();
 }
 
-export class Quaternion {
+declare class Quaternion {
     W: number;
     constructor();
     constructor(x: number, y: number, z: number, w: number);
@@ -801,19 +799,19 @@ export class Quaternion {
     ToString(): string;
 }
 
-export class ScriptCollection {
+declare class ScriptCollection {
     ClientsideScripts: ClientsideScript[];
     constructor();
 }
 
-export class ScriptEventTrigger {
+declare class ScriptEventTrigger {
     EventName: string;
     Arguments_: NativeArgument[];
     Resource: string;
     constructor();
 }
 
-export enum ScriptVersion {
+declare enum ScriptVersion {
     Unknown = 0,
     VERSION_0_6 = 1,
     VERSION_0_6_1 = 2,
@@ -822,7 +820,7 @@ export enum ScriptVersion {
     VERSION_0_9 = 5
 }
 
-export enum ServerEventType {
+declare enum ServerEventType {
     PlayerTeamChange = 0,
     PlayerBlipColorChange = 1,
     PlayerBlipAlphaChange = 2,
@@ -834,7 +832,7 @@ export enum ServerEventType {
     WeaponPermissionChange = 8
 }
 
-export class ServerMap {
+declare class ServerMap {
     Objects: number[];
     Vehicles: number[];
     Blips: number[];
@@ -848,7 +846,7 @@ export class ServerMap {
     constructor();
 }
 
-export class ServerSettings {
+declare class ServerSettings {
     Name: string;
     Port: number;
     MaxPlayers: number;
@@ -875,12 +873,12 @@ export class ServerSettings {
     static WriteSettings(path: string, sett: ServerSettings): void;
 }
 
-export class ServerSettings_SettingsResFilepath {
+declare class ServerSettings_SettingsResFilepath {
     Path: string;
     constructor();
 }
 
-export class SharedSettings {
+declare class SharedSettings {
     VehicleLagCompensation: boolean;
     OnFootLagCompensation: boolean;
     ModWhitelist: string[];
@@ -888,18 +886,18 @@ export class SharedSettings {
     constructor();
 }
 
-export class StringArgument {
+declare class StringArgument {
     Data: string;
     constructor();
 }
 
-export class SyncEvent {
+declare class SyncEvent {
     EventType: number;
     Arguments_: NativeArgument[];
     constructor();
 }
 
-export enum SyncEventType {
+declare enum SyncEventType {
     LandingGearChange = 0,
     DoorStateChange = 1,
     BooleanLights = 2,
@@ -910,7 +908,7 @@ export enum SyncEventType {
     StickyBombDetonation = 7
 }
 
-export class TextLabelProperties {
+declare class TextLabelProperties {
     Text: string;
     Red: number;
     Green: number;
@@ -921,12 +919,12 @@ export class TextLabelProperties {
     constructor();
 }
 
-export class UIntArgument {
+declare class UIntArgument {
     Data: number;
     constructor();
 }
 
-export class UpdateEntity {
+declare class UpdateEntity {
     NetHandle: number;
     EntityType: number;
     Properties: Delta_EntityProperties;
@@ -958,21 +956,21 @@ declare class Vector3 {
     DistanceTo2D(right: Vector3): number;
 }
 
-export class Vector3Argument {
+declare class Vector3Argument {
     X: number;
     Y: number;
     Z: number;
     constructor();
 }
 
-export class VehicleDamageModel {
+declare class VehicleDamageModel {
     BrokenWindows: number;
     BrokenDoors: number;
     BrokenLights: number;
     constructor();
 }
 
-export class VehicleData {
+declare class VehicleData {
     Position: Vector3;
     //VehicleHandle?: number;
 	VehicleHandle: number;
@@ -1006,7 +1004,7 @@ export class VehicleData {
     constructor();
 }
 
-export enum VehicleDataFlags {
+declare enum VehicleDataFlags {
     PressingHorn = 1,
     Shooting = 2,
     SirenActive = 4,
@@ -1019,7 +1017,7 @@ export enum VehicleDataFlags {
     PlayerDead = 512
 }
 
-export enum VehicleHash {
+declare enum VehicleHash {
     Bagger = -2140431165,
     DockTrailer = -2140210194,
     Phantom = -2137348917,
@@ -1517,7 +1515,7 @@ export enum VehicleHash {
     Rocoto = 2136773105
 }
 
-export class VehicleProperties {
+declare class VehicleProperties {
     PrimaryColor: number;
     SecondaryColor: number;
     Health: number;
@@ -1535,12 +1533,12 @@ export class VehicleProperties {
     constructor();
 }
 
-export class VersionCompatibility {
+declare class VersionCompatibility {
     LastCompatibleClientVersion: ParseableVersion;
     LastCompatibleServerVersion: ParseableVersion;
 }
 
-export enum WeaponHash {
+declare enum WeaponHash {
     CarbineRifle = -2084633992,
     Crowbar = -2067956739,
     Flashlight = -1951375401,
@@ -1618,17 +1616,17 @@ export enum WeaponHash {
     CombatMG = 2144741730
 }
 
-export class WhitelistCollection {
+declare class WhitelistCollection {
     Items: WhitelistItem[];
     constructor();
 }
 
-export class WhitelistItem {
+declare class WhitelistItem {
     Hash: string;
     constructor();
 }
 
-export class WorldProperties {
+declare class WorldProperties {
     Hours: number;
     Minutes: number;
     Weather: number;

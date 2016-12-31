@@ -734,7 +734,7 @@ declare module GTANetwork.Javascript {
         givePlayerWeaponComponent(weapon: number, component: number): void;
         removePlayerWeaponComponent(weapon: number, component: number): void;
         hasPlayerWeaponComponent(weapon: number, component: number): boolean;
-        getAllWeaponComponents(weapon: WeaponHash): GTA.WeaponComponent[];
+        getAllWeaponComponents(weapon: GTA.WeaponHash): GTA.WeaponComponent[];
         getPlayerCurrentWeapon(): number;
         disconnect(reason: string): void;
         setEntityPosition(ent: GTANetwork.Util.LocalHandle, pos: Vector3): void;
