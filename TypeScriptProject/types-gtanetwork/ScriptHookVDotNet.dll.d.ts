@@ -75,7 +75,7 @@ declare module GTA {
         WantedMusicOnMission = 34
     }
 
-    export class Blip extends System.IEquatable<GTA.Blip> {
+    export class Blip {
         Position: GTA.Math.Vector3;
         Rotation: number;
         Scale: number;
@@ -446,7 +446,7 @@ declare module GTA {
         constructor(...buttons: GTA.Button[]);
     }
 
-    export class Camera extends System.IEquatable<GTA.Camera>, GTA.ISpatial {
+    export class Camera implements GTA.ISpatial {
         IsActive: boolean;
         Position: GTA.Math.Vector3;
         Rotation: GTA.Math.Vector3;
@@ -503,7 +503,7 @@ declare module GTA {
         Magnet = 1
     }
 
-    export class Checkpoint extends System.IEquatable<GTA.Checkpoint> {
+    export class Checkpoint {
         MemoryAddress: number;
         Position: GTA.Math.Vector3;
         TargetPosition: GTA.Math.Vector3;
@@ -888,7 +888,7 @@ declare module GTA {
         Rushed = 1074528293
     }
 
-    export class Entity extends System.IEquatable<GTA.Entity>, GTA.ISpatial {
+    export class Entity implements GTA.ISpatial {
         MemoryAddress: number;
         Health: number;
         MaxHealth: number;
@@ -1277,7 +1277,7 @@ declare module GTA {
         DebugSphere = 28
     }
 
-    export class Model extends System.IEquatable<GTA.Model>, GTA.Native.INativeValue {
+    export class Model implements GTA.Native.INativeValue {
         Hash: number;
         NativeValue: number;
         IsValid: boolean;
@@ -1496,7 +1496,7 @@ declare module GTA {
         Clone(heading: number): GTA.Ped;
     }
 
-    export class PedGroup extends System.IEquatable<GTA.PedGroup>, GTA.Ped[], System.IDisposable {
+    export class PedGroup {
         MemberCount: number;
         SeparationRange: number;
         FormationType: GTA.FormationType;
@@ -1515,10 +1515,11 @@ declare module GTA {
         Equals(pedGroup: GTA.PedGroup): boolean;
         Equals(obj: any): boolean;
         GetHashCode(): number;
-        GetEnumerator(): System.Collections.Generic.IEnumerator<GTA.Ped>;
+        //GetEnumerator(): System.Collections.Generic.IEnumerator<GTA.Ped>;
+        GetEnumerator(): any;
     }
 
-    export class PedGroup_Enumerator extends System.Collections.Generic.IEnumerator<GTA.Ped>, System.IDisposable, System.Collections.IEnumerator {
+    export class PedGroup_Enumerator {
         //System.Collections.Generic.IEnumerator<GTA.Ped>.Current: GTA.Ped;
         //System.Collections.IEnumerator.Current: any;
         constructor(group: GTA.PedGroup);
@@ -2236,7 +2237,7 @@ declare module GTA {
         ScreenWriter = 4293277303
     }
 
-    export class Pickup extends System.IEquatable<GTA.Pickup> {
+    export class Pickup {
         Position: GTA.Math.Vector3;
         IsCollected: boolean;
         constructor(handle: number);
@@ -2323,7 +2324,7 @@ declare module GTA {
         WeaponSniperRifle = 4264178988
     }
 
-    export class Player extends System.IEquatable<GTA.Player> {
+    export class Player {
         Character: GTA.Ped;
         Name: string;
         Money: number;
@@ -2378,7 +2379,7 @@ declare module GTA {
         GetHashCode(): number;
     }
 
-    export class PoolObject extends GTA.Native.INativeValue {
+    export class PoolObject implements GTA.Native.INativeValue {
         Handle: number;
         NativeValue: number;
         constructor(handle: number);
@@ -2439,7 +2440,7 @@ declare module GTA {
         Pedestrians = 255
     }
 
-    export class RelationshipGroup extends System.IEquatable<GTA.RelationshipGroup>, GTA.Native.INativeValue {
+    export class RelationshipGroup implements GTA.Native.INativeValue {
         Hash: number;
         NativeValue: number;
         constructor(hash: number);
@@ -2455,10 +2456,11 @@ declare module GTA {
     }
 
     export class RequireScript {
-        constructor(dependency: System.Type);
+        //constructor(dependency: System.Type);
+        constructor(dependency: any);
     }
 
-    export class Rope extends System.IEquatable<GTA.Rope> {
+    export class Rope {
         Length: number;
         VertexCount: number;
         constructor(handle: number);
@@ -2484,14 +2486,14 @@ declare module GTA {
         Normal = 4
     }
 
-    export class Scaleform extends System.IDisposable, GTA.Native.INativeValue {
+    export class Scaleform implements GTA.Native.INativeValue {
         Handle: number;
         NativeValue: number;
         IsValid: boolean;
         IsLoaded: boolean;
         constructor(scaleformID: string);
         Dispose(): void;
-        CallFunction(functionn: string, ...arguments: any[]): void;
+        CallFunction(functionn: string, ...argumentss: any[]): void;
         Render2D(): void;
         Render2DScreenSpace(location: System.Drawing.PointF, size: System.Drawing.PointF): void;
         Render3D(position: GTA.Math.Vector3, rotation: GTA.Math.Vector3, scale: GTA.Math.Vector3): void;
@@ -2524,10 +2526,12 @@ declare module GTA {
         Save(): boolean;
         GetValue(section: string, name: string, defaultvalue: string): string;
         GetValue(section: string, name: string): string;
-        GetValue(section: string, name: string, defaultvalue: T): T;
+        //GetValue(section: string, name: string, defaultvalue: T): T;
+        GetValue(section: string, name: string, defaultvalue: any): any;
         GetAllValues(section: string, name: string): string[];
         SetValue(section: string, name: string, value: string): void;
-        SetValue(section: string, name: string, value: T): void;
+        //SetValue(section: string, name: string, value: T): void;
+        SetValue(section: string, name: string, value: any): void;
     }
 
     enum SpeechModifier {
@@ -2642,7 +2646,7 @@ declare module GTA {
         ClearAnimation(animSet: string, animName: string): void;
     }
 
-    export class TaskSequence extends System.IDisposable {
+    export class TaskSequence {
         Handle: number;
         Count: number;
         IsClosed: boolean;
@@ -2974,7 +2978,8 @@ declare module GTA {
         Item: GTA.VehicleDoor;
         HasDoor(door: GTA.VehicleDoorIndex): boolean;
         GetAll(): GTA.VehicleDoor[];
-        GetEnumerator(): System.Collections.Generic.IEnumerator<GTA.VehicleDoor>;
+        //GetEnumerator(): System.Collections.Generic.IEnumerator<GTA.VehicleDoor>;
+        GetEnumerator(): any;
     }
 
     enum VehicleDoorIndex {
@@ -3494,7 +3499,7 @@ declare module GTA {
 
     export class VehicleModCollection {
         Item: GTA.VehicleMod;
-        Item: GTA.VehicleToggleMod;
+        //Item: GTA.VehicleToggleMod;
         WheelType: GTA.VehicleWheelType;
         AllowedWheelTypes: GTA.VehicleWheelType[];
         LocalizedWheelTypeName: string;
@@ -3717,7 +3722,7 @@ declare module GTA {
         static GetComponentDisplayNameFromHash(hash: GTA.WeaponHash, component: GTA.WeaponComponent): string;
     }
 
-    export class WeaponAsset extends System.IEquatable<GTA.WeaponAsset>, GTA.Native.INativeValue {
+    export class WeaponAsset implements GTA.Native.INativeValue {
         Hash: number;
         NativeValue: number;
         IsValid: boolean;
@@ -4055,7 +4060,8 @@ declare module GTA {
         static GetNearbyProps(position: GTA.Math.Vector3, radius: number, ...models: GTA.Model[]): GTA.Prop[];
         static GetAllEntities(): GTA.Entity[];
         static GetNearbyEntities(position: GTA.Math.Vector3, radius: number): GTA.Entity[];
-        static GetClosest(position: GTA.Math.Vector3, ...spatials: T[]): T;
+        //static GetClosest(position: GTA.Math.Vector3, ...spatials: T[]): T;
+        static GetClosest(position: GTA.Math.Vector3, ...spatials: any[]): any;
         static GetSafeCoordForPed(position: GTA.Math.Vector3, sidewalk: boolean, flags: number): GTA.Math.Vector3;
         static GetNextPositionOnStreet(position: GTA.Math.Vector2, unoccupied: boolean): GTA.Math.Vector3;
         static GetNextPositionOnStreet(position: GTA.Math.Vector3, unoccupied: boolean): GTA.Math.Vector3;
@@ -4103,7 +4109,7 @@ declare module GTA {
 }
 declare module GTA.Math {
 
-    export class Matrix extends System.IEquatable<GTA.Math.Matrix> {
+    export class Matrix {
         M11: number;
         M12: number;
         M13: number;
@@ -4158,7 +4164,7 @@ declare module GTA.Math {
         Equals(obj: any): boolean;
     }
 
-    export class Quaternion extends System.IEquatable<GTA.Math.Quaternion> {
+    export class Quaternion {
         X: number;
         Y: number;
         Z: number;
@@ -4201,7 +4207,7 @@ declare module GTA.Math {
         Equals(obj: any): boolean;
     }
 
-    export class Vector2 extends System.IEquatable<GTA.Math.Vector2> {
+    export class Vector2 {
         X: number;
         Y: number;
         Item: number;
@@ -4244,7 +4250,7 @@ declare module GTA.Math {
         Equals(obj: any): boolean;
     }
 
-    export class Vector3 extends System.IEquatable<GTA.Math.Vector3> {
+    export class Vector3 {
         X: number;
         Y: number;
         Z: number;
@@ -4309,15 +4315,18 @@ declare module GTA.Math {
 declare module GTA.Native {
 
     export class Function {
-        static Call(hash: GTA.Native.Hash, ...arguments: GTA.Native.InputArgument[]): void;
-        static Call(hash: GTA.Native.Hash, ...arguments: GTA.Native.InputArgument[]): T;
+        static Call(hash: GTA.Native.Hash, ...argumentss: GTA.Native.InputArgument[]): void;
+        //static Call(hash: GTA.Native.Hash, ...argumentss: GTA.Native.InputArgument[]): T;
+        static Call(hash: GTA.Native.Hash, ...argumentss: GTA.Native.InputArgument[]): any;
     }
 
     export class GlobalVariable {
         MemoryAddress: number;
         static Get(index: number): GTA.Native.GlobalVariable;
-        Read(): T;
-        Write(value: T): void;
+        //Read(): T;
+        Read(): any;
+        //Write(value: T): void;
+        Write(value: any): void;
         WriteString(value: string, maxSize: number): void;
         SetBit(index: number): void;
         ClearBit(index: number): void;
@@ -7682,10 +7691,11 @@ declare module GTA.Native {
         //static FindPattern(pattern: System.SByte modopt(System.Runtime.CompilerServices.IsSignUnspecifiedByte) modopt(System.Runtime.CompilerServices.IsConst)*, mask: System.SByte modopt(System.Runtime.CompilerServices.IsSignUnspecifiedByte) modopt(System.Runtime.CompilerServices.IsConst)*): number;
     }
 
-    export class OutputArgument extends System.IDisposable {
+    export class OutputArgument {
         constructor(initvalue: any);
         constructor();
-        GetResult(): T;
+        //GetResult(): T;
+        GetResult(): any;
         Dispose(): void;
     }
 
@@ -9585,7 +9595,12 @@ declare module GTA.UI {
         ScaledDraw(offset: System.Drawing.SizeF): void;
     }
 
-    export class CustomSprite extends GTA.UI.ISprite, GTA.UI.IElement {
+    export interface ISprite extends GTA.UI.IElement {
+        Size: System.Drawing.SizeF;
+        Rotation: number;
+    }
+
+    export class CustomSprite implements GTA.UI.ISprite, GTA.UI.IElement {
         Enabled: boolean;
         Color: System.Drawing.Color;
         Position: System.Drawing.PointF;
@@ -9676,11 +9691,6 @@ declare module GTA.UI {
         ScaledDraw(offset: System.Drawing.SizeF): void;
     }
 
-    export interface ISprite extends GTA.UI.IElement {
-        Size: System.Drawing.SizeF;
-        Rotation: number;
-    }
-
     export class Notification {
         Hide(): void;
     }
@@ -9722,7 +9732,7 @@ declare module GTA.UI {
         static FadeOut(time: number): void;
     }
 
-    export class Sprite extends GTA.UI.ISprite, GTA.UI.IElement, System.IDisposable {
+    export class Sprite implements GTA.UI.ISprite, GTA.UI.IElement {
         Enabled: boolean;
         Color: System.Drawing.Color;
         Position: System.Drawing.PointF;
@@ -9740,7 +9750,7 @@ declare module GTA.UI {
         ScaledDraw(offset: System.Drawing.SizeF): void;
     }
 
-    export class Text extends GTA.UI.IElement {
+    export class Text implements GTA.UI.IElement {
         Enabled: boolean;
         Color: System.Drawing.Color;
         Position: System.Drawing.PointF;

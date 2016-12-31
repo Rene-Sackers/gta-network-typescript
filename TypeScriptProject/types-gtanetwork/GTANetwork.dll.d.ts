@@ -98,11 +98,13 @@ declare module GTANetwork.GUI {
         Stream: any;
         StatusCode: number;
         StatusText: string;
-        ResponseLength?: number;
+        //ResponseLength?: number;
+		ResponseLength: number;
         //Headers: System.Collections.Specialized.NameValueCollection;
         Headers: any;
         AutoDisposeStream: boolean;
-        ErrorCode?: Xilium.CefGlue.CefErrorCode;
+        //ErrorCode?: Xilium.CefGlue.CefErrorCode;
+		ErrorCode: Xilium.CefGlue.CefErrorCode;
         constructor();
         constructor(mimeType: string);
         static FromFilePath(fileName: string, mimeType: string): GTANetwork.GUI.SecureCefResourceHandler;
@@ -438,7 +440,7 @@ declare module GTANetwork.Javascript {
         constructor();
         Reset(): void;
         GetActive(): GTANetwork.Javascript.GlobalCamera;
-        Create(position: GTANetworkShared.Vector3, rotation: GTANetworkShared.Vector3): GTANetwork.Javascript.GlobalCamera;
+        Create(position: Vector3, rotation: Vector3): GTANetwork.Javascript.GlobalCamera;
         Delete(cam: GTANetwork.Javascript.GlobalCamera): void;
         SetActive(cam: GTANetwork.Javascript.GlobalCamera): void;
         SetActiveWithInterp(cam: GTANetwork.Javascript.GlobalCamera, duration: number, easePos: boolean, easeRot: boolean): void;
@@ -450,15 +452,15 @@ declare module GTANetwork.Javascript {
     }
 
     export class GlobalCamera {
-        Position: GTANetworkShared.Vector3;
-        Rotation: GTANetworkShared.Vector3;
+        Position: Vector3;
+        Rotation: Vector3;
         EntityPointing: number;
         BonePointing: number;
-        PointOffset: GTANetworkShared.Vector3;
-        VectorPointing: GTANetworkShared.Vector3;
+        PointOffset: Vector3;
+        VectorPointing: Vector3;
         EntityAttached: number;
         BoneAttached: number;
-        AttachOffset: GTANetworkShared.Vector3;
+        AttachOffset: Vector3;
         Shake: string;
         ShakeAmp: number;
         Fov: number;
@@ -538,40 +540,40 @@ declare module GTANetwork.Javascript {
         doesSettingExist(name: string): boolean;
         removeSetting(name: string): void;
         registerChatOverride(): GTANetwork.Javascript.JavascriptChat;
-        createCamera(position: GTANetworkShared.Vector3, rotation: GTANetworkShared.Vector3): GTANetwork.Javascript.GlobalCamera;
+        createCamera(position: Vector3, rotation: Vector3): GTANetwork.Javascript.GlobalCamera;
         setActiveCamera(camera: GTANetwork.Javascript.GlobalCamera): void;
         setGameplayCameraActive(): void;
         getActiveCamera(): GTANetwork.Javascript.GlobalCamera;
         setCameraShake(cam: GTANetwork.Javascript.GlobalCamera, shakeType: string, amplitute: number): void;
         stopCameraShake(cam: GTANetwork.Javascript.GlobalCamera): void;
         isCameraShaking(cam: GTANetwork.Javascript.GlobalCamera): boolean;
-        setCameraPosition(cam: GTANetwork.Javascript.GlobalCamera, pos: GTANetworkShared.Vector3): void;
-        getCameraPosition(cam: GTANetwork.Javascript.GlobalCamera): GTANetworkShared.Vector3;
-        setCameraRotation(cam: GTANetwork.Javascript.GlobalCamera, rotation: GTANetworkShared.Vector3): void;
-        getCameraRotation(cam: GTANetwork.Javascript.GlobalCamera): GTANetworkShared.Vector3;
+        setCameraPosition(cam: GTANetwork.Javascript.GlobalCamera, pos: Vector3): void;
+        getCameraPosition(cam: GTANetwork.Javascript.GlobalCamera): Vector3;
+        setCameraRotation(cam: GTANetwork.Javascript.GlobalCamera, rotation: Vector3): void;
+        getCameraRotation(cam: GTANetwork.Javascript.GlobalCamera): Vector3;
         setCameraFov(cam: GTANetwork.Javascript.GlobalCamera, fov: number): void;
         getCameraFov(cam: GTANetwork.Javascript.GlobalCamera): number;
-        pointCameraAtPosition(cam: GTANetwork.Javascript.GlobalCamera, pos: GTANetworkShared.Vector3): void;
-        pointCameraAtEntity(cam: GTANetwork.Javascript.GlobalCamera, ent: GTANetwork.Util.LocalHandle, offset: GTANetworkShared.Vector3): void;
-        pointCameraAtEntityBone(cam: GTANetwork.Javascript.GlobalCamera, ent: GTANetwork.Util.LocalHandle, bone: number, offset: GTANetworkShared.Vector3): void;
+        pointCameraAtPosition(cam: GTANetwork.Javascript.GlobalCamera, pos: Vector3): void;
+        pointCameraAtEntity(cam: GTANetwork.Javascript.GlobalCamera, ent: GTANetwork.Util.LocalHandle, offset: Vector3): void;
+        pointCameraAtEntityBone(cam: GTANetwork.Javascript.GlobalCamera, ent: GTANetwork.Util.LocalHandle, bone: number, offset: Vector3): void;
         stopCameraPointing(cam: GTANetwork.Javascript.GlobalCamera): void;
-        attachCameraToEntity(cam: GTANetwork.Javascript.GlobalCamera, ent: GTANetwork.Util.LocalHandle, offset: GTANetworkShared.Vector3): void;
-        attachCameraToEntityBone(cam: GTANetwork.Javascript.GlobalCamera, ent: GTANetwork.Util.LocalHandle, bone: number, offset: GTANetworkShared.Vector3): void;
+        attachCameraToEntity(cam: GTANetwork.Javascript.GlobalCamera, ent: GTANetwork.Util.LocalHandle, offset: Vector3): void;
+        attachCameraToEntityBone(cam: GTANetwork.Javascript.GlobalCamera, ent: GTANetwork.Util.LocalHandle, bone: number, offset: Vector3): void;
         detachCamera(cam: GTANetwork.Javascript.GlobalCamera): void;
         interpolateCameras(from: GTANetwork.Javascript.GlobalCamera, to: GTANetwork.Javascript.GlobalCamera, duration: number, easepos: boolean, easerot: boolean): void;
         getCursorPosition(): System.Drawing.PointF;
         getCursorPositionMantainRatio(): System.Drawing.PointF;
-        worldToScreen(pos: GTANetworkShared.Vector3): System.Drawing.PointF;
-        worldToScreenMantainRatio(pos: GTANetworkShared.Vector3): System.Drawing.PointF;
+        worldToScreen(pos: Vector3): System.Drawing.PointF;
+        worldToScreenMantainRatio(pos: Vector3): System.Drawing.PointF;
         getCurrentResourceName(): string;
-        screenToWorld(pos: System.Drawing.PointF): GTANetworkShared.Vector3;
-        screenToWorldMantainRatio(pos: System.Drawing.PointF): GTANetworkShared.Vector3;
-        screenToWorld(pos: System.Drawing.PointF, camPos: GTANetworkShared.Vector3, camRot: GTANetworkShared.Vector3): GTANetworkShared.Vector3;
-        screenToWorldMantainRatio(pos: System.Drawing.PointF, camPos: GTANetworkShared.Vector3, camrot: GTANetworkShared.Vector3): GTANetworkShared.Vector3;
-        createRaycast(start: GTANetworkShared.Vector3, end: GTANetworkShared.Vector3, flag: number, ignoreEntity: GTANetwork.Util.LocalHandle): GTANetwork.Javascript.ScriptContext_Raycast;
-        getGameplayCamPos(): GTANetworkShared.Vector3;
-        getGameplayCamRot(): GTANetworkShared.Vector3;
-        getGameplayCamDir(): GTANetworkShared.Vector3;
+        screenToWorld(pos: System.Drawing.PointF): Vector3;
+        screenToWorldMantainRatio(pos: System.Drawing.PointF): Vector3;
+        screenToWorld(pos: System.Drawing.PointF, camPos: Vector3, camRot: Vector3): Vector3;
+        screenToWorldMantainRatio(pos: System.Drawing.PointF, camPos: Vector3, camrot: Vector3): Vector3;
+        createRaycast(start: Vector3, end: Vector3, flag: number, ignoreEntity: GTANetwork.Util.LocalHandle): GTANetwork.Javascript.ScriptContext_Raycast;
+        getGameplayCamPos(): Vector3;
+        getGameplayCamRot(): Vector3;
+        getGameplayCamDir(): Vector3;
         setCanOpenChat(show: boolean): void;
         getCanOpenChat(): boolean;
         setDisplayWastedShard(show: boolean): void;
@@ -606,9 +608,9 @@ declare module GTANetwork.Javascript {
         getWorldSyncedData(key: string): any;
         getGamePlayer(): number;
         getLocalPlayer(): GTANetwork.Util.LocalHandle;
-        getEntityPosition(entity: GTANetwork.Util.LocalHandle): GTANetworkShared.Vector3;
-        getEntityRotation(entity: GTANetwork.Util.LocalHandle): GTANetworkShared.Vector3;
-        getEntityVelocity(entity: GTANetwork.Util.LocalHandle): GTANetworkShared.Vector3;
+        getEntityPosition(entity: GTANetwork.Util.LocalHandle): Vector3;
+        getEntityRotation(entity: GTANetwork.Util.LocalHandle): Vector3;
+        getEntityVelocity(entity: GTANetwork.Util.LocalHandle): Vector3;
         getVehicleHealth(entity: GTANetwork.Util.LocalHandle): number;
         getVehicleRPM(entity: GTANetwork.Util.LocalHandle): number;
         isPlayerInAnyVehicle(player: GTANetwork.Util.LocalHandle): boolean;
@@ -620,18 +622,18 @@ declare module GTANetwork.Javascript {
         isPlayerReloading(player: GTANetwork.Util.LocalHandle): boolean;
         isPlayerInCover(player: GTANetwork.Util.LocalHandle): boolean;
         isPlayerOnLadder(player: GTANetwork.Util.LocalHandle): boolean;
-        getPlayerAimingPoint(player: GTANetwork.Util.LocalHandle): GTANetworkShared.Vector3;
+        getPlayerAimingPoint(player: GTANetwork.Util.LocalHandle): Vector3;
         isPlayerDead(player: GTANetwork.Util.LocalHandle): boolean;
         doesEntityExist(entity: GTANetwork.Util.LocalHandle): boolean;
         setEntityInvincible(entity: GTANetwork.Util.LocalHandle, invincible: boolean): void;
         getEntityInvincible(entity: GTANetwork.Util.LocalHandle): boolean;
         getLocalPlayerInvincible(): boolean;
-        createParticleEffectOnPosition(ptfxLibrary: string, ptfxName: string, position: GTANetworkShared.Vector3, rotation: GTANetworkShared.Vector3, scale: number): void;
-        createParticleEffectOnEntity(ptfxLibrary: string, ptfxName: string, entity: GTANetwork.Util.LocalHandle, offset: GTANetworkShared.Vector3, rotation: GTANetworkShared.Vector3, scale: number, boneIndex: number): void;
-        createExplosion(explosionType: number, position: GTANetworkShared.Vector3, damageScale: number): void;
-        createOwnedExplosion(owner: GTANetwork.Util.LocalHandle, explosionType: number, position: GTANetworkShared.Vector3, damageScale: number): void;
-        createProjectile(weapon: number, start: GTANetworkShared.Vector3, target: GTANetworkShared.Vector3, damage: number, speed: number, dimension: number): void;
-        createOwnedProjectile(owner: GTANetwork.Util.LocalHandle, weapon: number, start: GTANetworkShared.Vector3, target: GTANetworkShared.Vector3, damage: number, speed: number, dimension: number): void;
+        createParticleEffectOnPosition(ptfxLibrary: string, ptfxName: string, position: Vector3, rotation: Vector3, scale: number): void;
+        createParticleEffectOnEntity(ptfxLibrary: string, ptfxName: string, entity: GTANetwork.Util.LocalHandle, offset: Vector3, rotation: Vector3, scale: number, boneIndex: number): void;
+        createExplosion(explosionType: number, position: Vector3, damageScale: number): void;
+        createOwnedExplosion(owner: GTANetwork.Util.LocalHandle, explosionType: number, position: Vector3, damageScale: number): void;
+        createProjectile(weapon: number, start: Vector3, target: Vector3, damage: number, speed: number, dimension: number): void;
+        createOwnedProjectile(owner: GTANetwork.Util.LocalHandle, weapon: number, start: Vector3, target: Vector3, damage: number, speed: number, dimension: number): void;
         setVehicleLivery(vehicle: GTANetwork.Util.LocalHandle, livery: number): void;
         getVehicleLivery(vehicle: GTANetwork.Util.LocalHandle): number;
         setVehicleLocked(vehicle: GTANetwork.Util.LocalHandle, locked: boolean): void;
@@ -722,21 +724,21 @@ declare module GTANetwork.Javascript {
         pedNameToModel(modelName: string): number;
         pickupNameToModel(modelName: string): number;
         weaponNameToModel(modelName: string): number;
-        loadInterior(pos: GTANetworkShared.Vector3): void;
+        loadInterior(pos: Vector3): void;
         clearPlayerTasks(): void;
         setEntityPositionFrozen(entity: GTANetwork.Util.LocalHandle, frozen: boolean): void;
-        setEntityVelocity(entity: GTANetwork.Util.LocalHandle, velocity: GTANetworkShared.Vector3): void;
+        setEntityVelocity(entity: GTANetwork.Util.LocalHandle, velocity: Vector3): void;
         getPlayerVehicleSeat(player: GTANetwork.Util.LocalHandle): number;
         setPlayerWeaponTint(weapon: number, tint: number): void;
         getPlayerWeaponTint(weapon: number): number;
         givePlayerWeaponComponent(weapon: number, component: number): void;
         removePlayerWeaponComponent(weapon: number, component: number): void;
         hasPlayerWeaponComponent(weapon: number, component: number): boolean;
-        getAllWeaponComponents(weapon: GTANetworkShared.WeaponHash): GTA.WeaponComponent[];
+        getAllWeaponComponents(weapon: WeaponHash): GTA.WeaponComponent[];
         getPlayerCurrentWeapon(): number;
         disconnect(reason: string): void;
-        setEntityPosition(ent: GTANetwork.Util.LocalHandle, pos: GTANetworkShared.Vector3): void;
-        setEntityRotation(ent: GTANetwork.Util.LocalHandle, rot: GTANetworkShared.Vector3): void;
+        setEntityPosition(ent: GTANetwork.Util.LocalHandle, pos: Vector3): void;
+        setEntityRotation(ent: GTANetwork.Util.LocalHandle, rot: Vector3): void;
         setPlayerIntoVehicle(vehicle: GTANetwork.Util.LocalHandle, seat: number): void;
         setPlayerHealth(health: number): void;
         getPlayerHealth(player: GTANetwork.Util.LocalHandle): number;
@@ -745,9 +747,9 @@ declare module GTANetwork.Javascript {
         getTextLabelColor(textLabel: GTANetwork.Util.LocalHandle): System.Drawing.Color;
         setTextLabelSeethrough(handle: GTANetwork.Util.LocalHandle, seethrough: boolean): void;
         getTextLabelSeethrough(handle: GTANetwork.Util.LocalHandle): boolean;
-        getOffsetInWorldCoords(entity: GTANetwork.Util.LocalHandle, offset: GTANetworkShared.Vector3): GTANetworkShared.Vector3;
-        getOffsetFromWorldCoords(entity: GTANetwork.Util.LocalHandle, pos: GTANetworkShared.Vector3): GTANetworkShared.Vector3;
-        drawLine(start: GTANetworkShared.Vector3, end: GTANetworkShared.Vector3, a: number, r: number, g: number, b: number): void;
+        getOffsetInWorldCoords(entity: GTANetwork.Util.LocalHandle, offset: Vector3): Vector3;
+        getOffsetFromWorldCoords(entity: GTANetwork.Util.LocalHandle, pos: Vector3): Vector3;
+        drawLine(start: Vector3, end: Vector3, a: number, r: number, g: number, b: number): void;
         playSoundFrontEnd(audioLib: string, audioName: string): void;
         showShard(text: string, timeout: number): void;
         showColorShard(text: string, description: string, color1: number, color2: number, time: number): void;
@@ -789,14 +791,14 @@ declare module GTANetwork.Javascript {
         getPlayerName(player: GTANetwork.Util.LocalHandle): string;
         forceSendAimData(force: boolean): void;
         isAimDataForced(): boolean;
-        getPlayerAimCoords(player: GTANetwork.Util.LocalHandle): GTANetworkShared.Vector3;
+        getPlayerAimCoords(player: GTANetwork.Util.LocalHandle): Vector3;
         getPlayerPing(player: GTANetwork.Util.LocalHandle): number;
-        createVehicle(model: number, pos: GTANetworkShared.Vector3, heading: number): GTANetwork.Util.LocalHandle;
-        createPed(model: number, pos: GTANetworkShared.Vector3, heading: number): GTANetwork.Util.LocalHandle;
-        createBlip(pos: GTANetworkShared.Vector3): GTANetwork.Util.LocalHandle;
-        setBlipPosition(blip: GTANetwork.Util.LocalHandle, pos: GTANetworkShared.Vector3): void;
-        getBlipPosition(blip: GTANetwork.Util.LocalHandle): GTANetworkShared.Vector3;
-        getWaypointPosition(): GTANetworkShared.Vector3;
+        createVehicle(model: number, pos: Vector3, heading: number): GTANetwork.Util.LocalHandle;
+        createPed(model: number, pos: Vector3, heading: number): GTANetwork.Util.LocalHandle;
+        createBlip(pos: Vector3): GTANetwork.Util.LocalHandle;
+        setBlipPosition(blip: GTANetwork.Util.LocalHandle, pos: Vector3): void;
+        getBlipPosition(blip: GTANetwork.Util.LocalHandle): Vector3;
+        getWaypointPosition(): Vector3;
         isWaypointSet(): boolean;
         setWaypoint(x: number, y: number): void;
         removeWaypoint(): void;
@@ -824,24 +826,24 @@ declare module GTANetwork.Javascript {
         setHudVisible(visible: boolean): void;
         isSpectating(): boolean;
         getHudVisible(): boolean;
-        createMarker(markerType: number, pos: GTANetworkShared.Vector3, dir: GTANetworkShared.Vector3, rot: GTANetworkShared.Vector3, scale: GTANetworkShared.Vector3, r: number, g: number, b: number, alpha: number): GTANetwork.Util.LocalHandle;
+        createMarker(markerType: number, pos: Vector3, dir: Vector3, rot: Vector3, scale: Vector3, r: number, g: number, b: number, alpha: number): GTANetwork.Util.LocalHandle;
         setMarkerType(marker: GTANetwork.Util.LocalHandle, type: number): void;
         getMarkerType(marker: GTANetwork.Util.LocalHandle): number;
         setMarkerColor(marker: GTANetwork.Util.LocalHandle, alpha: number, r: number, g: number, b: number): void;
         getMarkerColor(marker: GTANetwork.Util.LocalHandle): System.Drawing.Color;
-        setMarkerScale(marker: GTANetwork.Util.LocalHandle, scale: GTANetworkShared.Vector3): void;
-        getMarkerScale(marker: GTANetwork.Util.LocalHandle): GTANetworkShared.Vector3;
-        setMarkerDirection(marker: GTANetwork.Util.LocalHandle, dir: GTANetworkShared.Vector3): void;
-        getMarkerDirection(marker: GTANetwork.Util.LocalHandle): GTANetworkShared.Vector3;
+        setMarkerScale(marker: GTANetwork.Util.LocalHandle, scale: Vector3): void;
+        getMarkerScale(marker: GTANetwork.Util.LocalHandle): Vector3;
+        setMarkerDirection(marker: GTANetwork.Util.LocalHandle, dir: Vector3): void;
+        getMarkerDirection(marker: GTANetwork.Util.LocalHandle): Vector3;
         deleteEntity(handle: GTANetwork.Util.LocalHandle): void;
-        attachEntity(ent1: GTANetwork.Util.LocalHandle, ent2: GTANetwork.Util.LocalHandle, bone: string, positionOffset: GTANetworkShared.Vector3, rotationOffset: GTANetworkShared.Vector3): void;
+        attachEntity(ent1: GTANetwork.Util.LocalHandle, ent2: GTANetwork.Util.LocalHandle, bone: string, positionOffset: Vector3, rotationOffset: Vector3): void;
         detachEntity(ent: GTANetwork.Util.LocalHandle): void;
         isEntityAttachedToAnything(ent: GTANetwork.Util.LocalHandle): boolean;
         isEntityAttachedToEntity(from: GTANetwork.Util.LocalHandle, to: GTANetwork.Util.LocalHandle): boolean;
-        createTextLabel(text: string, pos: GTANetworkShared.Vector3, range: number, size: number, entitySeethrough: boolean): GTANetwork.Util.LocalHandle;
-        lerpVector(start: GTANetworkShared.Vector3, end: GTANetworkShared.Vector3, currentTime: number, duration: number): GTANetworkShared.Vector3;
+        createTextLabel(text: string, pos: Vector3, range: number, size: number, entitySeethrough: boolean): GTANetwork.Util.LocalHandle;
+        lerpVector(start: Vector3, end: Vector3, currentTime: number, duration: number): Vector3;
         lerpFloat(start: number, end: number, currentTime: number, duration: number): number;
-        isInRangeOf(entity: GTANetworkShared.Vector3, destination: GTANetworkShared.Vector3, range: number): boolean;
+        isInRangeOf(entity: Vector3, destination: Vector3, range: number): boolean;
         dxDrawTexture(path: string, pos: System.Drawing.Point, size: System.Drawing.Size, rotation: number): void;
         drawGameTexture(dict: string, txtName: string, x: number, y: number, width: number, height: number, heading: number, r: number, g: number, b: number, alpha: number): void;
         drawRectangle(xPos: number, yPos: number, wSize: number, hSize: number, r: number, g: number, b: number, alpha: number): void;
@@ -849,7 +851,7 @@ declare module GTANetwork.Javascript {
         addTextElement(caption: string, x: number, y: number, scale: number, r: number, g: number, b: number, a: number, font: number, alignment: number): NativeUI.UIResText;
         getGameTime(): number;
         getGlobalTime(): number;
-        angleBetween(from: GTANetworkShared.Vector3, to: GTANetworkShared.Vector3): number;
+        angleBetween(from: Vector3, to: Vector3): number;
         isPed(ent: GTANetwork.Util.LocalHandle): boolean;
         isVehicle(ent: GTANetwork.Util.LocalHandle): boolean;
         isProp(ent: GTANetwork.Util.LocalHandle): boolean;
@@ -947,7 +949,7 @@ declare module GTANetwork.Javascript {
         onVehicleTyreBurst: IEvent<(oldValue: number) => void>;
         onLocalPlayerDamaged: IEvent<(attacker: GTANetwork.Util.LocalHandle, weaponUsed: number, boneHit: number) => void>;
         onLocalPlayerMeleeHit: IEvent<(attacker: GTANetwork.Util.LocalHandle, weaponUsed: number) => void>;
-        onLocalPlayerShoot: IEvent<(weaponUsed: number, aimCoords: GTANetworkShared.Vector3) => void>;
+        onLocalPlayerShoot: IEvent<(weaponUsed: number, aimCoords: Vector3) => void>;
     }
 
     enum ScriptContext_ReturnType {
@@ -967,7 +969,7 @@ declare module GTANetwork.Javascript {
         didHitAnything: boolean;
         didHitEntity: boolean;
         hitEntity: GTANetwork.Util.LocalHandle;
-        hitCoords: GTANetworkShared.Vector3;
+        hitCoords: Vector3;
     }
 
     export class ScriptContext_fArg {
@@ -1061,8 +1063,8 @@ declare module GTANetwork.Javascript {
 
     export class ScriptContext_WeaponShootEvent {
         constructor(object: any, method: number);
-        Invoke(weaponUsed: number, aimCoords: GTANetworkShared.Vector3): void;
-        BeginInvoke(weaponUsed: number, aimCoords: GTANetworkShared.Vector3, callback: System.AsyncCallback, object: any): System.IAsyncResult;
+        Invoke(weaponUsed: number, aimCoords: Vector3): void;
+        BeginInvoke(weaponUsed: number, aimCoords: Vector3, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
@@ -1551,7 +1553,7 @@ declare module GTANetwork.Misc {
     }
 
     export class WeaponDataProvider {
-        static IsWeaponAutomatic(hash: GTANetworkShared.WeaponHash): boolean;
+        static IsWeaponAutomatic(hash: GTA.WeaponHash): boolean;
         static DoesVehicleHaveParallelWeapon(model: GTA.VehicleHash, rockets: boolean): boolean;
         static DoesVehiclesMuzzleDifferFromVehicleGunPos(model: GTA.VehicleHash): boolean;
         static DoesVehicleSeatHaveMountedGuns(vehicle: GTA.VehicleHash): boolean;
@@ -1584,13 +1586,13 @@ declare module GTANetwork.Networking {
         RemoteHandle: number;
         LocalOnly: boolean;
         StreamedIn: boolean;
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class PedThread {
@@ -1607,13 +1609,13 @@ declare module GTANetwork.Networking {
         GetHashCode(): number;
 
         //
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class RemoteMarker implements GTANetwork.Networking.IStreamedItem {
@@ -1624,13 +1626,13 @@ declare module GTANetwork.Networking {
         GetHashCode(): number;
 
         //
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class RemoteParticle implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
@@ -1638,17 +1640,17 @@ declare module GTANetwork.Networking {
         LocalOnly: boolean;
         StreamedIn: boolean;
         LocalHandle: number;
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         constructor();
         GetHashCode(): number;
 
         //
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class RemotePed implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
@@ -1660,13 +1662,13 @@ declare module GTANetwork.Networking {
         GetHashCode(): number;
 
         //
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class RemotePickup implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
@@ -1678,13 +1680,13 @@ declare module GTANetwork.Networking {
         GetHashCode(): number;
 
         //
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class RemotePlayer implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
@@ -1696,13 +1698,13 @@ declare module GTANetwork.Networking {
         GetHashCode(): number;
 
         //
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class RemoteProp implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
@@ -1714,13 +1716,13 @@ declare module GTANetwork.Networking {
         GetHashCode(): number;
 
         //
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class RemoteTextLabel implements GTANetwork.Networking.IStreamedItem {
@@ -1731,13 +1733,13 @@ declare module GTANetwork.Networking {
         GetHashCode(): number;
 
         //
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class RemoteVehicle implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
@@ -1749,13 +1751,13 @@ declare module GTANetwork.Networking {
         GetHashCode(): number;
 
         //
-        Position: GTANetworkShared.Vector3;
+        Position: Vector3;
         EntityType: number;
         Dimension: number;
-        AttachedTo: GTANetworkShared.Attachment;
+        AttachedTo: Attachment;
         Attachables: number[];
-        PositionMovement: GTANetworkShared.Movement;
-        RotationMovement: GTANetworkShared.Movement;
+        PositionMovement: Movement;
+        RotationMovement: Movement;
     }
 
     export class SyncCollector {
@@ -2032,8 +2034,8 @@ declare module GTANetwork.Util {
         static GetMod(veh: GTA.Vehicle, id: number): number;
         static SetMod(veh: GTA.Vehicle, id: number, varr: number, useless: boolean): number;
         static IsInRangeOfEx(ent: GTA.Entity, pos: GTA.Math.Vector3, range: number): boolean;
-        static GetVehicleDamageModel(veh: GTA.Vehicle): GTANetworkShared.VehicleDamageModel;
-        static SetVehicleDamageModel(veh: GTA.Vehicle, model: GTANetworkShared.VehicleDamageModel, leavedoors: boolean): void;
+        static GetVehicleDamageModel(veh: GTA.Vehicle): VehicleDamageModel;
+        static SetVehicleDamageModel(veh: GTA.Vehicle, model: VehicleDamageModel, leavedoors: boolean): void;
         static WriteMemory(pointer: number, value: number, length: number): void;
         static FindPattern(bytes: string, mask: string): number;
         static DxDrawTexture(idx: number, filename: string, xPos: number, yPos: number, txdWidth: number, txdHeight: number, rot: number, r: number, g: number, b: number, a: number, centered: boolean): void;
@@ -2062,7 +2064,7 @@ declare module GTANetwork.Util {
         static GetOffsetFromWorldCoords(ent: GTA.Entity, pos: GTA.Math.Vector3): GTA.Math.Vector3;
         static IsTireBurst(veh: GTA.Vehicle, wheel: number): boolean;
         static GetFreePassengerSeat(veh: GTA.Vehicle): number;
-        static ReadSettings(path: string): GTANetworkShared.PlayerSettings;
+        static ReadSettings(path: string): PlayerSettings;
         static SaveSettings(path: string): void;
         static GetLastWeaponImpact(ped: GTA.Ped): GTA.Math.Vector3;
         static LerpQuaternion(start: GTA.Math.Quaternion, end: GTA.Math.Quaternion, speed: number): GTA.Math.Quaternion;
@@ -2071,14 +2073,14 @@ declare module GTANetwork.Util {
     }
 
     export class VectorExtensions {
-        static ToQuaternion(q: GTANetworkShared.Quaternion): GTA.Math.Quaternion;
-        static ToVector(v: GTANetworkShared.Vector3): GTA.Math.Vector3;
-        static ToLVector(vec: GTA.Math.Vector3): GTANetworkShared.Vector3;
-        static ToLQuaternion(vec: GTA.Math.Quaternion): GTANetworkShared.Quaternion;
-        static LengthSquared(left: GTANetworkShared.Vector3): number;
-        static Length(left: GTANetworkShared.Vector3): number;
-        static Sub(left: GTANetworkShared.Vector3, right: GTANetworkShared.Vector3): GTANetworkShared.Vector3;
-        static Add(left: GTANetworkShared.Vector3, right: GTANetworkShared.Vector3): GTANetworkShared.Vector3;
+        static ToQuaternion(q: Quaternion): GTA.Math.Quaternion;
+        static ToVector(v: Vector3): GTA.Math.Vector3;
+        static ToLVector(vec: GTA.Math.Vector3): Vector3;
+        static ToLQuaternion(vec: GTA.Math.Quaternion): Quaternion;
+        static LengthSquared(left: Vector3): number;
+        static Length(left: Vector3): number;
+        static Sub(left: Vector3, right: Vector3): Vector3;
+        static Add(left: Vector3, right: Vector3): Vector3;
     }
 
 }
