@@ -111,17 +111,17 @@ declare class DeleteEntity {
 
 declare class Delta_BlipProperties {
     //Sprite?: number;
-	Sprite: number;
+    Sprite: number;
     //Scale?: number;
-	Scale: number;
+    Scale: number;
     //Color?: number;
-	Color: number;
+    Color: number;
     //IsShortRange?: boolean;
-	IsShortRange: boolean;
+    IsShortRange: boolean;
     //AttachedNetEntity?: number;
-	AttachedNetEntity: number;
+    AttachedNetEntity: number;
     //RangedBlip?: number;
-	RangedBlip: number;
+    RangedBlip: number;
     Name: string;
     constructor();
 }
@@ -130,35 +130,35 @@ declare class Delta_EntityProperties {
     Position: Vector3;
     Rotation: Vector3;
     //ModelHash?: number;
-	ModelHash: number;
+    ModelHash: number;
     //EntityType?: number;
-	EntityType: number;
+    EntityType: number;
     //Alpha?: number;
-	Alpha: number;
+    Alpha: number;
     //Dimension?: number;
-	Dimension: number;
+    Dimension: number;
     AttachedTo: Attachment;
     Attachables: number[];
     //Flag?: number;
-	Flag: number;
+    Flag: number;
     SyncedProperties: string[];
     PositionMovement: Movement;
     RotationMovement: Movement;
     //IsInvincible?: boolean;
-	IsInvincible: boolean;
+    IsInvincible: boolean;
     constructor();
 }
 
 declare class Delta_MarkerProperties {
     Direction: Vector3;
     //MarkerType?: number;
-	MarkerType: number;
+    MarkerType: number;
     //Red?: number;
-	Red: number;
+    Red: number;
     //Green?: number;
-	Green: number;
+    Green: number;
     //Blue?: number;
-	Blue: number;
+    Blue: number;
     Scale: Vector3;
     constructor();
 }
@@ -167,11 +167,11 @@ declare class Delta_ParticleProperties {
     Library: string;
     Name: string;
     //Scale?: number;
-	Scale: number;
+    Scale: number;
     //EntityAttached?: number;
-	EntityAttached: number;
+    EntityAttached: number;
     //BoneAttached?: number;
-	BoneAttached: number;
+    BoneAttached: number;
     constructor();
 }
 
@@ -182,13 +182,13 @@ declare class Delta_PedProperties {
 
 declare class Delta_PickupProperties {
     //Amount?: number;
-	Amount: number;
+    Amount: number;
     //PickedUp?: boolean;
-	PickedUp: boolean;
+    PickedUp: boolean;
     //RespawnTime?: number;
-	RespawnTime: number;
+    RespawnTime: number;
     //CustomModel?: number;
-	CustomModel: number;
+    CustomModel: number;
     constructor();
 }
 
@@ -196,74 +196,74 @@ declare class Delta_PlayerProperties {
     Props: number[];
     Textures: number[];
     //BlipSprite?: number;
-	BlipSprite: number;
+    BlipSprite: number;
     //Team?: number;
-	Team: number;
+    Team: number;
     //BlipColor?: number;
-	BlipColor: number;
+    BlipColor: number;
     //BlipAlpha?: number;
-	BlipAlpha: number;
+    BlipAlpha: number;
     Accessories: number[];
     Name: string;
     WeaponTints: number[];
     WeaponComponents: number[];
     NametagText: string;
     //NametagSettings?: number;
-	NametagSettings: number;
+    NametagSettings: number;
     constructor();
 }
 
 declare class Delta_TextLabelProperties {
     Text: string;
     //Red?: number;
-	Red: number;
+    Red: number;
     //Green?: number;
-	Green: number;
+    Green: number;
     //Blue?: number;
-	Blue: number;
+    Blue: number;
     //Size?: number;
-	Size: number;
+    Size: number;
     //Range?: number;
-	Range: number;
+    Range: number;
     //EntitySeethrough?: boolean;
-	EntitySeethrough: boolean;
+    EntitySeethrough: boolean;
     constructor();
 }
 
 declare class Delta_VehicleProperties {
     //PrimaryColor?: number;
-	PrimaryColor: number;
+    PrimaryColor: number;
     //SecondaryColor?: number;
-	SecondaryColor: number;
+    SecondaryColor: number;
     //Health?: number;
-	Health: number;
+    Health: number;
     //IsDead?: boolean;
-	IsDead: boolean;
+    IsDead: boolean;
     Mods: number[];
     //Siren?: boolean;
-	Siren: boolean;
+    Siren: boolean;
     //Doors?: number;
-	Doors: number;
+    Doors: number;
     //Trailer?: number;
-	Trailer: number;
+    Trailer: number;
     //Tires?: number;
-	Tires: number;
+    Tires: number;
     //Livery?: number;
-	Livery: number;
+    Livery: number;
     NumberPlate: string;
     //VehicleComponents?: number;
-	VehicleComponents: number;
+    VehicleComponents: number;
     //TraileredBy?: number;
-	TraileredBy: number;
+    TraileredBy: number;
     DamageModel: VehicleDamageModel;
     constructor();
 }
 
 declare class Delta_WorldProperties {
     //Hours?: number;
-	Hours: number;
+    Hours: number;
     //Minutes?: number;
-	Minutes: number;
+    Minutes: number;
     Weather: string;
     LoadedIpl: string[];
     RemovedIpl: string[];
@@ -435,9 +435,9 @@ declare class MasterServerAnnounce {
     constructor();
 }
 
-declare class MimeType {
-    static GetMimeType(extension: string): string;
-}
+//declare class MimeType {
+//    static GetMimeType(extension: string): string;
+//}
 
 declare class Movement {
     Duration: number;
@@ -606,29 +606,29 @@ declare class ParticleProperties {
 declare class PedData {
     Position: Vector3;
     //NetHandle?: number;
-	NetHandle: number;
+    NetHandle: number;
     //PedModelHash?: number;
-	PedModelHash: number;
+    PedModelHash: number;
     Quaternion: Vector3;
     AimCoords: Vector3;
     //WeaponHash?: number;
-	WeaponHash: number;
+    WeaponHash: number;
     //PlayerHealth?: number;
-	PlayerHealth: number;
+    PlayerHealth: number;
     //Latency?: number;
-	Latency: number;
+    Latency: number;
     //Speed?: number;
-	Speed: number;
+    Speed: number;
     //PedArmor?: number;
-	PedArmor: number;
+    PedArmor: number;
     //Flag?: number;
-	Flag: number;
+    Flag: number;
     Velocity: Vector3;
     //VehicleTryingToEnter?: number;
-	VehicleTryingToEnter: number;
+    VehicleTryingToEnter: number;
     //SeatTryingToEnter?: System.SByte;
     //SeatTryingToEnter?: any;
-	SeatTryingToEnter: any;
+    SeatTryingToEnter: any;
     constructor();
 }
 
@@ -973,32 +973,32 @@ declare class VehicleDamageModel {
 declare class VehicleData {
     Position: Vector3;
     //VehicleHandle?: number;
-	VehicleHandle: number;
+    VehicleHandle: number;
     //NetHandle?: number;
-	NetHandle: number;
+    NetHandle: number;
     //PedModelHash?: number;
-	PedModelHash: number;
+    PedModelHash: number;
     //WeaponHash?: number;
-	WeaponHash: number;
+    WeaponHash: number;
     Quaternion: Vector3;
     //VehicleSeat?: number;
-	VehicleSeat: number;
+    VehicleSeat: number;
     //VehicleHealth?: number;
-	VehicleHealth: number;
+    VehicleHealth: number;
     //PlayerHealth?: number;
-	PlayerHealth: number;
+    PlayerHealth: number;
     //Latency?: number;
-	Latency: number;
+    Latency: number;
     Velocity: Vector3;
     //PedArmor?: number;
-	PedArmor: number;
+    PedArmor: number;
     AimCoords: Vector3;
     //RPM?: number;
-	RPM: number;
+    RPM: number;
     //Flag?: number;
-	Flag: number;
+    Flag: number;
     //Steering?: number;
-	Steering: number;
+    Steering: number;
     Trailer: Vector3;
     DamageModel: VehicleDamageModel;
     constructor();
