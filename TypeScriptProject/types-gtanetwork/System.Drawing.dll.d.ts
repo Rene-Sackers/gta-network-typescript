@@ -10,186 +10,312 @@
 //****************************************************************
 
 
+declare module System.Drawing.Internal {
+    export interface ISystemColorTracker {
+        OnSystemColorChanged(): void;
+    }
 
+}
 declare module System.Drawing {
 
-    export interface Bitmap {
-    }
-
-    export interface BitmapSuffixInSameAssemblyAttribute {
-    }
-
-    export interface BitmapSuffixInSatelliteAssemblyAttribute {
-    }
-
-    export interface Brush {
+    export class Brush {
         NativeBrush: number;
+        Clone(): any;
+        Dispose(): void;
     }
 
-    export interface Brushes {
-        Transparent: System.Drawing.Brush;
-        AliceBlue: System.Drawing.Brush;
-        AntiqueWhite: System.Drawing.Brush;
-        Aqua: System.Drawing.Brush;
-        Aquamarine: System.Drawing.Brush;
-        Azure: System.Drawing.Brush;
-        Beige: System.Drawing.Brush;
-        Bisque: System.Drawing.Brush;
-        Black: System.Drawing.Brush;
-        BlanchedAlmond: System.Drawing.Brush;
-        Blue: System.Drawing.Brush;
-        BlueViolet: System.Drawing.Brush;
-        Brown: System.Drawing.Brush;
-        BurlyWood: System.Drawing.Brush;
-        CadetBlue: System.Drawing.Brush;
-        Chartreuse: System.Drawing.Brush;
-        Chocolate: System.Drawing.Brush;
-        Coral: System.Drawing.Brush;
-        CornflowerBlue: System.Drawing.Brush;
-        Cornsilk: System.Drawing.Brush;
-        Crimson: System.Drawing.Brush;
-        Cyan: System.Drawing.Brush;
-        DarkBlue: System.Drawing.Brush;
-        DarkCyan: System.Drawing.Brush;
-        DarkGoldenrod: System.Drawing.Brush;
-        DarkGray: System.Drawing.Brush;
-        DarkGreen: System.Drawing.Brush;
-        DarkKhaki: System.Drawing.Brush;
-        DarkMagenta: System.Drawing.Brush;
-        DarkOliveGreen: System.Drawing.Brush;
-        DarkOrange: System.Drawing.Brush;
-        DarkOrchid: System.Drawing.Brush;
-        DarkRed: System.Drawing.Brush;
-        DarkSalmon: System.Drawing.Brush;
-        DarkSeaGreen: System.Drawing.Brush;
-        DarkSlateBlue: System.Drawing.Brush;
-        DarkSlateGray: System.Drawing.Brush;
-        DarkTurquoise: System.Drawing.Brush;
-        DarkViolet: System.Drawing.Brush;
-        DeepPink: System.Drawing.Brush;
-        DeepSkyBlue: System.Drawing.Brush;
-        DimGray: System.Drawing.Brush;
-        DodgerBlue: System.Drawing.Brush;
-        Firebrick: System.Drawing.Brush;
-        FloralWhite: System.Drawing.Brush;
-        ForestGreen: System.Drawing.Brush;
-        Fuchsia: System.Drawing.Brush;
-        Gainsboro: System.Drawing.Brush;
-        GhostWhite: System.Drawing.Brush;
-        Gold: System.Drawing.Brush;
-        Goldenrod: System.Drawing.Brush;
-        Gray: System.Drawing.Brush;
-        Green: System.Drawing.Brush;
-        GreenYellow: System.Drawing.Brush;
-        Honeydew: System.Drawing.Brush;
-        HotPink: System.Drawing.Brush;
-        IndianRed: System.Drawing.Brush;
-        Indigo: System.Drawing.Brush;
-        Ivory: System.Drawing.Brush;
-        Khaki: System.Drawing.Brush;
-        Lavender: System.Drawing.Brush;
-        LavenderBlush: System.Drawing.Brush;
-        LawnGreen: System.Drawing.Brush;
-        LemonChiffon: System.Drawing.Brush;
-        LightBlue: System.Drawing.Brush;
-        LightCoral: System.Drawing.Brush;
-        LightCyan: System.Drawing.Brush;
-        LightGoldenrodYellow: System.Drawing.Brush;
-        LightGreen: System.Drawing.Brush;
-        LightGray: System.Drawing.Brush;
-        LightPink: System.Drawing.Brush;
-        LightSalmon: System.Drawing.Brush;
-        LightSeaGreen: System.Drawing.Brush;
-        LightSkyBlue: System.Drawing.Brush;
-        LightSlateGray: System.Drawing.Brush;
-        LightSteelBlue: System.Drawing.Brush;
-        LightYellow: System.Drawing.Brush;
-        Lime: System.Drawing.Brush;
-        LimeGreen: System.Drawing.Brush;
-        Linen: System.Drawing.Brush;
-        Magenta: System.Drawing.Brush;
-        Maroon: System.Drawing.Brush;
-        MediumAquamarine: System.Drawing.Brush;
-        MediumBlue: System.Drawing.Brush;
-        MediumOrchid: System.Drawing.Brush;
-        MediumPurple: System.Drawing.Brush;
-        MediumSeaGreen: System.Drawing.Brush;
-        MediumSlateBlue: System.Drawing.Brush;
-        MediumSpringGreen: System.Drawing.Brush;
-        MediumTurquoise: System.Drawing.Brush;
-        MediumVioletRed: System.Drawing.Brush;
-        MidnightBlue: System.Drawing.Brush;
-        MintCream: System.Drawing.Brush;
-        MistyRose: System.Drawing.Brush;
-        Moccasin: System.Drawing.Brush;
-        NavajoWhite: System.Drawing.Brush;
-        Navy: System.Drawing.Brush;
-        OldLace: System.Drawing.Brush;
-        Olive: System.Drawing.Brush;
-        OliveDrab: System.Drawing.Brush;
-        Orange: System.Drawing.Brush;
-        OrangeRed: System.Drawing.Brush;
-        Orchid: System.Drawing.Brush;
-        PaleGoldenrod: System.Drawing.Brush;
-        PaleGreen: System.Drawing.Brush;
-        PaleTurquoise: System.Drawing.Brush;
-        PaleVioletRed: System.Drawing.Brush;
-        PapayaWhip: System.Drawing.Brush;
-        PeachPuff: System.Drawing.Brush;
-        Peru: System.Drawing.Brush;
-        Pink: System.Drawing.Brush;
-        Plum: System.Drawing.Brush;
-        PowderBlue: System.Drawing.Brush;
-        Purple: System.Drawing.Brush;
-        Red: System.Drawing.Brush;
-        RosyBrown: System.Drawing.Brush;
-        RoyalBlue: System.Drawing.Brush;
-        SaddleBrown: System.Drawing.Brush;
-        Salmon: System.Drawing.Brush;
-        SandyBrown: System.Drawing.Brush;
-        SeaGreen: System.Drawing.Brush;
-        SeaShell: System.Drawing.Brush;
-        Sienna: System.Drawing.Brush;
-        Silver: System.Drawing.Brush;
-        SkyBlue: System.Drawing.Brush;
-        SlateBlue: System.Drawing.Brush;
-        SlateGray: System.Drawing.Brush;
-        Snow: System.Drawing.Brush;
-        SpringGreen: System.Drawing.Brush;
-        SteelBlue: System.Drawing.Brush;
-        Tan: System.Drawing.Brush;
-        Teal: System.Drawing.Brush;
-        Thistle: System.Drawing.Brush;
-        Tomato: System.Drawing.Brush;
-        Turquoise: System.Drawing.Brush;
-        Violet: System.Drawing.Brush;
-        Wheat: System.Drawing.Brush;
-        White: System.Drawing.Brush;
-        WhiteSmoke: System.Drawing.Brush;
-        Yellow: System.Drawing.Brush;
-        YellowGreen: System.Drawing.Brush;
+    export class Pen implements System.Drawing.Internal.ISystemColorTracker {
+        NativePen: number;
+        Width: number;
+        StartCap: System.Drawing.Drawing2D.LineCap;
+        EndCap: System.Drawing.Drawing2D.LineCap;
+        DashCap: System.Drawing.Drawing2D.DashCap;
+        LineJoin: System.Drawing.Drawing2D.LineJoin;
+        CustomStartCap: System.Drawing.Drawing2D.CustomLineCap;
+        CustomEndCap: System.Drawing.Drawing2D.CustomLineCap;
+        MiterLimit: number;
+        Alignment: System.Drawing.Drawing2D.PenAlignment;
+        Transform: System.Drawing.Drawing2D.Matrix;
+        PenType: System.Drawing.Drawing2D.PenType;
+        Color: System.Drawing.Color;
+        Brush: System.Drawing.Brush;
+        DashStyle: System.Drawing.Drawing2D.DashStyle;
+        DashOffset: number;
+        DashPattern: number[];
+        CompoundArray: number[];
+        constructor(color: System.Drawing.Color);
+        constructor(color: System.Drawing.Color, width: number);
+        constructor(brush: System.Drawing.Brush);
+        constructor(brush: System.Drawing.Brush, width: number);
+        OnSystemColorChanged(): void;
+        Clone(): any;
+        Dispose(): void;
+        SetLineCap(startCap: System.Drawing.Drawing2D.LineCap, endCap: System.Drawing.Drawing2D.LineCap, dashCap: System.Drawing.Drawing2D.DashCap): void;
+        ResetTransform(): void;
+        MultiplyTransform(matrix: System.Drawing.Drawing2D.Matrix): void;
+        MultiplyTransform(matrix: System.Drawing.Drawing2D.Matrix, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        TranslateTransform(dx: number, dy: number): void;
+        TranslateTransform(dx: number, dy: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        ScaleTransform(sx: number, sy: number): void;
+        ScaleTransform(sx: number, sy: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        RotateTransform(angle: number): void;
+        RotateTransform(angle: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
     }
 
-    export interface BufferedGraphics {
-        DisposeContext: boolean;
-        Graphics: System.Drawing.Graphics;
+    export class Point {
+        Empty: System.Drawing.Point;
+        IsEmpty: boolean;
+        X: number;
+        Y: number;
+        constructor(x: number, y: number);
+        constructor(sz: System.Drawing.Size);
+        constructor(dw: number);
+        static Add(pt: System.Drawing.Point, sz: System.Drawing.Size): System.Drawing.Point;
+        static Subtract(pt: System.Drawing.Point, sz: System.Drawing.Size): System.Drawing.Point;
+        static Ceiling(value: System.Drawing.PointF): System.Drawing.Point;
+        static Truncate(value: System.Drawing.PointF): System.Drawing.Point;
+        static Round(value: System.Drawing.PointF): System.Drawing.Point;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        Offset(dx: number, dy: number): void;
+        Offset(p: System.Drawing.Point): void;
+        ToString(): string;
     }
 
-    export interface BufferedGraphicsContext {
-        DoubleBuffering: any; // System.Diagnostics.TraceSwitch
-        MaximumBuffer: System.Drawing.Size;
+    export class PointF {
+        Empty: System.Drawing.PointF;
+        IsEmpty: boolean;
+        X: number;
+        Y: number;
+        constructor(x: number, y: number);
+        static Add(pt: System.Drawing.PointF, sz: System.Drawing.Size): System.Drawing.PointF;
+        static Subtract(pt: System.Drawing.PointF, sz: System.Drawing.Size): System.Drawing.PointF;
+        static Add(pt: System.Drawing.PointF, sz: System.Drawing.SizeF): System.Drawing.PointF;
+        static Subtract(pt: System.Drawing.PointF, sz: System.Drawing.SizeF): System.Drawing.PointF;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        ToString(): string;
     }
 
-    export interface BufferedGraphicsManager {
-        Current: System.Drawing.BufferedGraphicsContext;
+    export class Size {
+        Empty: System.Drawing.Size;
+        IsEmpty: boolean;
+        Width: number;
+        Height: number;
+        constructor(pt: System.Drawing.Point);
+        constructor(width: number, height: number);
+        static Add(sz1: System.Drawing.Size, sz2: System.Drawing.Size): System.Drawing.Size;
+        static Ceiling(value: System.Drawing.SizeF): System.Drawing.Size;
+        static Subtract(sz1: System.Drawing.Size, sz2: System.Drawing.Size): System.Drawing.Size;
+        static Truncate(value: System.Drawing.SizeF): System.Drawing.Size;
+        static Round(value: System.Drawing.SizeF): System.Drawing.Size;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        ToString(): string;
     }
 
-    export interface CharacterRange {
-        First: number;
-        Length: number;
+    export class SizeF {
+        Empty: System.Drawing.SizeF;
+        IsEmpty: boolean;
+        Width: number;
+        Height: number;
+        constructor(size: System.Drawing.SizeF);
+        constructor(pt: System.Drawing.PointF);
+        constructor(width: number, height: number);
+        static Add(sz1: System.Drawing.SizeF, sz2: System.Drawing.SizeF): System.Drawing.SizeF;
+        static Subtract(sz1: System.Drawing.SizeF, sz2: System.Drawing.SizeF): System.Drawing.SizeF;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        ToPointF(): System.Drawing.PointF;
+        ToSize(): System.Drawing.Size;
+        ToString(): string;
     }
 
-    export interface Color {
+    enum KnownColor {
+        ActiveBorder = 1,
+        ActiveCaption = 2,
+        ActiveCaptionText = 3,
+        AppWorkspace = 4,
+        Control = 5,
+        ControlDark = 6,
+        ControlDarkDark = 7,
+        ControlLight = 8,
+        ControlLightLight = 9,
+        ControlText = 10,
+        Desktop = 11,
+        GrayText = 12,
+        Highlight = 13,
+        HighlightText = 14,
+        HotTrack = 15,
+        InactiveBorder = 16,
+        InactiveCaption = 17,
+        InactiveCaptionText = 18,
+        Info = 19,
+        InfoText = 20,
+        Menu = 21,
+        MenuText = 22,
+        ScrollBar = 23,
+        Window = 24,
+        WindowFrame = 25,
+        WindowText = 26,
+        Transparent = 27,
+        AliceBlue = 28,
+        AntiqueWhite = 29,
+        Aqua = 30,
+        Aquamarine = 31,
+        Azure = 32,
+        Beige = 33,
+        Bisque = 34,
+        Black = 35,
+        BlanchedAlmond = 36,
+        Blue = 37,
+        BlueViolet = 38,
+        Brown = 39,
+        BurlyWood = 40,
+        CadetBlue = 41,
+        Chartreuse = 42,
+        Chocolate = 43,
+        Coral = 44,
+        CornflowerBlue = 45,
+        Cornsilk = 46,
+        Crimson = 47,
+        Cyan = 48,
+        DarkBlue = 49,
+        DarkCyan = 50,
+        DarkGoldenrod = 51,
+        DarkGray = 52,
+        DarkGreen = 53,
+        DarkKhaki = 54,
+        DarkMagenta = 55,
+        DarkOliveGreen = 56,
+        DarkOrange = 57,
+        DarkOrchid = 58,
+        DarkRed = 59,
+        DarkSalmon = 60,
+        DarkSeaGreen = 61,
+        DarkSlateBlue = 62,
+        DarkSlateGray = 63,
+        DarkTurquoise = 64,
+        DarkViolet = 65,
+        DeepPink = 66,
+        DeepSkyBlue = 67,
+        DimGray = 68,
+        DodgerBlue = 69,
+        Firebrick = 70,
+        FloralWhite = 71,
+        ForestGreen = 72,
+        Fuchsia = 73,
+        Gainsboro = 74,
+        GhostWhite = 75,
+        Gold = 76,
+        Goldenrod = 77,
+        Gray = 78,
+        Green = 79,
+        GreenYellow = 80,
+        Honeydew = 81,
+        HotPink = 82,
+        IndianRed = 83,
+        Indigo = 84,
+        Ivory = 85,
+        Khaki = 86,
+        Lavender = 87,
+        LavenderBlush = 88,
+        LawnGreen = 89,
+        LemonChiffon = 90,
+        LightBlue = 91,
+        LightCoral = 92,
+        LightCyan = 93,
+        LightGoldenrodYellow = 94,
+        LightGray = 95,
+        LightGreen = 96,
+        LightPink = 97,
+        LightSalmon = 98,
+        LightSeaGreen = 99,
+        LightSkyBlue = 100,
+        LightSlateGray = 101,
+        LightSteelBlue = 102,
+        LightYellow = 103,
+        Lime = 104,
+        LimeGreen = 105,
+        Linen = 106,
+        Magenta = 107,
+        Maroon = 108,
+        MediumAquamarine = 109,
+        MediumBlue = 110,
+        MediumOrchid = 111,
+        MediumPurple = 112,
+        MediumSeaGreen = 113,
+        MediumSlateBlue = 114,
+        MediumSpringGreen = 115,
+        MediumTurquoise = 116,
+        MediumVioletRed = 117,
+        MidnightBlue = 118,
+        MintCream = 119,
+        MistyRose = 120,
+        Moccasin = 121,
+        NavajoWhite = 122,
+        Navy = 123,
+        OldLace = 124,
+        Olive = 125,
+        OliveDrab = 126,
+        Orange = 127,
+        OrangeRed = 128,
+        Orchid = 129,
+        PaleGoldenrod = 130,
+        PaleGreen = 131,
+        PaleTurquoise = 132,
+        PaleVioletRed = 133,
+        PapayaWhip = 134,
+        PeachPuff = 135,
+        Peru = 136,
+        Pink = 137,
+        Plum = 138,
+        PowderBlue = 139,
+        Purple = 140,
+        Red = 141,
+        RosyBrown = 142,
+        RoyalBlue = 143,
+        SaddleBrown = 144,
+        Salmon = 145,
+        SandyBrown = 146,
+        SeaGreen = 147,
+        SeaShell = 148,
+        Sienna = 149,
+        Silver = 150,
+        SkyBlue = 151,
+        SlateBlue = 152,
+        SlateGray = 153,
+        Snow = 154,
+        SpringGreen = 155,
+        SteelBlue = 156,
+        Tan = 157,
+        Teal = 158,
+        Thistle = 159,
+        Tomato = 160,
+        Turquoise = 161,
+        Violet = 162,
+        Wheat = 163,
+        White = 164,
+        WhiteSmoke = 165,
+        Yellow = 166,
+        YellowGreen = 167,
+        ButtonFace = 168,
+        ButtonHighlight = 169,
+        ButtonShadow = 170,
+        GradientActiveCaption = 171,
+        GradientInactiveCaption = 172,
+        MenuBar = 173,
+        MenuHighlight = 174
+    }
+
+    export class Graphics_DrawImageAbort {
+        constructor(object: any, method: number);
+        Invoke(callbackdata: number): boolean;
+        BeginInvoke(callbackdata: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
+        EndInvoke(result: System.IAsyncResult): boolean;
+    }
+
+    export class Color {
         Empty: System.Drawing.Color;
         Transparent: System.Drawing.Color;
         AliceBlue: System.Drawing.Color;
@@ -343,49 +469,303 @@ declare module System.Drawing {
         NameAndARGBValue: string;
         Name: string;
         Value: number;
+        static FromArgb(argb: number): System.Drawing.Color;
+        static FromArgb(alpha: number, red: number, green: number, blue: number): System.Drawing.Color;
+        static FromArgb(alpha: number, baseColor: System.Drawing.Color): System.Drawing.Color;
+        static FromArgb(red: number, green: number, blue: number): System.Drawing.Color;
+        static FromKnownColor(color: System.Drawing.KnownColor): System.Drawing.Color;
+        static FromName(name: string): System.Drawing.Color;
+        GetBrightness(): number;
+        GetHue(): number;
+        GetSaturation(): number;
+        ToArgb(): number;
+        ToKnownColor(): System.Drawing.KnownColor;
+        ToString(): string;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
     }
 
-    export interface ColorConverter {
-        Colors: any; // System.Collections.Hashtable
-        SystemColors: any; // System.Collections.Hashtable
+    export class Rectangle {
+        Empty: System.Drawing.Rectangle;
+        Location: System.Drawing.Point;
+        Size: System.Drawing.Size;
+        X: number;
+        Y: number;
+        Width: number;
+        Height: number;
+        Left: number;
+        Top: number;
+        Right: number;
+        Bottom: number;
+        IsEmpty: boolean;
+        constructor(x: number, y: number, width: number, height: number);
+        constructor(location: System.Drawing.Point, size: System.Drawing.Size);
+        static FromLTRB(left: number, top: number, right: number, bottom: number): System.Drawing.Rectangle;
+        Equals(obj: any): boolean;
+        static Ceiling(value: System.Drawing.RectangleF): System.Drawing.Rectangle;
+        static Truncate(value: System.Drawing.RectangleF): System.Drawing.Rectangle;
+        static Round(value: System.Drawing.RectangleF): System.Drawing.Rectangle;
+        Contains(x: number, y: number): boolean;
+        Contains(pt: System.Drawing.Point): boolean;
+        Contains(rect: System.Drawing.Rectangle): boolean;
+        GetHashCode(): number;
+        Inflate(width: number, height: number): void;
+        Inflate(size: System.Drawing.Size): void;
+        static Inflate(rect: System.Drawing.Rectangle, x: number, y: number): System.Drawing.Rectangle;
+        Intersect(rect: System.Drawing.Rectangle): void;
+        static Intersect(a: System.Drawing.Rectangle, b: System.Drawing.Rectangle): System.Drawing.Rectangle;
+        IntersectsWith(rect: System.Drawing.Rectangle): boolean;
+        static Union(a: System.Drawing.Rectangle, b: System.Drawing.Rectangle): System.Drawing.Rectangle;
+        Offset(pos: System.Drawing.Point): void;
+        Offset(x: number, y: number): void;
+        ToString(): string;
     }
 
-    export interface ColorTranslator {
+    export class Graphics_EnumerateMetafileProc {
+        constructor(object: any, method: number);
+        Invoke(recordType: System.Drawing.Imaging.EmfPlusRecordType, flags: number, dataSize: number, data: number, callbackData: System.Drawing.Imaging.PlayRecordCallback): boolean;
+        BeginInvoke(recordType: System.Drawing.Imaging.EmfPlusRecordType, flags: number, dataSize: number, data: number, callbackData: System.Drawing.Imaging.PlayRecordCallback, callback: System.AsyncCallback, object: any): System.IAsyncResult;
+        EndInvoke(result: System.IAsyncResult): boolean;
     }
 
-    enum ContentAlignment {
-        TopLeft,
-        TopCenter,
-        TopRight,
-        MiddleLeft,
-        MiddleCenter,
-        MiddleRight,
-        BottomLeft,
-        BottomCenter,
-        BottomRight
+    export class RectangleF {
+        Empty: System.Drawing.RectangleF;
+        Location: System.Drawing.PointF;
+        Size: System.Drawing.SizeF;
+        X: number;
+        Y: number;
+        Width: number;
+        Height: number;
+        Left: number;
+        Top: number;
+        Right: number;
+        Bottom: number;
+        IsEmpty: boolean;
+        constructor(x: number, y: number, width: number, height: number);
+        constructor(location: System.Drawing.PointF, size: System.Drawing.SizeF);
+        static FromLTRB(left: number, top: number, right: number, bottom: number): System.Drawing.RectangleF;
+        Equals(obj: any): boolean;
+        Contains(x: number, y: number): boolean;
+        Contains(pt: System.Drawing.PointF): boolean;
+        Contains(rect: System.Drawing.RectangleF): boolean;
+        GetHashCode(): number;
+        Inflate(x: number, y: number): void;
+        Inflate(size: System.Drawing.SizeF): void;
+        static Inflate(rect: System.Drawing.RectangleF, x: number, y: number): System.Drawing.RectangleF;
+        Intersect(rect: System.Drawing.RectangleF): void;
+        static Intersect(a: System.Drawing.RectangleF, b: System.Drawing.RectangleF): System.Drawing.RectangleF;
+        IntersectsWith(rect: System.Drawing.RectangleF): boolean;
+        static Union(a: System.Drawing.RectangleF, b: System.Drawing.RectangleF): System.Drawing.RectangleF;
+        Offset(pos: System.Drawing.PointF): void;
+        Offset(x: number, y: number): void;
+        ToString(): string;
+    }
+
+    export interface IDeviceContext {
+        GetHdc(): number;
+        ReleaseHdc(): void;
+    }
+
+    enum FontStyle {
+        Regular = 0,
+        Bold = 1,
+        Italic = 2,
+        Underline = 4,
+        Strikeout = 8
+    }
+
+    enum GraphicsUnit {
+        World = 0,
+        Display = 1,
+        Pixel = 2,
+        Point = 3,
+        Inch = 4,
+        Document = 5,
+        Millimeter = 6
+    }
+
+    export class FontFamily {
+        NativeFamily: number;
+        CurrentLanguage: number;
+        Name: string;
+        Families: System.Drawing.FontFamily[];
+        GenericSansSerif: System.Drawing.FontFamily;
+        GenericSerif: System.Drawing.FontFamily;
+        GenericMonospace: System.Drawing.FontFamily;
+        constructor(name: string);
+        constructor(name: string, fontCollection: System.Drawing.Text.FontCollection);
+        constructor(genericFamily: System.Drawing.Text.GenericFontFamilies);
+        Equals(obj: any): boolean;
+        ToString(): string;
+        GetHashCode(): number;
+        Dispose(): void;
+        GetName(language: number): string;
+        static GetFamilies(graphics: System.Drawing.Graphics): System.Drawing.FontFamily[];
+        IsStyleAvailable(style: System.Drawing.FontStyle): boolean;
+        GetEmHeight(style: System.Drawing.FontStyle): number;
+        GetCellAscent(style: System.Drawing.FontStyle): number;
+        GetCellDescent(style: System.Drawing.FontStyle): number;
+        GetLineSpacing(style: System.Drawing.FontStyle): number;
+    }
+
+    export class Region {
+        constructor();
+        constructor(rect: System.Drawing.RectangleF);
+        constructor(rect: System.Drawing.Rectangle);
+        constructor(path: System.Drawing.Drawing2D.GraphicsPath);
+        constructor(rgnData: System.Drawing.Drawing2D.RegionData);
+        static FromHrgn(hrgn: number): System.Drawing.Region;
+        Clone(): System.Drawing.Region;
+        Dispose(): void;
+        MakeInfinite(): void;
+        MakeEmpty(): void;
+        Intersect(rect: System.Drawing.RectangleF): void;
+        Intersect(rect: System.Drawing.Rectangle): void;
+        Intersect(path: System.Drawing.Drawing2D.GraphicsPath): void;
+        Intersect(region: System.Drawing.Region): void;
+        ReleaseHrgn(regionHandle: number): void;
+        Union(rect: System.Drawing.RectangleF): void;
+        Union(rect: System.Drawing.Rectangle): void;
+        Union(path: System.Drawing.Drawing2D.GraphicsPath): void;
+        Union(region: System.Drawing.Region): void;
+        Xor(rect: System.Drawing.RectangleF): void;
+        Xor(rect: System.Drawing.Rectangle): void;
+        Xor(path: System.Drawing.Drawing2D.GraphicsPath): void;
+        Xor(region: System.Drawing.Region): void;
+        Exclude(rect: System.Drawing.RectangleF): void;
+        Exclude(rect: System.Drawing.Rectangle): void;
+        Exclude(path: System.Drawing.Drawing2D.GraphicsPath): void;
+        Exclude(region: System.Drawing.Region): void;
+        Complement(rect: System.Drawing.RectangleF): void;
+        Complement(rect: System.Drawing.Rectangle): void;
+        Complement(path: System.Drawing.Drawing2D.GraphicsPath): void;
+        Complement(region: System.Drawing.Region): void;
+        Translate(dx: number, dy: number): void;
+        Translate(dx: number, dy: number): void;
+        Transform(matrix: System.Drawing.Drawing2D.Matrix): void;
+        GetBounds(g: System.Drawing.Graphics): System.Drawing.RectangleF;
+        GetHrgn(g: System.Drawing.Graphics): number;
+        IsEmpty(g: System.Drawing.Graphics): boolean;
+        IsInfinite(g: System.Drawing.Graphics): boolean;
+        Equals(region: System.Drawing.Region, g: System.Drawing.Graphics): boolean;
+        GetRegionData(): System.Drawing.Drawing2D.RegionData;
+        IsVisible(x: number, y: number): boolean;
+        IsVisible(point: System.Drawing.PointF): boolean;
+        IsVisible(x: number, y: number, g: System.Drawing.Graphics): boolean;
+        IsVisible(point: System.Drawing.PointF, g: System.Drawing.Graphics): boolean;
+        IsVisible(x: number, y: number, width: number, height: number): boolean;
+        IsVisible(rect: System.Drawing.RectangleF): boolean;
+        IsVisible(x: number, y: number, width: number, height: number, g: System.Drawing.Graphics): boolean;
+        IsVisible(rect: System.Drawing.RectangleF, g: System.Drawing.Graphics): boolean;
+        IsVisible(x: number, y: number, g: System.Drawing.Graphics): boolean;
+        IsVisible(point: System.Drawing.Point): boolean;
+        IsVisible(point: System.Drawing.Point, g: System.Drawing.Graphics): boolean;
+        IsVisible(x: number, y: number, width: number, height: number): boolean;
+        IsVisible(rect: System.Drawing.Rectangle): boolean;
+        IsVisible(x: number, y: number, width: number, height: number, g: System.Drawing.Graphics): boolean;
+        IsVisible(rect: System.Drawing.Rectangle, g: System.Drawing.Graphics): boolean;
+        GetRegionScans(matrix: System.Drawing.Drawing2D.Matrix): System.Drawing.RectangleF[];
+    }
+
+    export class Image_GetThumbnailImageAbort {
+        constructor(object: any, method: number);
+        Invoke(): boolean;
+        BeginInvoke(callback: System.AsyncCallback, object: any): System.IAsyncResult;
+        EndInvoke(result: System.IAsyncResult): boolean;
+    }
+
+    enum RotateFlipType {
+        RotateNoneFlipNone = 0,
+        Rotate180FlipXY = 0,
+        Rotate90FlipNone = 1,
+        Rotate270FlipXY = 1,
+        Rotate180FlipNone = 2,
+        RotateNoneFlipXY = 2,
+        Rotate270FlipNone = 3,
+        Rotate90FlipXY = 3,
+        RotateNoneFlipX = 4,
+        Rotate180FlipY = 4,
+        Rotate90FlipX = 5,
+        Rotate270FlipY = 5,
+        Rotate180FlipX = 6,
+        RotateNoneFlipY = 6,
+        Rotate270FlipX = 7,
+        Rotate90FlipY = 7
+    }
+
+    export class Image {
+        Tag: any;
+        PhysicalDimension: System.Drawing.SizeF;
+        Size: System.Drawing.Size;
+        Width: number;
+        Height: number;
+        HorizontalResolution: number;
+        VerticalResolution: number;
+        Flags: number;
+        RawFormat: System.Drawing.Imaging.ImageFormat;
+        PixelFormat: System.Drawing.Imaging.PixelFormat;
+        Palette: System.Drawing.Imaging.ColorPalette;
+        FrameDimensionsList: string[];
+        PropertyIdList: number[];
+        PropertyItems: System.Drawing.Imaging.PropertyItem[];
+        static FromFile(filename: string): System.Drawing.Image;
+        static FromFile(filename: string, useEmbeddedColorManagement: boolean): System.Drawing.Image;
+        //static FromStream(stream: System.IO.Stream): System.Drawing.Image;
+        static FromStream(stream: any): System.Drawing.Image;
+        //static FromStream(stream: System.IO.Stream, useEmbeddedColorManagement: boolean): System.Drawing.Image;
+        static FromStream(stream: any, useEmbeddedColorManagement: boolean): System.Drawing.Image;
+        //static FromStream(stream: System.IO.Stream, useEmbeddedColorManagement: boolean, validateImageData: boolean): System.Drawing.Image;
+        static FromStream(stream: any, useEmbeddedColorManagement: boolean, validateImageData: boolean): System.Drawing.Image;
+        Clone(): any;
+        Dispose(): void;
+        GetEncoderParameterList(encoder: string): System.Drawing.Imaging.EncoderParameters;
+        Save(filename: string): void;
+        Save(filename: string, format: System.Drawing.Imaging.ImageFormat): void;
+        Save(filename: string, encoder: System.Drawing.Imaging.ImageCodecInfo, encoderParams: System.Drawing.Imaging.EncoderParameters): void;
+        //Save(stream: System.IO.Stream, format: System.Drawing.Imaging.ImageFormat): void;
+        Save(stream: any, format: System.Drawing.Imaging.ImageFormat): void;
+        //Save(stream: System.IO.Stream, encoder: System.Drawing.Imaging.ImageCodecInfo, encoderParams: System.Drawing.Imaging.EncoderParameters): void;
+        Save(stream: any, encoder: System.Drawing.Imaging.ImageCodecInfo, encoderParams: System.Drawing.Imaging.EncoderParameters): void;
+        SaveAdd(encoderParams: System.Drawing.Imaging.EncoderParameters): void;
+        SaveAdd(image: System.Drawing.Image, encoderParams: System.Drawing.Imaging.EncoderParameters): void;
+        //GetBounds(pageUnit: System.Drawing.GraphicsUnit &): System.Drawing.RectangleF;
+        GetBounds(pageUnit: System.Drawing.GraphicsUnit): System.Drawing.RectangleF;
+        GetThumbnailImage(thumbWidth: number, thumbHeight: number, callback: System.Drawing.Image_GetThumbnailImageAbort, callbackData: number): System.Drawing.Image;
+        GetFrameCount(dimension: System.Drawing.Imaging.FrameDimension): number;
+        SelectActiveFrame(dimension: System.Drawing.Imaging.FrameDimension, frameIndex: number): number;
+        RotateFlip(rotateFlipType: System.Drawing.RotateFlipType): void;
+        GetPropertyItem(propid: number): System.Drawing.Imaging.PropertyItem;
+        RemovePropertyItem(propid: number): void;
+        SetPropertyItem(propitem: System.Drawing.Imaging.PropertyItem): void;
+        static FromHbitmap(hbitmap: number): System.Drawing.Bitmap;
+        static FromHbitmap(hbitmap: number, hpalette: number): System.Drawing.Bitmap;
+        static GetPixelFormatSize(pixfmt: System.Drawing.Imaging.PixelFormat): number;
+        static IsAlphaPixelFormat(pixfmt: System.Drawing.Imaging.PixelFormat): boolean;
+        static IsExtendedPixelFormat(pixfmt: System.Drawing.Imaging.PixelFormat): boolean;
+        static IsCanonicalPixelFormat(pixfmt: System.Drawing.Imaging.PixelFormat): boolean;
     }
 
     enum CopyPixelOperation {
-        NoMirrorBitmap,
-        Blackness,
-        NotSourceErase,
-        NotSourceCopy,
-        SourceErase,
-        DestinationInvert,
-        PatInvert,
-        SourceInvert,
-        SourceAnd,
-        MergePaint,
-        MergeCopy,
-        SourceCopy,
-        SourcePaint,
-        PatCopy,
-        PatPaint,
-        Whiteness,
-        CaptureBlt
+        NoMirrorBitmap = -2147483648,
+        Blackness = 66,
+        NotSourceErase = 1114278,
+        NotSourceCopy = 3342344,
+        SourceErase = 4457256,
+        DestinationInvert = 5570569,
+        PatInvert = 5898313,
+        SourceInvert = 6684742,
+        SourceAnd = 8913094,
+        MergePaint = 12255782,
+        MergeCopy = 12583114,
+        SourceCopy = 13369376,
+        SourcePaint = 15597702,
+        PatCopy = 15728673,
+        PatPaint = 16452105,
+        Whiteness = 16711778,
+        CaptureBlt = 1073741824
     }
 
-    export interface Font {
+    export class Font {
         NativeFont: number;
         FontFamily: System.Drawing.FontFamily;
         Bold: boolean;
@@ -403,36 +783,179 @@ declare module System.Drawing {
         Height: number;
         IsSystemFont: boolean;
         SystemFontName: string;
+        constructor(prototype: System.Drawing.Font, newStyle: System.Drawing.FontStyle);
+        constructor(family: System.Drawing.FontFamily, emSize: number, style: System.Drawing.FontStyle, unit: System.Drawing.GraphicsUnit);
+        constructor(family: System.Drawing.FontFamily, emSize: number, style: System.Drawing.FontStyle, unit: System.Drawing.GraphicsUnit, gdiCharSet: number);
+        constructor(family: System.Drawing.FontFamily, emSize: number, style: System.Drawing.FontStyle, unit: System.Drawing.GraphicsUnit, gdiCharSet: number, gdiVerticalFont: boolean);
+        constructor(familyName: string, emSize: number, style: System.Drawing.FontStyle, unit: System.Drawing.GraphicsUnit, gdiCharSet: number);
+        constructor(familyName: string, emSize: number, style: System.Drawing.FontStyle, unit: System.Drawing.GraphicsUnit, gdiCharSet: number, gdiVerticalFont: boolean);
+        constructor(family: System.Drawing.FontFamily, emSize: number, style: System.Drawing.FontStyle);
+        constructor(family: System.Drawing.FontFamily, emSize: number, unit: System.Drawing.GraphicsUnit);
+        constructor(family: System.Drawing.FontFamily, emSize: number);
+        constructor(familyName: string, emSize: number, style: System.Drawing.FontStyle, unit: System.Drawing.GraphicsUnit);
+        constructor(familyName: string, emSize: number, style: System.Drawing.FontStyle);
+        constructor(familyName: string, emSize: number, unit: System.Drawing.GraphicsUnit);
+        constructor(familyName: string, emSize: number);
+        static FromHfont(hfont: number): System.Drawing.Font;
+        static FromLogFont(lf: any): System.Drawing.Font;
+        static FromLogFont(lf: any, hdc: number): System.Drawing.Font;
+        static FromHdc(hdc: number): System.Drawing.Font;
+        Clone(): any;
+        Dispose(): void;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        ToString(): string;
+        ToLogFont(logFont: any): void;
+        ToLogFont(logFont: any, graphics: System.Drawing.Graphics): void;
+        ToHfont(): number;
+        GetHeight(graphics: System.Drawing.Graphics): number;
+        GetHeight(): number;
+        GetHeight(dpi: number): number;
     }
 
-    export interface FontConverter {
+    enum StringFormatFlags {
+        DirectionRightToLeft = 1,
+        DirectionVertical = 2,
+        FitBlackBox = 4,
+        DisplayFormatControl = 32,
+        NoFontFallback = 1024,
+        MeasureTrailingSpaces = 2048,
+        NoWrap = 4096,
+        LineLimit = 8192,
+        NoClip = 16384
     }
 
-    export interface FontConverter_FontNameConverter {
+    enum StringTrimming {
+        None = 0,
+        Character = 1,
+        Word = 2,
+        EllipsisCharacter = 3,
+        EllipsisWord = 4,
+        EllipsisPath = 5
     }
 
-    export interface FontConverter_FontUnitConverter {
+    enum StringAlignment {
+        Near = 0,
+        Center = 1,
+        Far = 2
     }
 
-    export interface FontFamily {
-        NativeFamily: number;
-        CurrentLanguage: number;
-        Name: string;
-        Families: System.Drawing.FontFamily[];
-        GenericSansSerif: System.Drawing.FontFamily;
-        GenericSerif: System.Drawing.FontFamily;
-        GenericMonospace: System.Drawing.FontFamily;
+    enum StringDigitSubstitute {
+        User = 0,
+        None = 1,
+        National = 2,
+        Traditional = 3
     }
 
-    enum FontStyle {
-        Regular,
-        Bold,
-        Italic,
-        Underline,
-        Strikeout
+    export class CharacterRange {
+        First: number;
+        Length: number;
+        constructor(First: number, Length: number);
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
     }
 
-    export interface Graphics {
+    export class StringFormat {
+        FormatFlags: System.Drawing.StringFormatFlags;
+        Alignment: System.Drawing.StringAlignment;
+        LineAlignment: System.Drawing.StringAlignment;
+        HotkeyPrefix: System.Drawing.Text.HotkeyPrefix;
+        Trimming: System.Drawing.StringTrimming;
+        GenericDefault: System.Drawing.StringFormat;
+        GenericTypographic: System.Drawing.StringFormat;
+        DigitSubstitutionMethod: System.Drawing.StringDigitSubstitute;
+        DigitSubstitutionLanguage: number;
+        constructor();
+        constructor(options: System.Drawing.StringFormatFlags);
+        constructor(options: System.Drawing.StringFormatFlags, language: number);
+        constructor(format: System.Drawing.StringFormat);
+        Dispose(): void;
+        Clone(): any;
+        SetMeasurableCharacterRanges(ranges: System.Drawing.CharacterRange[]): void;
+        SetTabStops(firstTabOffset: number, tabStops: number[]): void;
+        //GetTabStops(firstTabOffset: number &): number[];
+        GetTabStops(firstTabOffset: number): number[];
+        SetDigitSubstitution(language: number, substitute: System.Drawing.StringDigitSubstitute): void;
+        ToString(): string;
+    }
+
+    export class Icon {
+        Handle: number;
+        Height: number;
+        Size: System.Drawing.Size;
+        Width: number;
+        constructor(fileName: string);
+        constructor(fileName: string, size: System.Drawing.Size);
+        constructor(fileName: string, width: number, height: number);
+        constructor(original: System.Drawing.Icon, size: System.Drawing.Size);
+        constructor(original: System.Drawing.Icon, width: number, height: number);
+        //constructor(type: System.Type, resource: string);
+        constructor(type: any, resource: string);
+        //constructor(stream: System.IO.Stream);
+        constructor(stream: any);
+        //constructor(stream: System.IO.Stream, size: System.Drawing.Size);
+        constructor(stream: any, size: System.Drawing.Size);
+        //constructor(stream: System.IO.Stream, width: number, height: number);
+        constructor(stream: any, width: number, height: number);
+        static ExtractAssociatedIcon(filePath: string): System.Drawing.Icon;
+        Clone(): any;
+        Dispose(): void;
+        static FromHandle(handle: number): System.Drawing.Icon;
+        //Save(outputStream: System.IO.Stream): void;
+        Save(outputStream: any): void;
+        ToBitmap(): System.Drawing.Bitmap;
+        ToString(): string;
+    }
+
+    export class ImageAttributes {
+        constructor();
+        Dispose(): void;
+        Clone(): any;
+        SetColorMatrix(newColorMatrix: System.Drawing.Imaging.ColorMatrix): void;
+        SetColorMatrix(newColorMatrix: System.Drawing.Imaging.ColorMatrix, flags: System.Drawing.Imaging.ColorMatrixFlag): void;
+        SetColorMatrix(newColorMatrix: System.Drawing.Imaging.ColorMatrix, mode: System.Drawing.Imaging.ColorMatrixFlag, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearColorMatrix(): void;
+        ClearColorMatrix(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetColorMatrices(newColorMatrix: System.Drawing.Imaging.ColorMatrix, grayMatrix: System.Drawing.Imaging.ColorMatrix): void;
+        SetColorMatrices(newColorMatrix: System.Drawing.Imaging.ColorMatrix, grayMatrix: System.Drawing.Imaging.ColorMatrix, flags: System.Drawing.Imaging.ColorMatrixFlag): void;
+        SetColorMatrices(newColorMatrix: System.Drawing.Imaging.ColorMatrix, grayMatrix: System.Drawing.Imaging.ColorMatrix, mode: System.Drawing.Imaging.ColorMatrixFlag, type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetThreshold(threshold: number): void;
+        SetThreshold(threshold: number, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearThreshold(): void;
+        ClearThreshold(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetGamma(gamma: number): void;
+        SetGamma(gamma: number, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearGamma(): void;
+        ClearGamma(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetNoOp(): void;
+        SetNoOp(type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearNoOp(): void;
+        ClearNoOp(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetColorKey(colorLow: System.Drawing.Color, colorHigh: System.Drawing.Color): void;
+        SetColorKey(colorLow: System.Drawing.Color, colorHigh: System.Drawing.Color, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearColorKey(): void;
+        ClearColorKey(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetOutputChannel(flags: System.Drawing.Imaging.ColorChannelFlag): void;
+        SetOutputChannel(flags: System.Drawing.Imaging.ColorChannelFlag, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearOutputChannel(): void;
+        ClearOutputChannel(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetOutputChannelColorProfile(colorProfileFilename: string): void;
+        SetOutputChannelColorProfile(colorProfileFilename: string, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearOutputChannelColorProfile(): void;
+        ClearOutputChannelColorProfile(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetRemapTable(map: System.Drawing.Imaging.ColorMap[]): void;
+        SetRemapTable(map: System.Drawing.Imaging.ColorMap[], type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearRemapTable(): void;
+        ClearRemapTable(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetBrushRemapTable(map: System.Drawing.Imaging.ColorMap[]): void;
+        ClearBrushRemapTable(): void;
+        SetWrapMode(mode: System.Drawing.Drawing2D.WrapMode): void;
+        SetWrapMode(mode: System.Drawing.Drawing2D.WrapMode, color: System.Drawing.Color): void;
+        SetWrapMode(mode: System.Drawing.Drawing2D.WrapMode, color: System.Drawing.Color, clamp: boolean): void;
+        GetAdjustedPalette(palette: System.Drawing.Imaging.ColorPalette, type: System.Drawing.Imaging.ColorAdjustType): void;
+    }
+
+    export class Graphics implements System.Drawing.IDeviceContext {
         NativeGraphics: number;
         CompositingMode: System.Drawing.Drawing2D.CompositingMode;
         RenderingOrigin: System.Drawing.Point;
@@ -453,1155 +976,1076 @@ declare module System.Drawing {
         IsClipEmpty: boolean;
         VisibleClipBounds: System.Drawing.RectangleF;
         IsVisibleClipEmpty: boolean;
+        static FromHdc(hdc: number): System.Drawing.Graphics;
+        static FromHdcInternal(hdc: number): System.Drawing.Graphics;
+        static FromHdc(hdc: number, hdevice: number): System.Drawing.Graphics;
+        static FromHwnd(hwnd: number): System.Drawing.Graphics;
+        static FromHwndInternal(hwnd: number): System.Drawing.Graphics;
+        static FromImage(image: System.Drawing.Image): System.Drawing.Graphics;
+        GetHdc(): number;
+        ReleaseHdc(hdc: number): void;
+        ReleaseHdc(): void;
+        ReleaseHdcInternal(hdc: number): void;
+        Dispose(): void;
+        Flush(): void;
+        Flush(intention: System.Drawing.Drawing2D.FlushIntention): void;
+        CopyFromScreen(upperLeftSource: System.Drawing.Point, upperLeftDestination: System.Drawing.Point, blockRegionSize: System.Drawing.Size): void;
+        CopyFromScreen(sourceX: number, sourceY: number, destinationX: number, destinationY: number, blockRegionSize: System.Drawing.Size): void;
+        CopyFromScreen(upperLeftSource: System.Drawing.Point, upperLeftDestination: System.Drawing.Point, blockRegionSize: System.Drawing.Size, copyPixelOperation: System.Drawing.CopyPixelOperation): void;
+        CopyFromScreen(sourceX: number, sourceY: number, destinationX: number, destinationY: number, blockRegionSize: System.Drawing.Size, copyPixelOperation: System.Drawing.CopyPixelOperation): void;
+        ResetTransform(): void;
+        MultiplyTransform(matrix: System.Drawing.Drawing2D.Matrix): void;
+        MultiplyTransform(matrix: System.Drawing.Drawing2D.Matrix, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        TranslateTransform(dx: number, dy: number): void;
+        TranslateTransform(dx: number, dy: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        ScaleTransform(sx: number, sy: number): void;
+        ScaleTransform(sx: number, sy: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        RotateTransform(angle: number): void;
+        RotateTransform(angle: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        TransformPoints(destSpace: System.Drawing.Drawing2D.CoordinateSpace, srcSpace: System.Drawing.Drawing2D.CoordinateSpace, pts: System.Drawing.PointF[]): void;
+        TransformPoints(destSpace: System.Drawing.Drawing2D.CoordinateSpace, srcSpace: System.Drawing.Drawing2D.CoordinateSpace, pts: System.Drawing.Point[]): void;
+        GetNearestColor(color: System.Drawing.Color): System.Drawing.Color;
+        DrawLine(pen: System.Drawing.Pen, x1: number, y1: number, x2: number, y2: number): void;
+        DrawLine(pen: System.Drawing.Pen, pt1: System.Drawing.PointF, pt2: System.Drawing.PointF): void;
+        DrawLines(pen: System.Drawing.Pen, points: System.Drawing.PointF[]): void;
+        DrawLine(pen: System.Drawing.Pen, x1: number, y1: number, x2: number, y2: number): void;
+        DrawLine(pen: System.Drawing.Pen, pt1: System.Drawing.Point, pt2: System.Drawing.Point): void;
+        DrawLines(pen: System.Drawing.Pen, points: System.Drawing.Point[]): void;
+        DrawArc(pen: System.Drawing.Pen, x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        DrawArc(pen: System.Drawing.Pen, rect: System.Drawing.RectangleF, startAngle: number, sweepAngle: number): void;
+        DrawArc(pen: System.Drawing.Pen, x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        DrawArc(pen: System.Drawing.Pen, rect: System.Drawing.Rectangle, startAngle: number, sweepAngle: number): void;
+        DrawBezier(pen: System.Drawing.Pen, x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, x4: number, y4: number): void;
+        DrawBezier(pen: System.Drawing.Pen, pt1: System.Drawing.PointF, pt2: System.Drawing.PointF, pt3: System.Drawing.PointF, pt4: System.Drawing.PointF): void;
+        DrawBeziers(pen: System.Drawing.Pen, points: System.Drawing.PointF[]): void;
+        DrawBezier(pen: System.Drawing.Pen, pt1: System.Drawing.Point, pt2: System.Drawing.Point, pt3: System.Drawing.Point, pt4: System.Drawing.Point): void;
+        DrawBeziers(pen: System.Drawing.Pen, points: System.Drawing.Point[]): void;
+        DrawRectangle(pen: System.Drawing.Pen, rect: System.Drawing.Rectangle): void;
+        DrawRectangle(pen: System.Drawing.Pen, x: number, y: number, width: number, height: number): void;
+        DrawRectangle(pen: System.Drawing.Pen, x: number, y: number, width: number, height: number): void;
+        DrawRectangles(pen: System.Drawing.Pen, rects: System.Drawing.RectangleF[]): void;
+        DrawRectangles(pen: System.Drawing.Pen, rects: System.Drawing.Rectangle[]): void;
+        DrawEllipse(pen: System.Drawing.Pen, rect: System.Drawing.RectangleF): void;
+        DrawEllipse(pen: System.Drawing.Pen, x: number, y: number, width: number, height: number): void;
+        DrawEllipse(pen: System.Drawing.Pen, rect: System.Drawing.Rectangle): void;
+        DrawEllipse(pen: System.Drawing.Pen, x: number, y: number, width: number, height: number): void;
+        DrawPie(pen: System.Drawing.Pen, rect: System.Drawing.RectangleF, startAngle: number, sweepAngle: number): void;
+        DrawPie(pen: System.Drawing.Pen, x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        DrawPie(pen: System.Drawing.Pen, rect: System.Drawing.Rectangle, startAngle: number, sweepAngle: number): void;
+        DrawPie(pen: System.Drawing.Pen, x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        DrawPolygon(pen: System.Drawing.Pen, points: System.Drawing.PointF[]): void;
+        DrawPolygon(pen: System.Drawing.Pen, points: System.Drawing.Point[]): void;
+        DrawPath(pen: System.Drawing.Pen, path: System.Drawing.Drawing2D.GraphicsPath): void;
+        DrawCurve(pen: System.Drawing.Pen, points: System.Drawing.PointF[]): void;
+        DrawCurve(pen: System.Drawing.Pen, points: System.Drawing.PointF[], tension: number): void;
+        DrawCurve(pen: System.Drawing.Pen, points: System.Drawing.PointF[], offset: number, numberOfSegments: number): void;
+        DrawCurve(pen: System.Drawing.Pen, points: System.Drawing.PointF[], offset: number, numberOfSegments: number, tension: number): void;
+        DrawCurve(pen: System.Drawing.Pen, points: System.Drawing.Point[]): void;
+        DrawCurve(pen: System.Drawing.Pen, points: System.Drawing.Point[], tension: number): void;
+        DrawCurve(pen: System.Drawing.Pen, points: System.Drawing.Point[], offset: number, numberOfSegments: number, tension: number): void;
+        DrawClosedCurve(pen: System.Drawing.Pen, points: System.Drawing.PointF[]): void;
+        DrawClosedCurve(pen: System.Drawing.Pen, points: System.Drawing.PointF[], tension: number, fillmode: System.Drawing.Drawing2D.FillMode): void;
+        DrawClosedCurve(pen: System.Drawing.Pen, points: System.Drawing.Point[]): void;
+        DrawClosedCurve(pen: System.Drawing.Pen, points: System.Drawing.Point[], tension: number, fillmode: System.Drawing.Drawing2D.FillMode): void;
+        Clear(color: System.Drawing.Color): void;
+        FillRectangle(brush: System.Drawing.Brush, rect: System.Drawing.RectangleF): void;
+        FillRectangle(brush: System.Drawing.Brush, x: number, y: number, width: number, height: number): void;
+        FillRectangle(brush: System.Drawing.Brush, rect: System.Drawing.Rectangle): void;
+        FillRectangle(brush: System.Drawing.Brush, x: number, y: number, width: number, height: number): void;
+        FillRectangles(brush: System.Drawing.Brush, rects: System.Drawing.RectangleF[]): void;
+        FillRectangles(brush: System.Drawing.Brush, rects: System.Drawing.Rectangle[]): void;
+        FillPolygon(brush: System.Drawing.Brush, points: System.Drawing.PointF[]): void;
+        FillPolygon(brush: System.Drawing.Brush, points: System.Drawing.PointF[], fillMode: System.Drawing.Drawing2D.FillMode): void;
+        FillPolygon(brush: System.Drawing.Brush, points: System.Drawing.Point[]): void;
+        FillPolygon(brush: System.Drawing.Brush, points: System.Drawing.Point[], fillMode: System.Drawing.Drawing2D.FillMode): void;
+        FillEllipse(brush: System.Drawing.Brush, rect: System.Drawing.RectangleF): void;
+        FillEllipse(brush: System.Drawing.Brush, x: number, y: number, width: number, height: number): void;
+        FillEllipse(brush: System.Drawing.Brush, rect: System.Drawing.Rectangle): void;
+        FillEllipse(brush: System.Drawing.Brush, x: number, y: number, width: number, height: number): void;
+        FillPie(brush: System.Drawing.Brush, rect: System.Drawing.Rectangle, startAngle: number, sweepAngle: number): void;
+        FillPie(brush: System.Drawing.Brush, x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        FillPie(brush: System.Drawing.Brush, x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        FillPath(brush: System.Drawing.Brush, path: System.Drawing.Drawing2D.GraphicsPath): void;
+        FillClosedCurve(brush: System.Drawing.Brush, points: System.Drawing.PointF[]): void;
+        FillClosedCurve(brush: System.Drawing.Brush, points: System.Drawing.PointF[], fillmode: System.Drawing.Drawing2D.FillMode): void;
+        FillClosedCurve(brush: System.Drawing.Brush, points: System.Drawing.PointF[], fillmode: System.Drawing.Drawing2D.FillMode, tension: number): void;
+        FillClosedCurve(brush: System.Drawing.Brush, points: System.Drawing.Point[]): void;
+        FillClosedCurve(brush: System.Drawing.Brush, points: System.Drawing.Point[], fillmode: System.Drawing.Drawing2D.FillMode): void;
+        FillClosedCurve(brush: System.Drawing.Brush, points: System.Drawing.Point[], fillmode: System.Drawing.Drawing2D.FillMode, tension: number): void;
+        FillRegion(brush: System.Drawing.Brush, region: System.Drawing.Region): void;
+        DrawString(s: string, font: System.Drawing.Font, brush: System.Drawing.Brush, x: number, y: number): void;
+        DrawString(s: string, font: System.Drawing.Font, brush: System.Drawing.Brush, point: System.Drawing.PointF): void;
+        DrawString(s: string, font: System.Drawing.Font, brush: System.Drawing.Brush, x: number, y: number, format: System.Drawing.StringFormat): void;
+        DrawString(s: string, font: System.Drawing.Font, brush: System.Drawing.Brush, point: System.Drawing.PointF, format: System.Drawing.StringFormat): void;
+        DrawString(s: string, font: System.Drawing.Font, brush: System.Drawing.Brush, layoutRectangle: System.Drawing.RectangleF): void;
+        DrawString(s: string, font: System.Drawing.Font, brush: System.Drawing.Brush, layoutRectangle: System.Drawing.RectangleF, format: System.Drawing.StringFormat): void;
+        //MeasureString(text: string, font: System.Drawing.Font, layoutArea: System.Drawing.SizeF, stringFormat: System.Drawing.StringFormat, charactersFitted: number &, linesFilled: number &): System.Drawing.SizeF;
+        MeasureString(text: string, font: System.Drawing.Font, layoutArea: System.Drawing.SizeF, stringFormat: System.Drawing.StringFormat, charactersFitted: number, linesFilled: number): System.Drawing.SizeF;
+        MeasureString(text: string, font: System.Drawing.Font, origin: System.Drawing.PointF, stringFormat: System.Drawing.StringFormat): System.Drawing.SizeF;
+        MeasureString(text: string, font: System.Drawing.Font, layoutArea: System.Drawing.SizeF): System.Drawing.SizeF;
+        MeasureString(text: string, font: System.Drawing.Font, layoutArea: System.Drawing.SizeF, stringFormat: System.Drawing.StringFormat): System.Drawing.SizeF;
+        MeasureString(text: string, font: System.Drawing.Font): System.Drawing.SizeF;
+        MeasureString(text: string, font: System.Drawing.Font, width: number): System.Drawing.SizeF;
+        MeasureString(text: string, font: System.Drawing.Font, width: number, format: System.Drawing.StringFormat): System.Drawing.SizeF;
+        MeasureCharacterRanges(text: string, font: System.Drawing.Font, layoutRect: System.Drawing.RectangleF, stringFormat: System.Drawing.StringFormat): System.Drawing.Region[];
+        DrawIcon(icon: System.Drawing.Icon, x: number, y: number): void;
+        DrawIcon(icon: System.Drawing.Icon, targetRect: System.Drawing.Rectangle): void;
+        DrawIconUnstretched(icon: System.Drawing.Icon, targetRect: System.Drawing.Rectangle): void;
+        DrawImage(image: System.Drawing.Image, point: System.Drawing.PointF): void;
+        DrawImage(image: System.Drawing.Image, x: number, y: number): void;
+        DrawImage(image: System.Drawing.Image, rect: System.Drawing.RectangleF): void;
+        DrawImage(image: System.Drawing.Image, x: number, y: number, width: number, height: number): void;
+        DrawImage(image: System.Drawing.Image, point: System.Drawing.Point): void;
+        DrawImage(image: System.Drawing.Image, x: number, y: number): void;
+        DrawImage(image: System.Drawing.Image, rect: System.Drawing.Rectangle): void;
+        DrawImage(image: System.Drawing.Image, x: number, y: number, width: number, height: number): void;
+        DrawImageUnscaled(image: System.Drawing.Image, point: System.Drawing.Point): void;
+        DrawImageUnscaled(image: System.Drawing.Image, x: number, y: number): void;
+        DrawImageUnscaled(image: System.Drawing.Image, rect: System.Drawing.Rectangle): void;
+        DrawImageUnscaled(image: System.Drawing.Image, x: number, y: number, width: number, height: number): void;
+        DrawImageUnscaledAndClipped(image: System.Drawing.Image, rect: System.Drawing.Rectangle): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.PointF[]): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.Point[]): void;
+        DrawImage(image: System.Drawing.Image, x: number, y: number, srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit): void;
+        DrawImage(image: System.Drawing.Image, x: number, y: number, srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.RectangleF, srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, imageAttr: System.Drawing.Imaging.ImageAttributes, callback: System.Drawing.Graphics_DrawImageAbort): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, imageAttr: System.Drawing.Imaging.ImageAttributes, callback: System.Drawing.Graphics_DrawImageAbort, callbackData: number): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.Point[], srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.Point[], srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.Point[], srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, imageAttr: System.Drawing.Imaging.ImageAttributes, callback: System.Drawing.Graphics_DrawImageAbort): void;
+        DrawImage(image: System.Drawing.Image, destPoints: System.Drawing.Point[], srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, imageAttr: System.Drawing.Imaging.ImageAttributes, callback: System.Drawing.Graphics_DrawImageAbort, callbackData: number): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcX: number, srcY: number, srcWidth: number, srcHeight: number, srcUnit: System.Drawing.GraphicsUnit): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcX: number, srcY: number, srcWidth: number, srcHeight: number, srcUnit: System.Drawing.GraphicsUnit, imageAttrs: System.Drawing.Imaging.ImageAttributes): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcX: number, srcY: number, srcWidth: number, srcHeight: number, srcUnit: System.Drawing.GraphicsUnit, imageAttrs: System.Drawing.Imaging.ImageAttributes, callback: System.Drawing.Graphics_DrawImageAbort): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcX: number, srcY: number, srcWidth: number, srcHeight: number, srcUnit: System.Drawing.GraphicsUnit, imageAttrs: System.Drawing.Imaging.ImageAttributes, callback: System.Drawing.Graphics_DrawImageAbort, callbackData: number): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcX: number, srcY: number, srcWidth: number, srcHeight: number, srcUnit: System.Drawing.GraphicsUnit): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcX: number, srcY: number, srcWidth: number, srcHeight: number, srcUnit: System.Drawing.GraphicsUnit, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcX: number, srcY: number, srcWidth: number, srcHeight: number, srcUnit: System.Drawing.GraphicsUnit, imageAttr: System.Drawing.Imaging.ImageAttributes, callback: System.Drawing.Graphics_DrawImageAbort): void;
+        DrawImage(image: System.Drawing.Image, destRect: System.Drawing.Rectangle, srcX: number, srcY: number, srcWidth: number, srcHeight: number, srcUnit: System.Drawing.GraphicsUnit, imageAttrs: System.Drawing.Imaging.ImageAttributes, callback: System.Drawing.Graphics_DrawImageAbort, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.PointF, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.PointF, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.PointF, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.Point, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.Point, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.Point, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.RectangleF, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.RectangleF, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.RectangleF, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.Rectangle, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.Rectangle, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.Rectangle, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.PointF[], callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.PointF[], callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.PointF[], callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.Point[], callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.Point[], callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.Point[], callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.PointF, srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.PointF, srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.PointF, srcRect: System.Drawing.RectangleF, unit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.Point, srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.Point, srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoint: System.Drawing.Point, srcRect: System.Drawing.Rectangle, unit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.RectangleF, srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.RectangleF, srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.RectangleF, srcRect: System.Drawing.RectangleF, unit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.Rectangle, srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.Rectangle, srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destRect: System.Drawing.Rectangle, srcRect: System.Drawing.Rectangle, unit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, unit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.Point[], srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.Point[], srcRect: System.Drawing.Rectangle, srcUnit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number): void;
+        EnumerateMetafile(metafile: System.Drawing.Imaging.Metafile, destPoints: System.Drawing.Point[], srcRect: System.Drawing.Rectangle, unit: System.Drawing.GraphicsUnit, callback: System.Drawing.Graphics_EnumerateMetafileProc, callbackData: number, imageAttr: System.Drawing.Imaging.ImageAttributes): void;
+        SetClip(g: System.Drawing.Graphics): void;
+        SetClip(g: System.Drawing.Graphics, combineMode: System.Drawing.Drawing2D.CombineMode): void;
+        SetClip(rect: System.Drawing.Rectangle): void;
+        SetClip(rect: System.Drawing.Rectangle, combineMode: System.Drawing.Drawing2D.CombineMode): void;
+        SetClip(rect: System.Drawing.RectangleF): void;
+        SetClip(rect: System.Drawing.RectangleF, combineMode: System.Drawing.Drawing2D.CombineMode): void;
+        SetClip(path: System.Drawing.Drawing2D.GraphicsPath): void;
+        SetClip(path: System.Drawing.Drawing2D.GraphicsPath, combineMode: System.Drawing.Drawing2D.CombineMode): void;
+        SetClip(region: System.Drawing.Region, combineMode: System.Drawing.Drawing2D.CombineMode): void;
+        IntersectClip(rect: System.Drawing.Rectangle): void;
+        IntersectClip(rect: System.Drawing.RectangleF): void;
+        IntersectClip(region: System.Drawing.Region): void;
+        ExcludeClip(rect: System.Drawing.Rectangle): void;
+        ExcludeClip(region: System.Drawing.Region): void;
+        ResetClip(): void;
+        TranslateClip(dx: number, dy: number): void;
+        TranslateClip(dx: number, dy: number): void;
+        GetContextInfo(): any;
+        IsVisible(x: number, y: number): boolean;
+        IsVisible(point: System.Drawing.Point): boolean;
+        IsVisible(x: number, y: number): boolean;
+        IsVisible(point: System.Drawing.PointF): boolean;
+        IsVisible(x: number, y: number, width: number, height: number): boolean;
+        IsVisible(rect: System.Drawing.Rectangle): boolean;
+        IsVisible(x: number, y: number, width: number, height: number): boolean;
+        IsVisible(rect: System.Drawing.RectangleF): boolean;
+        Save(): System.Drawing.Drawing2D.GraphicsState;
+        Restore(gstate: System.Drawing.Drawing2D.GraphicsState): void;
+        BeginContainer(dstrect: System.Drawing.RectangleF, srcrect: System.Drawing.RectangleF, unit: System.Drawing.GraphicsUnit): System.Drawing.Drawing2D.GraphicsContainer;
+        BeginContainer(): System.Drawing.Drawing2D.GraphicsContainer;
+        EndContainer(container: System.Drawing.Drawing2D.GraphicsContainer): void;
+        BeginContainer(dstrect: System.Drawing.Rectangle, srcrect: System.Drawing.Rectangle, unit: System.Drawing.GraphicsUnit): System.Drawing.Drawing2D.GraphicsContainer;
+        AddMetafileComment(data: any): void;
+        static GetHalftonePalette(): number;
     }
 
-    export interface Graphics_DrawImageAbort {
+    export class Bitmap {
+        constructor(filename: string);
+        constructor(filename: string, useIcm: boolean);
+        //constructor(type: System.Type, resource: string);
+        constructor(type: any, resource: string);
+        //constructor(stream: System.IO.Stream);
+        constructor(stream: any);
+        //constructor(stream: System.IO.Stream, useIcm: boolean);
+        constructor(stream: any, useIcm: boolean);
+        constructor(width: number, height: number, stride: number, format: System.Drawing.Imaging.PixelFormat, scan0: number);
+        constructor(width: number, height: number, format: System.Drawing.Imaging.PixelFormat);
+        constructor(width: number, height: number);
+        constructor(width: number, height: number, g: System.Drawing.Graphics);
+        constructor(original: System.Drawing.Image);
+        constructor(original: System.Drawing.Image, width: number, height: number);
+        constructor(original: System.Drawing.Image, newSize: System.Drawing.Size);
+        static FromHicon(hicon: number): System.Drawing.Bitmap;
+        static FromResource(hinstance: number, bitmapName: string): System.Drawing.Bitmap;
+        GetHbitmap(): number;
+        GetHbitmap(background: System.Drawing.Color): number;
+        GetHicon(): number;
+        Clone(rect: System.Drawing.Rectangle, format: System.Drawing.Imaging.PixelFormat): System.Drawing.Bitmap;
+        Clone(rect: System.Drawing.RectangleF, format: System.Drawing.Imaging.PixelFormat): System.Drawing.Bitmap;
+        MakeTransparent(): void;
+        MakeTransparent(transparentColor: System.Drawing.Color): void;
+        LockBits(rect: System.Drawing.Rectangle, flags: System.Drawing.Imaging.ImageLockMode, format: System.Drawing.Imaging.PixelFormat): System.Drawing.Imaging.BitmapData;
+        LockBits(rect: System.Drawing.Rectangle, flags: System.Drawing.Imaging.ImageLockMode, format: System.Drawing.Imaging.PixelFormat, bitmapData: System.Drawing.Imaging.BitmapData): System.Drawing.Imaging.BitmapData;
+        UnlockBits(bitmapdata: System.Drawing.Imaging.BitmapData): void;
+        GetPixel(x: number, y: number): System.Drawing.Color;
+        SetPixel(x: number, y: number, color: System.Drawing.Color): void;
+        SetResolution(xDpi: number, yDpi: number): void;
     }
-
-    export interface Graphics_EnumerateMetafileProc {
-    }
-
-    enum GraphicsUnit {
-        World,
-        Display,
-        Pixel,
-        Point,
-        Inch,
-        Document,
-        Millimeter
-    }
-
-    export interface Icon {
-        Handle: number;
-        Height: number;
-        Size: System.Drawing.Size;
-        Width: number;
-    }
-
-    export interface IconConverter {
-    }
-
-    export interface IDeviceContext {
-    }
-
-    export interface Image {
-        Tag: any;
-        PhysicalDimension: System.Drawing.SizeF;
-        Size: System.Drawing.Size;
-        Width: number;
-        Height: number;
-        HorizontalResolution: number;
-        VerticalResolution: number;
-        Flags: number;
-        RawFormat: System.Drawing.Imaging.ImageFormat;
-        PixelFormat: System.Drawing.Imaging.PixelFormat;
-        Palette: System.Drawing.Imaging.ColorPalette;
-        FrameDimensionsList: string[];
-        PropertyIdList: number[];
-        PropertyItems: System.Drawing.Imaging.PropertyItem[];
-    }
-
-    export interface Image_GetThumbnailImageAbort {
-    }
-
-    export interface ImageAnimator {
-    }
-
-    export interface ImageConverter {
-    }
-
-    export interface ImageFormatConverter {
-    }
-
-    enum KnownColor {
-        ActiveBorder,
-        ActiveCaption,
-        ActiveCaptionText,
-        AppWorkspace,
-        Control,
-        ControlDark,
-        ControlDarkDark,
-        ControlLight,
-        ControlLightLight,
-        ControlText,
-        Desktop,
-        GrayText,
-        Highlight,
-        HighlightText,
-        HotTrack,
-        InactiveBorder,
-        InactiveCaption,
-        InactiveCaptionText,
-        Info,
-        InfoText,
-        Menu,
-        MenuText,
-        ScrollBar,
-        Window,
-        WindowFrame,
-        WindowText,
-        Transparent,
-        AliceBlue,
-        AntiqueWhite,
-        Aqua,
-        Aquamarine,
-        Azure,
-        Beige,
-        Bisque,
-        Black,
-        BlanchedAlmond,
-        Blue,
-        BlueViolet,
-        Brown,
-        BurlyWood,
-        CadetBlue,
-        Chartreuse,
-        Chocolate,
-        Coral,
-        CornflowerBlue,
-        Cornsilk,
-        Crimson,
-        Cyan,
-        DarkBlue,
-        DarkCyan,
-        DarkGoldenrod,
-        DarkGray,
-        DarkGreen,
-        DarkKhaki,
-        DarkMagenta,
-        DarkOliveGreen,
-        DarkOrange,
-        DarkOrchid,
-        DarkRed,
-        DarkSalmon,
-        DarkSeaGreen,
-        DarkSlateBlue,
-        DarkSlateGray,
-        DarkTurquoise,
-        DarkViolet,
-        DeepPink,
-        DeepSkyBlue,
-        DimGray,
-        DodgerBlue,
-        Firebrick,
-        FloralWhite,
-        ForestGreen,
-        Fuchsia,
-        Gainsboro,
-        GhostWhite,
-        Gold,
-        Goldenrod,
-        Gray,
-        Green,
-        GreenYellow,
-        Honeydew,
-        HotPink,
-        IndianRed,
-        Indigo,
-        Ivory,
-        Khaki,
-        Lavender,
-        LavenderBlush,
-        LawnGreen,
-        LemonChiffon,
-        LightBlue,
-        LightCoral,
-        LightCyan,
-        LightGoldenrodYellow,
-        LightGray,
-        LightGreen,
-        LightPink,
-        LightSalmon,
-        LightSeaGreen,
-        LightSkyBlue,
-        LightSlateGray,
-        LightSteelBlue,
-        LightYellow,
-        Lime,
-        LimeGreen,
-        Linen,
-        Magenta,
-        Maroon,
-        MediumAquamarine,
-        MediumBlue,
-        MediumOrchid,
-        MediumPurple,
-        MediumSeaGreen,
-        MediumSlateBlue,
-        MediumSpringGreen,
-        MediumTurquoise,
-        MediumVioletRed,
-        MidnightBlue,
-        MintCream,
-        MistyRose,
-        Moccasin,
-        NavajoWhite,
-        Navy,
-        OldLace,
-        Olive,
-        OliveDrab,
-        Orange,
-        OrangeRed,
-        Orchid,
-        PaleGoldenrod,
-        PaleGreen,
-        PaleTurquoise,
-        PaleVioletRed,
-        PapayaWhip,
-        PeachPuff,
-        Peru,
-        Pink,
-        Plum,
-        PowderBlue,
-        Purple,
-        Red,
-        RosyBrown,
-        RoyalBlue,
-        SaddleBrown,
-        Salmon,
-        SandyBrown,
-        SeaGreen,
-        SeaShell,
-        Sienna,
-        Silver,
-        SkyBlue,
-        SlateBlue,
-        SlateGray,
-        Snow,
-        SpringGreen,
-        SteelBlue,
-        Tan,
-        Teal,
-        Thistle,
-        Tomato,
-        Turquoise,
-        Violet,
-        Wheat,
-        White,
-        WhiteSmoke,
-        Yellow,
-        YellowGreen,
-        ButtonFace,
-        ButtonHighlight,
-        ButtonShadow,
-        GradientActiveCaption,
-        GradientInactiveCaption,
-        MenuBar,
-        MenuHighlight
-    }
-
-    export interface Pen {
-        NativePen: number;
-        Width: number;
-        StartCap: System.Drawing.Drawing2D.LineCap;
-        EndCap: System.Drawing.Drawing2D.LineCap;
-        DashCap: System.Drawing.Drawing2D.DashCap;
-        LineJoin: System.Drawing.Drawing2D.LineJoin;
-        CustomStartCap: System.Drawing.Drawing2D.CustomLineCap;
-        CustomEndCap: System.Drawing.Drawing2D.CustomLineCap;
-        MiterLimit: number;
-        Alignment: System.Drawing.Drawing2D.PenAlignment;
-        Transform: System.Drawing.Drawing2D.Matrix;
-        PenType: System.Drawing.Drawing2D.PenType;
-        Color: System.Drawing.Color;
-        Brush: System.Drawing.Brush;
-        DashStyle: System.Drawing.Drawing2D.DashStyle;
-        DashOffset: number;
-        DashPattern: number[];
-        CompoundArray: number[];
-    }
-
-    export interface Pens {
-        Transparent: System.Drawing.Pen;
-        AliceBlue: System.Drawing.Pen;
-        AntiqueWhite: System.Drawing.Pen;
-        Aqua: System.Drawing.Pen;
-        Aquamarine: System.Drawing.Pen;
-        Azure: System.Drawing.Pen;
-        Beige: System.Drawing.Pen;
-        Bisque: System.Drawing.Pen;
-        Black: System.Drawing.Pen;
-        BlanchedAlmond: System.Drawing.Pen;
-        Blue: System.Drawing.Pen;
-        BlueViolet: System.Drawing.Pen;
-        Brown: System.Drawing.Pen;
-        BurlyWood: System.Drawing.Pen;
-        CadetBlue: System.Drawing.Pen;
-        Chartreuse: System.Drawing.Pen;
-        Chocolate: System.Drawing.Pen;
-        Coral: System.Drawing.Pen;
-        CornflowerBlue: System.Drawing.Pen;
-        Cornsilk: System.Drawing.Pen;
-        Crimson: System.Drawing.Pen;
-        Cyan: System.Drawing.Pen;
-        DarkBlue: System.Drawing.Pen;
-        DarkCyan: System.Drawing.Pen;
-        DarkGoldenrod: System.Drawing.Pen;
-        DarkGray: System.Drawing.Pen;
-        DarkGreen: System.Drawing.Pen;
-        DarkKhaki: System.Drawing.Pen;
-        DarkMagenta: System.Drawing.Pen;
-        DarkOliveGreen: System.Drawing.Pen;
-        DarkOrange: System.Drawing.Pen;
-        DarkOrchid: System.Drawing.Pen;
-        DarkRed: System.Drawing.Pen;
-        DarkSalmon: System.Drawing.Pen;
-        DarkSeaGreen: System.Drawing.Pen;
-        DarkSlateBlue: System.Drawing.Pen;
-        DarkSlateGray: System.Drawing.Pen;
-        DarkTurquoise: System.Drawing.Pen;
-        DarkViolet: System.Drawing.Pen;
-        DeepPink: System.Drawing.Pen;
-        DeepSkyBlue: System.Drawing.Pen;
-        DimGray: System.Drawing.Pen;
-        DodgerBlue: System.Drawing.Pen;
-        Firebrick: System.Drawing.Pen;
-        FloralWhite: System.Drawing.Pen;
-        ForestGreen: System.Drawing.Pen;
-        Fuchsia: System.Drawing.Pen;
-        Gainsboro: System.Drawing.Pen;
-        GhostWhite: System.Drawing.Pen;
-        Gold: System.Drawing.Pen;
-        Goldenrod: System.Drawing.Pen;
-        Gray: System.Drawing.Pen;
-        Green: System.Drawing.Pen;
-        GreenYellow: System.Drawing.Pen;
-        Honeydew: System.Drawing.Pen;
-        HotPink: System.Drawing.Pen;
-        IndianRed: System.Drawing.Pen;
-        Indigo: System.Drawing.Pen;
-        Ivory: System.Drawing.Pen;
-        Khaki: System.Drawing.Pen;
-        Lavender: System.Drawing.Pen;
-        LavenderBlush: System.Drawing.Pen;
-        LawnGreen: System.Drawing.Pen;
-        LemonChiffon: System.Drawing.Pen;
-        LightBlue: System.Drawing.Pen;
-        LightCoral: System.Drawing.Pen;
-        LightCyan: System.Drawing.Pen;
-        LightGoldenrodYellow: System.Drawing.Pen;
-        LightGreen: System.Drawing.Pen;
-        LightGray: System.Drawing.Pen;
-        LightPink: System.Drawing.Pen;
-        LightSalmon: System.Drawing.Pen;
-        LightSeaGreen: System.Drawing.Pen;
-        LightSkyBlue: System.Drawing.Pen;
-        LightSlateGray: System.Drawing.Pen;
-        LightSteelBlue: System.Drawing.Pen;
-        LightYellow: System.Drawing.Pen;
-        Lime: System.Drawing.Pen;
-        LimeGreen: System.Drawing.Pen;
-        Linen: System.Drawing.Pen;
-        Magenta: System.Drawing.Pen;
-        Maroon: System.Drawing.Pen;
-        MediumAquamarine: System.Drawing.Pen;
-        MediumBlue: System.Drawing.Pen;
-        MediumOrchid: System.Drawing.Pen;
-        MediumPurple: System.Drawing.Pen;
-        MediumSeaGreen: System.Drawing.Pen;
-        MediumSlateBlue: System.Drawing.Pen;
-        MediumSpringGreen: System.Drawing.Pen;
-        MediumTurquoise: System.Drawing.Pen;
-        MediumVioletRed: System.Drawing.Pen;
-        MidnightBlue: System.Drawing.Pen;
-        MintCream: System.Drawing.Pen;
-        MistyRose: System.Drawing.Pen;
-        Moccasin: System.Drawing.Pen;
-        NavajoWhite: System.Drawing.Pen;
-        Navy: System.Drawing.Pen;
-        OldLace: System.Drawing.Pen;
-        Olive: System.Drawing.Pen;
-        OliveDrab: System.Drawing.Pen;
-        Orange: System.Drawing.Pen;
-        OrangeRed: System.Drawing.Pen;
-        Orchid: System.Drawing.Pen;
-        PaleGoldenrod: System.Drawing.Pen;
-        PaleGreen: System.Drawing.Pen;
-        PaleTurquoise: System.Drawing.Pen;
-        PaleVioletRed: System.Drawing.Pen;
-        PapayaWhip: System.Drawing.Pen;
-        PeachPuff: System.Drawing.Pen;
-        Peru: System.Drawing.Pen;
-        Pink: System.Drawing.Pen;
-        Plum: System.Drawing.Pen;
-        PowderBlue: System.Drawing.Pen;
-        Purple: System.Drawing.Pen;
-        Red: System.Drawing.Pen;
-        RosyBrown: System.Drawing.Pen;
-        RoyalBlue: System.Drawing.Pen;
-        SaddleBrown: System.Drawing.Pen;
-        Salmon: System.Drawing.Pen;
-        SandyBrown: System.Drawing.Pen;
-        SeaGreen: System.Drawing.Pen;
-        SeaShell: System.Drawing.Pen;
-        Sienna: System.Drawing.Pen;
-        Silver: System.Drawing.Pen;
-        SkyBlue: System.Drawing.Pen;
-        SlateBlue: System.Drawing.Pen;
-        SlateGray: System.Drawing.Pen;
-        Snow: System.Drawing.Pen;
-        SpringGreen: System.Drawing.Pen;
-        SteelBlue: System.Drawing.Pen;
-        Tan: System.Drawing.Pen;
-        Teal: System.Drawing.Pen;
-        Thistle: System.Drawing.Pen;
-        Tomato: System.Drawing.Pen;
-        Turquoise: System.Drawing.Pen;
-        Violet: System.Drawing.Pen;
-        Wheat: System.Drawing.Pen;
-        White: System.Drawing.Pen;
-        WhiteSmoke: System.Drawing.Pen;
-        Yellow: System.Drawing.Pen;
-        YellowGreen: System.Drawing.Pen;
-    }
-
-    export interface Point {
-        Empty: System.Drawing.Point;
-        IsEmpty: boolean;
-        X: number;
-        Y: number;
-    }
-
-    export interface PointConverter {
-    }
-
-    export interface PointF {
-        Empty: System.Drawing.PointF;
-        IsEmpty: boolean;
-        X: number;
-        Y: number;
-    }
-
-    export interface Rectangle {
-        Empty: System.Drawing.Rectangle;
-        Location: System.Drawing.Point;
-        Size: System.Drawing.Size;
-        X: number;
-        Y: number;
-        Width: number;
-        Height: number;
-        Left: number;
-        Top: number;
-        Right: number;
-        Bottom: number;
-        IsEmpty: boolean;
-    }
-
-    export interface RectangleConverter {
-    }
-
-    export interface RectangleF {
-        Empty: System.Drawing.RectangleF;
-        Location: System.Drawing.PointF;
-        Size: System.Drawing.SizeF;
-        X: number;
-        Y: number;
-        Width: number;
-        Height: number;
-        Left: number;
-        Top: number;
-        Right: number;
-        Bottom: number;
-        IsEmpty: boolean;
-    }
-
-    export interface Region {
-    }
-
-    enum RotateFlipType {
-        RotateNoneFlipNone,
-        Rotate180FlipXY,
-        Rotate90FlipNone,
-        Rotate270FlipXY,
-        Rotate180FlipNone,
-        RotateNoneFlipXY,
-        Rotate270FlipNone,
-        Rotate90FlipXY,
-        RotateNoneFlipX,
-        Rotate180FlipY,
-        Rotate90FlipX,
-        Rotate270FlipY,
-        Rotate180FlipX,
-        RotateNoneFlipY,
-        Rotate270FlipX,
-        Rotate90FlipY
-    }
-
-    export interface Size {
-        Empty: System.Drawing.Size;
-        IsEmpty: boolean;
-        Width: number;
-        Height: number;
-    }
-
-    export interface SizeConverter {
-    }
-
-    export interface SizeF {
-        Empty: System.Drawing.SizeF;
-        IsEmpty: boolean;
-        Width: number;
-        Height: number;
-    }
-
-    export interface SizeFConverter {
-    }
-
-    export interface SolidBrush extends System.Drawing.Internal.ISystemColorTracker {
-        Color: System.Drawing.Color;
-    }
-
-    enum StringAlignment {
-        Near,
-        Center,
-        Far
-    }
-
-    enum StringDigitSubstitute {
-        User,
-        None,
-        National,
-        Traditional
-    }
-
-    export interface StringFormat {
-        FormatFlags: System.Drawing.StringFormatFlags;
-        Alignment: System.Drawing.StringAlignment;
-        LineAlignment: System.Drawing.StringAlignment;
-        HotkeyPrefix: System.Drawing.Text.HotkeyPrefix;
-        Trimming: System.Drawing.StringTrimming;
-        GenericDefault: System.Drawing.StringFormat;
-        GenericTypographic: System.Drawing.StringFormat;
-        DigitSubstitutionMethod: System.Drawing.StringDigitSubstitute;
-        DigitSubstitutionLanguage: number;
-    }
-
-    enum StringFormatFlags {
-        DirectionRightToLeft,
-        DirectionVertical,
-        FitBlackBox,
-        DisplayFormatControl,
-        NoFontFallback,
-        MeasureTrailingSpaces,
-        NoWrap,
-        LineLimit,
-        NoClip
-    }
-
-    enum StringTrimming {
-        None,
-        Character,
-        Word,
-        EllipsisCharacter,
-        EllipsisWord,
-        EllipsisPath
-    }
-
-    enum StringUnit {
-        World,
-        Display,
-        Pixel,
-        Point,
-        Inch,
-        Document,
-        Millimeter,
-        Em
-    }
-
-    export interface SystemBrushes {
-        ActiveBorder: System.Drawing.Brush;
-        ActiveCaption: System.Drawing.Brush;
-        ActiveCaptionText: System.Drawing.Brush;
-        AppWorkspace: System.Drawing.Brush;
-        ButtonFace: System.Drawing.Brush;
-        ButtonHighlight: System.Drawing.Brush;
-        ButtonShadow: System.Drawing.Brush;
-        Control: System.Drawing.Brush;
-        ControlLightLight: System.Drawing.Brush;
-        ControlLight: System.Drawing.Brush;
-        ControlDark: System.Drawing.Brush;
-        ControlDarkDark: System.Drawing.Brush;
-        ControlText: System.Drawing.Brush;
-        Desktop: System.Drawing.Brush;
-        GradientActiveCaption: System.Drawing.Brush;
-        GradientInactiveCaption: System.Drawing.Brush;
-        GrayText: System.Drawing.Brush;
-        Highlight: System.Drawing.Brush;
-        HighlightText: System.Drawing.Brush;
-        HotTrack: System.Drawing.Brush;
-        InactiveCaption: System.Drawing.Brush;
-        InactiveBorder: System.Drawing.Brush;
-        InactiveCaptionText: System.Drawing.Brush;
-        Info: System.Drawing.Brush;
-        InfoText: System.Drawing.Brush;
-        Menu: System.Drawing.Brush;
-        MenuBar: System.Drawing.Brush;
-        MenuHighlight: System.Drawing.Brush;
-        MenuText: System.Drawing.Brush;
-        ScrollBar: System.Drawing.Brush;
-        Window: System.Drawing.Brush;
-        WindowFrame: System.Drawing.Brush;
-        WindowText: System.Drawing.Brush;
-    }
-
-    export interface SystemColors {
-        ActiveBorder: System.Drawing.Color;
-        ActiveCaption: System.Drawing.Color;
-        ActiveCaptionText: System.Drawing.Color;
-        AppWorkspace: System.Drawing.Color;
-        ButtonFace: System.Drawing.Color;
-        ButtonHighlight: System.Drawing.Color;
-        ButtonShadow: System.Drawing.Color;
-        Control: System.Drawing.Color;
-        ControlDark: System.Drawing.Color;
-        ControlDarkDark: System.Drawing.Color;
-        ControlLight: System.Drawing.Color;
-        ControlLightLight: System.Drawing.Color;
-        ControlText: System.Drawing.Color;
-        Desktop: System.Drawing.Color;
-        GradientActiveCaption: System.Drawing.Color;
-        GradientInactiveCaption: System.Drawing.Color;
-        GrayText: System.Drawing.Color;
-        Highlight: System.Drawing.Color;
-        HighlightText: System.Drawing.Color;
-        HotTrack: System.Drawing.Color;
-        InactiveBorder: System.Drawing.Color;
-        InactiveCaption: System.Drawing.Color;
-        InactiveCaptionText: System.Drawing.Color;
-        Info: System.Drawing.Color;
-        InfoText: System.Drawing.Color;
-        Menu: System.Drawing.Color;
-        MenuBar: System.Drawing.Color;
-        MenuHighlight: System.Drawing.Color;
-        MenuText: System.Drawing.Color;
-        ScrollBar: System.Drawing.Color;
-        Window: System.Drawing.Color;
-        WindowFrame: System.Drawing.Color;
-        WindowText: System.Drawing.Color;
-    }
-
-    export interface SystemFonts {
-        CaptionFont: System.Drawing.Font;
-        SmallCaptionFont: System.Drawing.Font;
-        MenuFont: System.Drawing.Font;
-        StatusFont: System.Drawing.Font;
-        MessageBoxFont: System.Drawing.Font;
-        IconTitleFont: System.Drawing.Font;
-        DefaultFont: System.Drawing.Font;
-        DialogFont: System.Drawing.Font;
-    }
-
-    export interface SystemIcons {
-        Application: System.Drawing.Icon;
-        Asterisk: System.Drawing.Icon;
-        Error: System.Drawing.Icon;
-        Exclamation: System.Drawing.Icon;
-        Hand: System.Drawing.Icon;
-        Information: System.Drawing.Icon;
-        Question: System.Drawing.Icon;
-        Warning: System.Drawing.Icon;
-        WinLogo: System.Drawing.Icon;
-        Shield: System.Drawing.Icon;
-    }
-
-    export interface SystemPens {
-        ActiveBorder: System.Drawing.Pen;
-        ActiveCaption: System.Drawing.Pen;
-        ActiveCaptionText: System.Drawing.Pen;
-        AppWorkspace: System.Drawing.Pen;
-        ButtonFace: System.Drawing.Pen;
-        ButtonHighlight: System.Drawing.Pen;
-        ButtonShadow: System.Drawing.Pen;
-        Control: System.Drawing.Pen;
-        ControlText: System.Drawing.Pen;
-        ControlDark: System.Drawing.Pen;
-        ControlDarkDark: System.Drawing.Pen;
-        ControlLight: System.Drawing.Pen;
-        ControlLightLight: System.Drawing.Pen;
-        Desktop: System.Drawing.Pen;
-        GradientActiveCaption: System.Drawing.Pen;
-        GradientInactiveCaption: System.Drawing.Pen;
-        GrayText: System.Drawing.Pen;
-        Highlight: System.Drawing.Pen;
-        HighlightText: System.Drawing.Pen;
-        HotTrack: System.Drawing.Pen;
-        InactiveBorder: System.Drawing.Pen;
-        InactiveCaption: System.Drawing.Pen;
-        InactiveCaptionText: System.Drawing.Pen;
-        Info: System.Drawing.Pen;
-        InfoText: System.Drawing.Pen;
-        Menu: System.Drawing.Pen;
-        MenuBar: System.Drawing.Pen;
-        MenuHighlight: System.Drawing.Pen;
-        MenuText: System.Drawing.Pen;
-        ScrollBar: System.Drawing.Pen;
-        Window: System.Drawing.Pen;
-        WindowFrame: System.Drawing.Pen;
-        WindowText: System.Drawing.Pen;
-    }
-
-    export interface TextureBrush {
-        Transform: System.Drawing.Drawing2D.Matrix;
-        WrapMode: System.Drawing.Drawing2D.WrapMode;
-        Image: System.Drawing.Image;
-    }
-
-    export interface ToolboxBitmapAttribute {
-        Default: System.Drawing.ToolboxBitmapAttribute;
-    }
-
 }
-declare module System.Drawing.Configuration {
 
-    export interface SystemDrawingSection {
-        BitmapSuffix: string;
-        Properties: any; // System.Configuration.ConfigurationPropertyCollection
-    }
-
-}
-declare module System.Drawing.Design {
-
-    export interface CategoryNameCollection {
-        Item: string;
-    }
-
-    export interface IPropertyValueUIService {
-    }
-
-    export interface IToolboxItemProvider {
-        Items: System.Drawing.Design.ToolboxItemCollection;
-    }
-
-    export interface IToolboxService {
-        CategoryNames: System.Drawing.Design.CategoryNameCollection;
-        SelectedCategory: string;
-    }
-
-    export interface IToolboxUser {
-    }
-
-    export interface PaintValueEventArgs {
-        Bounds: System.Drawing.Rectangle;
-        Context: any; // System.ComponentModel.ITypeDescriptorContext
-        Graphics: System.Drawing.Graphics;
-        Value: any;
-    }
-
-    export interface PropertyValueUIHandler {
-    }
-
-    export interface PropertyValueUIItem {
-        Image: System.Drawing.Image;
-        InvokeHandler: System.Drawing.Design.PropertyValueUIItemInvokeHandler;
-        ToolTip: string;
-    }
-
-    export interface PropertyValueUIItemInvokeHandler {
-    }
-
-    export interface ToolboxComponentsCreatedEventArgs {
-        Components: any[]; // System.ComponentModel.IComponent[]
-    }
-
-    export interface ToolboxComponentsCreatedEventHandler {
-    }
-
-    export interface ToolboxComponentsCreatingEventArgs {
-        DesignerHost: any; // System.ComponentModel.Design.IDesignerHost
-    }
-
-    export interface ToolboxComponentsCreatingEventHandler {
-    }
-
-    export interface ToolboxItem {
-        AssemblyName: any; // System.Reflection.AssemblyName
-        DependentAssemblies: any[]; // System.Reflection.AssemblyName
-        Bitmap: System.Drawing.Bitmap;
-        OriginalBitmap: System.Drawing.Bitmap;
-        Company: string;
-        ComponentType: string;
-        Description: string;
-        DisplayName: string;
-        Filter: any; // System.Collections.ICollection
-        IsTransient: boolean;
-        Locked: boolean;
-        Properties: any; // System.Collections.IDictionary
-        TypeName: string;
-        Version: string;
-    }
-
-    export interface ToolboxItemCollection {
-        Item: System.Drawing.Design.ToolboxItem;
-    }
-
-    export interface ToolboxItemCreatorCallback {
-    }
-
-    export interface UITypeEditor {
-        IsDropDownResizable: boolean;
-    }
-
-    enum UITypeEditorEditStyle {
-        None,
-        Modal,
-        DropDown
-    }
-
-}
 declare module System.Drawing.Drawing2D {
-
-    export interface AdjustableArrowCap {
-        Height: number;
-        Width: number;
-        MiddleInset: number;
-        Filled: boolean;
-    }
-
-    export interface Blend {
-        Factors: number[];
-        Positions: number[];
-    }
-
-    export interface ColorBlend {
-        Colors: System.Drawing.Color[];
-        Positions: number[];
-    }
-
     enum CombineMode {
-        Replace,
-        Intersect,
-        Union,
-        Xor,
-        Exclude,
-        Complement
+        Replace = 0,
+        Intersect = 1,
+        Union = 2,
+        Xor = 3,
+        Exclude = 4,
+        Complement = 5
+    }
+
+    enum WarpMode {
+        Perspective = 0,
+        Bilinear = 1
+    }
+
+    enum WrapMode {
+        Tile = 0,
+        TileFlipX = 1,
+        TileFlipY = 2,
+        TileFlipXY = 3,
+        Clamp = 4
     }
 
     enum CompositingMode {
-        SourceOver,
-        SourceCopy
+        SourceOver = 0,
+        SourceCopy = 1
+    }
+
+    enum DashCap {
+        Flat = 0,
+        Round = 2,
+        Triangle = 3
+    }
+
+    enum LineJoin {
+        Miter = 0,
+        Bevel = 1,
+        Round = 2,
+        MiterClipped = 3
+    }
+
+    enum DashStyle {
+        Solid = 0,
+        Dash = 1,
+        Dot = 2,
+        DashDot = 3,
+        DashDotDot = 4,
+        Custom = 5
+    }
+
+    enum LineCap {
+        Flat = 0,
+        Square = 1,
+        Round = 2,
+        Triangle = 3,
+        NoAnchor = 16,
+        SquareAnchor = 17,
+        RoundAnchor = 18,
+        DiamondAnchor = 19,
+        ArrowAnchor = 20,
+        AnchorMask = 240,
+        Custom = 255
     }
 
     enum CompositingQuality {
-        Invalid,
-        Default,
-        HighSpeed,
-        HighQuality,
-        GammaCorrected,
-        AssumeLinear
+        Invalid = -1,
+        Default = 0,
+        HighSpeed = 1,
+        HighQuality = 2,
+        GammaCorrected = 3,
+        AssumeLinear = 4
+    }
+
+    enum SmoothingMode {
+        Invalid = -1,
+        Default = 0,
+        HighSpeed = 1,
+        HighQuality = 2,
+        None = 3,
+        AntiAlias = 4
+    }
+
+    enum PixelOffsetMode {
+        Invalid = -1,
+        Default = 0,
+        HighSpeed = 1,
+        HighQuality = 2,
+        None = 3,
+        Half = 4
+    }
+
+    enum MatrixOrder {
+        Prepend = 0,
+        Append = 1
+    }
+
+    enum InterpolationMode {
+        Invalid = -1,
+        Default = 0,
+        Low = 1,
+        High = 2,
+        Bilinear = 3,
+        Bicubic = 4,
+        NearestNeighbor = 5,
+        HighQualityBilinear = 6,
+        HighQualityBicubic = 7
+    }
+
+    enum PenAlignment {
+        Center = 0,
+        Inset = 1,
+        Outset = 2,
+        Left = 3,
+        Right = 4
+    }
+
+    enum PenType {
+        SolidColor = 0,
+        HatchFill = 1,
+        TextureFill = 2,
+        PathGradient = 3,
+        LinearGradient = 4
+    }
+
+    enum FlushIntention {
+        Flush = 0,
+        Sync = 1
+    }
+
+    export class RegionData {
+        Data: any;
     }
 
     enum CoordinateSpace {
-        World,
-        Page,
-        Device
+        World = 0,
+        Page = 1,
+        Device = 2
     }
 
-    export interface CustomLineCap {
+    export class GraphicsState {
+    }
+
+    export class GraphicsContainer {
+    }
+
+    export class CustomLineCap {
         StrokeJoin: System.Drawing.Drawing2D.LineJoin;
         BaseCap: System.Drawing.Drawing2D.LineCap;
         BaseInset: number;
         WidthScale: number;
+        constructor(fillPath: System.Drawing.Drawing2D.GraphicsPath, strokePath: System.Drawing.Drawing2D.GraphicsPath);
+        constructor(fillPath: System.Drawing.Drawing2D.GraphicsPath, strokePath: System.Drawing.Drawing2D.GraphicsPath, baseCap: System.Drawing.Drawing2D.LineCap);
+        constructor(fillPath: System.Drawing.Drawing2D.GraphicsPath, strokePath: System.Drawing.Drawing2D.GraphicsPath, baseCap: System.Drawing.Drawing2D.LineCap, baseInset: number);
+        Dispose(): void;
+        Clone(): any;
+        SetStrokeCaps(startCap: System.Drawing.Drawing2D.LineCap, endCap: System.Drawing.Drawing2D.LineCap): void;
+        //GetStrokeCaps(startCap: System.Drawing.Drawing2D.LineCap &, endCap: System.Drawing.Drawing2D.LineCap &): void;
+        GetStrokeCaps(startCap: System.Drawing.Drawing2D.LineCap, endCap: System.Drawing.Drawing2D.LineCap): void;
     }
 
-    enum DashCap {
-        Flat,
-        Round,
-        Triangle
-    }
-
-    enum DashStyle {
-        Solid,
-        Dash,
-        Dot,
-        DashDot,
-        DashDotDot,
-        Custom
-    }
-
-    enum FillMode {
-        Alternate,
-        Winding
-    }
-
-    enum FlushIntention {
-        Flush,
-        Sync
-    }
-
-    export interface GraphicsContainer {
-    }
-
-    export interface GraphicsPath {
-        FillMode: System.Drawing.Drawing2D.FillMode;
-        PathData: System.Drawing.Drawing2D.PathData;
-        PointCount: number;
-        PathTypes: any;
-        PathPoints: System.Drawing.PointF[];
-    }
-
-    export interface GraphicsPathIterator {
-        Count: number;
-        SubpathCount: number;
-    }
-
-    export interface GraphicsState {
-    }
-
-    export interface HatchBrush {
-        HatchStyle: System.Drawing.Drawing2D.HatchStyle;
-        ForegroundColor: System.Drawing.Color;
-        BackgroundColor: System.Drawing.Color;
-    }
-
-    enum HatchStyle {
-        Horizontal,
-        Min,
-        Vertical,
-        ForwardDiagonal,
-        BackwardDiagonal,
-        Cross,
-        LargeGrid,
-        Max,
-        DiagonalCross,
-        Percent05,
-        Percent10,
-        Percent20,
-        Percent25,
-        Percent30,
-        Percent40,
-        Percent50,
-        Percent60,
-        Percent70,
-        Percent75,
-        Percent80,
-        Percent90,
-        LightDownwardDiagonal,
-        LightUpwardDiagonal,
-        DarkDownwardDiagonal,
-        DarkUpwardDiagonal,
-        WideDownwardDiagonal,
-        WideUpwardDiagonal,
-        LightVertical,
-        LightHorizontal,
-        NarrowVertical,
-        NarrowHorizontal,
-        DarkVertical,
-        DarkHorizontal,
-        DashedDownwardDiagonal,
-        DashedUpwardDiagonal,
-        DashedHorizontal,
-        DashedVertical,
-        SmallConfetti,
-        LargeConfetti,
-        ZigZag,
-        Wave,
-        DiagonalBrick,
-        HorizontalBrick,
-        Weave,
-        Plaid,
-        Divot,
-        DottedGrid,
-        DottedDiamond,
-        Shingle,
-        Trellis,
-        Sphere,
-        SmallGrid,
-        SmallCheckerBoard,
-        LargeCheckerBoard,
-        OutlinedDiamond,
-        SolidDiamond
-    }
-
-    enum InterpolationMode {
-        Invalid,
-        Default,
-        Low,
-        High,
-        Bilinear,
-        Bicubic,
-        NearestNeighbor,
-        HighQualityBilinear,
-        HighQualityBicubic
-    }
-
-    export interface LinearGradientBrush {
-        LinearColors: System.Drawing.Color[];
-        Rectangle: System.Drawing.RectangleF;
-        GammaCorrection: boolean;
-        Blend: System.Drawing.Drawing2D.Blend;
-        InterpolationColors: System.Drawing.Drawing2D.ColorBlend;
-        WrapMode: System.Drawing.Drawing2D.WrapMode;
-        Transform: System.Drawing.Drawing2D.Matrix;
-    }
-
-    enum LinearGradientMode {
-        Horizontal,
-        Vertical,
-        ForwardDiagonal,
-        BackwardDiagonal
-    }
-
-    enum LineCap {
-        Flat,
-        Square,
-        Round,
-        Triangle,
-        NoAnchor,
-        SquareAnchor,
-        RoundAnchor,
-        DiamondAnchor,
-        ArrowAnchor,
-        AnchorMask,
-        Custom
-    }
-
-    enum LineJoin {
-        Miter,
-        Bevel,
-        Round,
-        MiterClipped
-    }
-
-    export interface Matrix {
+    export class Matrix {
         Elements: number[];
         OffsetX: number;
         OffsetY: number;
         IsInvertible: boolean;
         IsIdentity: boolean;
+        constructor();
+        constructor(m11: number, m12: number, m21: number, m22: number, dx: number, dy: number);
+        constructor(rect: System.Drawing.RectangleF, plgpts: System.Drawing.PointF[]);
+        constructor(rect: System.Drawing.Rectangle, plgpts: System.Drawing.Point[]);
+        Dispose(): void;
+        Clone(): System.Drawing.Drawing2D.Matrix;
+        Reset(): void;
+        Multiply(matrix: System.Drawing.Drawing2D.Matrix): void;
+        Multiply(matrix: System.Drawing.Drawing2D.Matrix, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        Translate(offsetX: number, offsetY: number): void;
+        Translate(offsetX: number, offsetY: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        Scale(scaleX: number, scaleY: number): void;
+        Scale(scaleX: number, scaleY: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        Rotate(angle: number): void;
+        Rotate(angle: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        RotateAt(angle: number, point: System.Drawing.PointF): void;
+        RotateAt(angle: number, point: System.Drawing.PointF, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        Shear(shearX: number, shearY: number): void;
+        Shear(shearX: number, shearY: number, order: System.Drawing.Drawing2D.MatrixOrder): void;
+        Invert(): void;
+        TransformPoints(pts: System.Drawing.PointF[]): void;
+        TransformPoints(pts: System.Drawing.Point[]): void;
+        TransformVectors(pts: System.Drawing.PointF[]): void;
+        VectorTransformPoints(pts: System.Drawing.Point[]): void;
+        TransformVectors(pts: System.Drawing.Point[]): void;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
     }
 
-    enum MatrixOrder {
-        Prepend,
-        Append
+    enum FillMode {
+        Alternate = 0,
+        Winding = 1
     }
 
-    export interface PathData {
+    export class PathData {
         Points: System.Drawing.PointF[];
         Types: any;
+        constructor();
     }
 
-    export interface PathGradientBrush {
-        CenterColor: System.Drawing.Color;
-        SurroundColors: System.Drawing.Color[];
-        CenterPoint: System.Drawing.PointF;
-        Rectangle: System.Drawing.RectangleF;
-        Blend: System.Drawing.Drawing2D.Blend;
-        InterpolationColors: System.Drawing.Drawing2D.ColorBlend;
-        Transform: System.Drawing.Drawing2D.Matrix;
-        FocusScales: System.Drawing.PointF;
-        WrapMode: System.Drawing.Drawing2D.WrapMode;
+    export class GraphicsPath {
+        FillMode: System.Drawing.Drawing2D.FillMode;
+        PathData: System.Drawing.Drawing2D.PathData;
+        PointCount: number;
+        PathTypes: any;
+        PathPoints: System.Drawing.PointF[];
+        constructor();
+        constructor(fillMode: System.Drawing.Drawing2D.FillMode);
+        constructor(pts: System.Drawing.PointF[], types: any);
+        constructor(pts: System.Drawing.PointF[], types: any, fillMode: System.Drawing.Drawing2D.FillMode);
+        constructor(pts: System.Drawing.Point[], types: any);
+        constructor(pts: System.Drawing.Point[], types: any, fillMode: System.Drawing.Drawing2D.FillMode);
+        Clone(): any;
+        Dispose(): void;
+        Reset(): void;
+        StartFigure(): void;
+        CloseFigure(): void;
+        CloseAllFigures(): void;
+        SetMarkers(): void;
+        ClearMarkers(): void;
+        Reverse(): void;
+        GetLastPoint(): System.Drawing.PointF;
+        IsVisible(x: number, y: number): boolean;
+        IsVisible(point: System.Drawing.PointF): boolean;
+        IsVisible(x: number, y: number, graphics: System.Drawing.Graphics): boolean;
+        IsVisible(pt: System.Drawing.PointF, graphics: System.Drawing.Graphics): boolean;
+        IsVisible(x: number, y: number): boolean;
+        IsVisible(point: System.Drawing.Point): boolean;
+        IsVisible(x: number, y: number, graphics: System.Drawing.Graphics): boolean;
+        IsVisible(pt: System.Drawing.Point, graphics: System.Drawing.Graphics): boolean;
+        IsOutlineVisible(x: number, y: number, pen: System.Drawing.Pen): boolean;
+        IsOutlineVisible(point: System.Drawing.PointF, pen: System.Drawing.Pen): boolean;
+        IsOutlineVisible(x: number, y: number, pen: System.Drawing.Pen, graphics: System.Drawing.Graphics): boolean;
+        IsOutlineVisible(pt: System.Drawing.PointF, pen: System.Drawing.Pen, graphics: System.Drawing.Graphics): boolean;
+        IsOutlineVisible(x: number, y: number, pen: System.Drawing.Pen): boolean;
+        IsOutlineVisible(point: System.Drawing.Point, pen: System.Drawing.Pen): boolean;
+        IsOutlineVisible(x: number, y: number, pen: System.Drawing.Pen, graphics: System.Drawing.Graphics): boolean;
+        IsOutlineVisible(pt: System.Drawing.Point, pen: System.Drawing.Pen, graphics: System.Drawing.Graphics): boolean;
+        AddLine(pt1: System.Drawing.PointF, pt2: System.Drawing.PointF): void;
+        AddLine(x1: number, y1: number, x2: number, y2: number): void;
+        AddLines(points: System.Drawing.PointF[]): void;
+        AddLine(pt1: System.Drawing.Point, pt2: System.Drawing.Point): void;
+        AddLine(x1: number, y1: number, x2: number, y2: number): void;
+        AddLines(points: System.Drawing.Point[]): void;
+        AddArc(rect: System.Drawing.RectangleF, startAngle: number, sweepAngle: number): void;
+        AddArc(x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        AddArc(rect: System.Drawing.Rectangle, startAngle: number, sweepAngle: number): void;
+        AddArc(x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        AddBezier(pt1: System.Drawing.PointF, pt2: System.Drawing.PointF, pt3: System.Drawing.PointF, pt4: System.Drawing.PointF): void;
+        AddBezier(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, x4: number, y4: number): void;
+        AddBeziers(points: System.Drawing.PointF[]): void;
+        AddBezier(pt1: System.Drawing.Point, pt2: System.Drawing.Point, pt3: System.Drawing.Point, pt4: System.Drawing.Point): void;
+        AddBezier(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, x4: number, y4: number): void;
+        AddBeziers(...points: System.Drawing.Point[]): void;
+        AddCurve(points: System.Drawing.PointF[]): void;
+        AddCurve(points: System.Drawing.PointF[], tension: number): void;
+        AddCurve(points: System.Drawing.PointF[], offset: number, numberOfSegments: number, tension: number): void;
+        AddCurve(points: System.Drawing.Point[]): void;
+        AddCurve(points: System.Drawing.Point[], tension: number): void;
+        AddCurve(points: System.Drawing.Point[], offset: number, numberOfSegments: number, tension: number): void;
+        AddClosedCurve(points: System.Drawing.PointF[]): void;
+        AddClosedCurve(points: System.Drawing.PointF[], tension: number): void;
+        AddClosedCurve(points: System.Drawing.Point[]): void;
+        AddClosedCurve(points: System.Drawing.Point[], tension: number): void;
+        AddRectangle(rect: System.Drawing.RectangleF): void;
+        AddRectangles(rects: System.Drawing.RectangleF[]): void;
+        AddRectangle(rect: System.Drawing.Rectangle): void;
+        AddRectangles(rects: System.Drawing.Rectangle[]): void;
+        AddEllipse(rect: System.Drawing.RectangleF): void;
+        AddEllipse(x: number, y: number, width: number, height: number): void;
+        AddEllipse(rect: System.Drawing.Rectangle): void;
+        AddEllipse(x: number, y: number, width: number, height: number): void;
+        AddPie(rect: System.Drawing.Rectangle, startAngle: number, sweepAngle: number): void;
+        AddPie(x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        AddPie(x: number, y: number, width: number, height: number, startAngle: number, sweepAngle: number): void;
+        AddPolygon(points: System.Drawing.PointF[]): void;
+        AddPolygon(points: System.Drawing.Point[]): void;
+        AddPath(addingPath: System.Drawing.Drawing2D.GraphicsPath, connect: boolean): void;
+        AddString(s: string, family: System.Drawing.FontFamily, style: number, emSize: number, origin: System.Drawing.PointF, format: System.Drawing.StringFormat): void;
+        AddString(s: string, family: System.Drawing.FontFamily, style: number, emSize: number, origin: System.Drawing.Point, format: System.Drawing.StringFormat): void;
+        AddString(s: string, family: System.Drawing.FontFamily, style: number, emSize: number, layoutRect: System.Drawing.RectangleF, format: System.Drawing.StringFormat): void;
+        AddString(s: string, family: System.Drawing.FontFamily, style: number, emSize: number, layoutRect: System.Drawing.Rectangle, format: System.Drawing.StringFormat): void;
+        Transform(matrix: System.Drawing.Drawing2D.Matrix): void;
+        GetBounds(): System.Drawing.RectangleF;
+        GetBounds(matrix: System.Drawing.Drawing2D.Matrix): System.Drawing.RectangleF;
+        GetBounds(matrix: System.Drawing.Drawing2D.Matrix, pen: System.Drawing.Pen): System.Drawing.RectangleF;
+        Flatten(): void;
+        Flatten(matrix: System.Drawing.Drawing2D.Matrix): void;
+        Flatten(matrix: System.Drawing.Drawing2D.Matrix, flatness: number): void;
+        Widen(pen: System.Drawing.Pen): void;
+        Widen(pen: System.Drawing.Pen, matrix: System.Drawing.Drawing2D.Matrix): void;
+        Widen(pen: System.Drawing.Pen, matrix: System.Drawing.Drawing2D.Matrix, flatness: number): void;
+        Warp(destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF): void;
+        Warp(destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, matrix: System.Drawing.Drawing2D.Matrix): void;
+        Warp(destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, matrix: System.Drawing.Drawing2D.Matrix, warpMode: System.Drawing.Drawing2D.WarpMode): void;
+        Warp(destPoints: System.Drawing.PointF[], srcRect: System.Drawing.RectangleF, matrix: System.Drawing.Drawing2D.Matrix, warpMode: System.Drawing.Drawing2D.WarpMode, flatness: number): void;
     }
-
-    enum PathPointType {
-        Start,
-        Line,
-        Bezier,
-        Bezier3,
-        PathTypeMask,
-        DashMode,
-        PathMarker,
-        CloseSubpath
-    }
-
-    enum PenAlignment {
-        Center,
-        Inset,
-        Outset,
-        Left,
-        Right
-    }
-
-    enum PenType {
-        SolidColor,
-        HatchFill,
-        TextureFill,
-        PathGradient,
-        LinearGradient
-    }
-
-    enum PixelOffsetMode {
-        Invalid,
-        Default,
-        HighSpeed,
-        HighQuality,
-        None,
-        Half
-    }
-
-    enum QualityMode {
-        Invalid,
-        Default,
-        Low,
-        High
-    }
-
-    export interface RegionData {
-        Data: any;
-    }
-
-    enum SmoothingMode {
-        Invalid,
-        Default,
-        HighSpeed,
-        HighQuality,
-        None,
-        AntiAlias
-    }
-
-    enum WarpMode {
-        Perspective,
-        Bilinear
-    }
-
-    enum WrapMode {
-        Tile,
-        TileFlipX,
-        TileFlipY,
-        TileFlipXY,
-        Clamp
-    }
-
 }
-declare module System.Drawing.Imaging {
 
-    export interface BitmapData {
-        Width: number;
-        Height: number;
-        Stride: number;
-        PixelFormat: System.Drawing.Imaging.PixelFormat;
-        Scan0: number;
-        Reserved: number;
+
+declare module System.Drawing.Imaging {
+    export class PlayRecordCallback {
+        constructor(object: any, method: number);
+        Invoke(recordType: System.Drawing.Imaging.EmfPlusRecordType, flags: number, dataSize: number, recordData: number): void;
+        BeginInvoke(recordType: System.Drawing.Imaging.EmfPlusRecordType, flags: number, dataSize: number, recordData: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
+        EndInvoke(result: System.IAsyncResult): void;
     }
 
     enum ColorAdjustType {
-        Default,
-        Bitmap,
-        Brush,
-        Pen,
-        Text,
-        Count,
-        Any
+        Default = 0,
+        Bitmap = 1,
+        Brush = 2,
+        Pen = 3,
+        Text = 4,
+        Count = 5,
+        Any = 6
     }
 
     enum ColorChannelFlag {
-        ColorChannelC,
-        ColorChannelM,
-        ColorChannelY,
-        ColorChannelK,
-        ColorChannelLast
+        ColorChannelC = 0,
+        ColorChannelM = 1,
+        ColorChannelY = 2,
+        ColorChannelK = 3,
+        ColorChannelLast = 4
     }
 
-    export interface ColorMap {
+    export class ColorMap {
         OldColor: System.Drawing.Color;
         NewColor: System.Drawing.Color;
+        constructor();
     }
 
     enum ColorMapType {
-        Default,
-        Brush
+        Default = 0,
+        Brush = 1
     }
 
-    export interface ColorMatrix {
+    export class ImageAttributes {
+        constructor();
+        Dispose(): void;
+        Clone(): any;
+        SetColorMatrix(newColorMatrix: System.Drawing.Imaging.ColorMatrix): void;
+        SetColorMatrix(newColorMatrix: System.Drawing.Imaging.ColorMatrix, flags: System.Drawing.Imaging.ColorMatrixFlag): void;
+        SetColorMatrix(newColorMatrix: System.Drawing.Imaging.ColorMatrix, mode: System.Drawing.Imaging.ColorMatrixFlag, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearColorMatrix(): void;
+        ClearColorMatrix(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetColorMatrices(newColorMatrix: System.Drawing.Imaging.ColorMatrix, grayMatrix: System.Drawing.Imaging.ColorMatrix): void;
+        SetColorMatrices(newColorMatrix: System.Drawing.Imaging.ColorMatrix, grayMatrix: System.Drawing.Imaging.ColorMatrix, flags: System.Drawing.Imaging.ColorMatrixFlag): void;
+        SetColorMatrices(newColorMatrix: System.Drawing.Imaging.ColorMatrix, grayMatrix: System.Drawing.Imaging.ColorMatrix, mode: System.Drawing.Imaging.ColorMatrixFlag, type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetThreshold(threshold: number): void;
+        SetThreshold(threshold: number, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearThreshold(): void;
+        ClearThreshold(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetGamma(gamma: number): void;
+        SetGamma(gamma: number, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearGamma(): void;
+        ClearGamma(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetNoOp(): void;
+        SetNoOp(type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearNoOp(): void;
+        ClearNoOp(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetColorKey(colorLow: System.Drawing.Color, colorHigh: System.Drawing.Color): void;
+        SetColorKey(colorLow: System.Drawing.Color, colorHigh: System.Drawing.Color, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearColorKey(): void;
+        ClearColorKey(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetOutputChannel(flags: System.Drawing.Imaging.ColorChannelFlag): void;
+        SetOutputChannel(flags: System.Drawing.Imaging.ColorChannelFlag, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearOutputChannel(): void;
+        ClearOutputChannel(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetOutputChannelColorProfile(colorProfileFilename: string): void;
+        SetOutputChannelColorProfile(colorProfileFilename: string, type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearOutputChannelColorProfile(): void;
+        ClearOutputChannelColorProfile(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetRemapTable(map: System.Drawing.Imaging.ColorMap[]): void;
+        SetRemapTable(map: System.Drawing.Imaging.ColorMap[], type: System.Drawing.Imaging.ColorAdjustType): void;
+        ClearRemapTable(): void;
+        ClearRemapTable(type: System.Drawing.Imaging.ColorAdjustType): void;
+        SetBrushRemapTable(map: System.Drawing.Imaging.ColorMap[]): void;
+        ClearBrushRemapTable(): void;
+        SetWrapMode(mode: System.Drawing.Drawing2D.WrapMode): void;
+        SetWrapMode(mode: System.Drawing.Drawing2D.WrapMode, color: System.Drawing.Color): void;
+        SetWrapMode(mode: System.Drawing.Drawing2D.WrapMode, color: System.Drawing.Color, clamp: boolean): void;
+        GetAdjustedPalette(palette: System.Drawing.Imaging.ColorPalette, type: System.Drawing.Imaging.ColorAdjustType): void;
+    }
+
+    export class WmfPlaceableFileHeader {
+        Key: number;
+        Hmf: number;
+        BboxLeft: number;
+        BboxTop: number;
+        BboxRight: number;
+        BboxBottom: number;
+        Inch: number;
+        Reserved: number;
+        Checksum: number;
+        constructor();
+    }
+
+    enum EmfType {
+        EmfOnly = 3,
+        EmfPlusOnly = 4,
+        EmfPlusDual = 5
+    }
+
+    enum MetafileFrameUnit {
+        Pixel = 2,
+        Point = 3,
+        Inch = 4,
+        Document = 5,
+        Millimeter = 6,
+        GdiCompatible = 7
+    }
+
+    enum MetafileType {
+        Invalid = 0,
+        Wmf = 1,
+        WmfPlaceable = 2,
+        Emf = 3,
+        EmfPlusOnly = 4,
+        EmfPlusDual = 5
+    }
+
+    export class MetaHeader {
+        Type: number;
+        HeaderSize: number;
+        Version: number;
+        Size: number;
+        NoObjects: number;
+        MaxRecord: number;
+        NoParameters: number;
+        constructor();
+    }
+
+    export class MetafileHeader {
+        Type: System.Drawing.Imaging.MetafileType;
+        MetafileSize: number;
+        Version: number;
+        DpiX: number;
+        DpiY: number;
+        Bounds: System.Drawing.Rectangle;
+        WmfHeader: System.Drawing.Imaging.MetaHeader;
+        EmfPlusHeaderSize: number;
+        LogicalDpiX: number;
+        LogicalDpiY: number;
+        IsWmf(): boolean;
+        IsWmfPlaceable(): boolean;
+        IsEmf(): boolean;
+        IsEmfOrEmfPlus(): boolean;
+        IsEmfPlus(): boolean;
+        IsEmfPlusDual(): boolean;
+        IsEmfPlusOnly(): boolean;
+        IsDisplay(): boolean;
+    }
+
+    enum EmfPlusRecordType {
+        EmfHeader = 1,
+        EmfMin = 1,
+        EmfPolyBezier = 2,
+        EmfPolygon = 3,
+        EmfPolyline = 4,
+        EmfPolyBezierTo = 5,
+        EmfPolyLineTo = 6,
+        EmfPolyPolyline = 7,
+        EmfPolyPolygon = 8,
+        EmfSetWindowExtEx = 9,
+        EmfSetWindowOrgEx = 10,
+        EmfSetViewportExtEx = 11,
+        EmfSetViewportOrgEx = 12,
+        EmfSetBrushOrgEx = 13,
+        EmfEof = 14,
+        EmfSetPixelV = 15,
+        EmfSetMapperFlags = 16,
+        EmfSetMapMode = 17,
+        EmfSetBkMode = 18,
+        EmfSetPolyFillMode = 19,
+        EmfSetROP2 = 20,
+        EmfSetStretchBltMode = 21,
+        EmfSetTextAlign = 22,
+        EmfSetColorAdjustment = 23,
+        EmfSetTextColor = 24,
+        EmfSetBkColor = 25,
+        EmfOffsetClipRgn = 26,
+        EmfMoveToEx = 27,
+        EmfSetMetaRgn = 28,
+        EmfExcludeClipRect = 29,
+        EmfIntersectClipRect = 30,
+        EmfScaleViewportExtEx = 31,
+        EmfScaleWindowExtEx = 32,
+        EmfSaveDC = 33,
+        EmfRestoreDC = 34,
+        EmfSetWorldTransform = 35,
+        EmfModifyWorldTransform = 36,
+        EmfSelectObject = 37,
+        EmfCreatePen = 38,
+        EmfCreateBrushIndirect = 39,
+        EmfDeleteObject = 40,
+        EmfAngleArc = 41,
+        EmfEllipse = 42,
+        EmfRectangle = 43,
+        EmfRoundRect = 44,
+        EmfRoundArc = 45,
+        EmfChord = 46,
+        EmfPie = 47,
+        EmfSelectPalette = 48,
+        EmfCreatePalette = 49,
+        EmfSetPaletteEntries = 50,
+        EmfResizePalette = 51,
+        EmfRealizePalette = 52,
+        EmfExtFloodFill = 53,
+        EmfLineTo = 54,
+        EmfArcTo = 55,
+        EmfPolyDraw = 56,
+        EmfSetArcDirection = 57,
+        EmfSetMiterLimit = 58,
+        EmfBeginPath = 59,
+        EmfEndPath = 60,
+        EmfCloseFigure = 61,
+        EmfFillPath = 62,
+        EmfStrokeAndFillPath = 63,
+        EmfStrokePath = 64,
+        EmfFlattenPath = 65,
+        EmfWidenPath = 66,
+        EmfSelectClipPath = 67,
+        EmfAbortPath = 68,
+        EmfReserved069 = 69,
+        EmfGdiComment = 70,
+        EmfFillRgn = 71,
+        EmfFrameRgn = 72,
+        EmfInvertRgn = 73,
+        EmfPaintRgn = 74,
+        EmfExtSelectClipRgn = 75,
+        EmfBitBlt = 76,
+        EmfStretchBlt = 77,
+        EmfMaskBlt = 78,
+        EmfPlgBlt = 79,
+        EmfSetDIBitsToDevice = 80,
+        EmfStretchDIBits = 81,
+        EmfExtCreateFontIndirect = 82,
+        EmfExtTextOutA = 83,
+        EmfExtTextOutW = 84,
+        EmfPolyBezier16 = 85,
+        EmfPolygon16 = 86,
+        EmfPolyline16 = 87,
+        EmfPolyBezierTo16 = 88,
+        EmfPolylineTo16 = 89,
+        EmfPolyPolyline16 = 90,
+        EmfPolyPolygon16 = 91,
+        EmfPolyDraw16 = 92,
+        EmfCreateMonoBrush = 93,
+        EmfCreateDibPatternBrushPt = 94,
+        EmfExtCreatePen = 95,
+        EmfPolyTextOutA = 96,
+        EmfPolyTextOutW = 97,
+        EmfSetIcmMode = 98,
+        EmfCreateColorSpace = 99,
+        EmfSetColorSpace = 100,
+        EmfDeleteColorSpace = 101,
+        EmfGlsRecord = 102,
+        EmfGlsBoundedRecord = 103,
+        EmfPixelFormat = 104,
+        EmfDrawEscape = 105,
+        EmfExtEscape = 106,
+        EmfStartDoc = 107,
+        EmfSmallTextOut = 108,
+        EmfForceUfiMapping = 109,
+        EmfNamedEscpae = 110,
+        EmfColorCorrectPalette = 111,
+        EmfSetIcmProfileA = 112,
+        EmfSetIcmProfileW = 113,
+        EmfAlphaBlend = 114,
+        EmfSetLayout = 115,
+        EmfTransparentBlt = 116,
+        EmfReserved117 = 117,
+        EmfGradientFill = 118,
+        EmfSetLinkedUfis = 119,
+        EmfSetTextJustification = 120,
+        EmfColorMatchToTargetW = 121,
+        EmfCreateColorSpaceW = 122,
+        EmfMax = 122,
+        EmfPlusRecordBase = 16384,
+        Invalid = 16384,
+        Header = 16385,
+        Min = 16385,
+        EndOfFile = 16386,
+        Comment = 16387,
+        GetDC = 16388,
+        MultiFormatStart = 16389,
+        MultiFormatSection = 16390,
+        MultiFormatEnd = 16391,
+        Object = 16392,
+        Clear = 16393,
+        FillRects = 16394,
+        DrawRects = 16395,
+        FillPolygon = 16396,
+        DrawLines = 16397,
+        FillEllipse = 16398,
+        DrawEllipse = 16399,
+        FillPie = 16400,
+        DrawPie = 16401,
+        DrawArc = 16402,
+        FillRegion = 16403,
+        FillPath = 16404,
+        DrawPath = 16405,
+        FillClosedCurve = 16406,
+        DrawClosedCurve = 16407,
+        DrawCurve = 16408,
+        DrawBeziers = 16409,
+        DrawImage = 16410,
+        DrawImagePoints = 16411,
+        DrawString = 16412,
+        SetRenderingOrigin = 16413,
+        SetAntiAliasMode = 16414,
+        SetTextRenderingHint = 16415,
+        SetTextContrast = 16416,
+        SetInterpolationMode = 16417,
+        SetPixelOffsetMode = 16418,
+        SetCompositingMode = 16419,
+        SetCompositingQuality = 16420,
+        Save = 16421,
+        Restore = 16422,
+        BeginContainer = 16423,
+        BeginContainerNoParams = 16424,
+        EndContainer = 16425,
+        SetWorldTransform = 16426,
+        ResetWorldTransform = 16427,
+        MultiplyWorldTransform = 16428,
+        TranslateWorldTransform = 16429,
+        ScaleWorldTransform = 16430,
+        RotateWorldTransform = 16431,
+        SetPageTransform = 16432,
+        ResetClip = 16433,
+        SetClipRect = 16434,
+        SetClipPath = 16435,
+        SetClipRegion = 16436,
+        OffsetClip = 16437,
+        DrawDriverString = 16438,
+        Max = 16438,
+        Total = 16439,
+        WmfRecordBase = 65536,
+        WmfSaveDC = 65566,
+        WmfRealizePalette = 65589,
+        WmfSetPalEntries = 65591,
+        WmfCreatePalette = 65783,
+        WmfSetBkMode = 65794,
+        WmfSetMapMode = 65795,
+        WmfSetROP2 = 65796,
+        WmfSetRelAbs = 65797,
+        WmfSetPolyFillMode = 65798,
+        WmfSetStretchBltMode = 65799,
+        WmfSetTextCharExtra = 65800,
+        WmfRestoreDC = 65831,
+        WmfInvertRegion = 65834,
+        WmfPaintRegion = 65835,
+        WmfSelectClipRegion = 65836,
+        WmfSelectObject = 65837,
+        WmfSetTextAlign = 65838,
+        WmfResizePalette = 65849,
+        WmfDibCreatePatternBrush = 65858,
+        WmfSetLayout = 65865,
+        WmfDeleteObject = 66032,
+        WmfCreatePatternBrush = 66041,
+        WmfSetBkColor = 66049,
+        WmfSetTextColor = 66057,
+        WmfSetTextJustification = 66058,
+        WmfSetWindowOrg = 66059,
+        WmfSetWindowExt = 66060,
+        WmfSetViewportOrg = 66061,
+        WmfSetViewportExt = 66062,
+        WmfOffsetWindowOrg = 66063,
+        WmfOffsetViewportOrg = 66065,
+        WmfLineTo = 66067,
+        WmfMoveTo = 66068,
+        WmfOffsetCilpRgn = 66080,
+        WmfFillRegion = 66088,
+        WmfSetMapperFlags = 66097,
+        WmfSelectPalette = 66100,
+        WmfCreatePenIndirect = 66298,
+        WmfCreateFontIndirect = 66299,
+        WmfCreateBrushIndirect = 66300,
+        WmfPolygon = 66340,
+        WmfPolyline = 66341,
+        WmfScaleWindowExt = 66576,
+        WmfScaleViewportExt = 66578,
+        WmfExcludeClipRect = 66581,
+        WmfIntersectClipRect = 66582,
+        WmfEllipse = 66584,
+        WmfFloodFill = 66585,
+        WmfRectangle = 66587,
+        WmfSetPixel = 66591,
+        WmfFrameRegion = 66601,
+        WmfAnimatePalette = 66614,
+        WmfTextOut = 66849,
+        WmfPolyPolygon = 66872,
+        WmfExtFloodFill = 66888,
+        WmfRoundRect = 67100,
+        WmfPatBlt = 67101,
+        WmfEscape = 67110,
+        WmfCreateRegion = 67327,
+        WmfArc = 67607,
+        WmfPie = 67610,
+        WmfChord = 67632,
+        WmfBitBlt = 67874,
+        WmfDibBitBlt = 67904,
+        WmfExtTextOut = 68146,
+        WmfStretchBlt = 68387,
+        WmfDibStretchBlt = 68417,
+        WmfSetDibToDev = 68915,
+        WmfStretchDib = 69443
+    }
+
+    export class Metafile {
+        constructor(hmetafile: number, wmfHeader: System.Drawing.Imaging.WmfPlaceableFileHeader);
+        constructor(hmetafile: number, wmfHeader: System.Drawing.Imaging.WmfPlaceableFileHeader, deleteWmf: boolean);
+        constructor(henhmetafile: number, deleteEmf: boolean);
+        constructor(filename: string);
+        //constructor(stream: System.IO.Stream);
+        constructor(stream: any);
+        constructor(referenceHdc: number, emfType: System.Drawing.Imaging.EmfType);
+        constructor(referenceHdc: number, emfType: System.Drawing.Imaging.EmfType, description: string);
+        constructor(referenceHdc: number, frameRect: System.Drawing.RectangleF);
+        constructor(referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit);
+        constructor(referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType);
+        constructor(referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType, description: string);
+        constructor(referenceHdc: number, frameRect: System.Drawing.Rectangle);
+        constructor(referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit);
+        constructor(referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType);
+        constructor(referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType, desc: string);
+        constructor(fileName: string, referenceHdc: number);
+        constructor(fileName: string, referenceHdc: number, type: System.Drawing.Imaging.EmfType);
+        constructor(fileName: string, referenceHdc: number, type: System.Drawing.Imaging.EmfType, description: string);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.RectangleF);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, desc: string);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType, description: string);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.Rectangle);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, description: string);
+        constructor(fileName: string, referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType, description: string);
+        //constructor(stream: System.IO.Stream, referenceHdc: number);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, type: System.Drawing.Imaging.EmfType);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, type: System.Drawing.Imaging.EmfType, description: string);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, frameRect: System.Drawing.RectangleF);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, frameRect: System.Drawing.RectangleF, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType, description: string);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, frameRect: System.Drawing.Rectangle);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType);
+        //constructor(stream: System.IO.Stream, referenceHdc: number, frameRect: System.Drawing.Rectangle, frameUnit: System.Drawing.Imaging.MetafileFrameUnit, type: System.Drawing.Imaging.EmfType, description: string);
+        static GetMetafileHeader(hmetafile: number, wmfHeader: System.Drawing.Imaging.WmfPlaceableFileHeader): System.Drawing.Imaging.MetafileHeader;
+        static GetMetafileHeader(henhmetafile: number): System.Drawing.Imaging.MetafileHeader;
+        static GetMetafileHeader(fileName: string): System.Drawing.Imaging.MetafileHeader;
+        //static GetMetafileHeader(stream: System.IO.Stream): System.Drawing.Imaging.MetafileHeader;
+        static GetMetafileHeader(stream: any): System.Drawing.Imaging.MetafileHeader;
+        GetMetafileHeader(): System.Drawing.Imaging.MetafileHeader;
+        GetHenhmetafile(): number;
+        PlayRecord(recordType: System.Drawing.Imaging.EmfPlusRecordType, flags: number, dataSize: number, data: any): void;
+    }
+
+    export class ImageFormat {
+        Guid: string;
+        MemoryBmp: System.Drawing.Imaging.ImageFormat;
+        Bmp: System.Drawing.Imaging.ImageFormat;
+        Emf: System.Drawing.Imaging.ImageFormat;
+        Wmf: System.Drawing.Imaging.ImageFormat;
+        Gif: System.Drawing.Imaging.ImageFormat;
+        Jpeg: System.Drawing.Imaging.ImageFormat;
+        Png: System.Drawing.Imaging.ImageFormat;
+        Tiff: System.Drawing.Imaging.ImageFormat;
+        Exif: System.Drawing.Imaging.ImageFormat;
+        Icon: System.Drawing.Imaging.ImageFormat;
+        constructor(guid: string);
+        Equals(o: any): boolean;
+        GetHashCode(): number;
+        ToString(): string;
+    }
+
+    export class ImageCodecInfo {
+        Clsid: string;
+        FormatID: string;
+        CodecName: string;
+        DllName: string;
+        FormatDescription: string;
+        FilenameExtension: string;
+        MimeType: string;
+        Flags: System.Drawing.Imaging.ImageCodecFlags;
+        Version: number;
+        SignaturePatterns: number[][];
+        SignatureMasks: number[][];
+        static GetImageDecoders(): System.Drawing.Imaging.ImageCodecInfo[];
+        static GetImageEncoders(): System.Drawing.Imaging.ImageCodecInfo[];
+    }
+
+    enum ImageCodecFlags {
+        Encoder = 1,
+        Decoder = 2,
+        SupportBitmap = 4,
+        SupportVector = 8,
+        SeekableEncode = 16,
+        BlockingDecode = 32,
+        Builtin = 65536,
+        System = 131072,
+        User = 262144
+    }
+
+    export class ColorMatrix {
         Matrix00: number;
         Matrix01: number;
         Matrix02: number;
@@ -1628,287 +2072,40 @@ declare module System.Drawing.Imaging {
         Matrix43: number;
         Matrix44: number;
         Item: number;
+        constructor();
+        constructor(newColorMatrix: number[][]);
     }
 
     enum ColorMatrixFlag {
-        Default,
-        SkipGrays,
-        AltGrays
+        Default = 0,
+        SkipGrays = 1,
+        AltGrays = 2
     }
 
-    enum ColorMode {
-        Argb32Mode,
-        Argb64Mode
+    export class FrameDimension {
+        Guid: string;
+        Time: System.Drawing.Imaging.FrameDimension;
+        Resolution: System.Drawing.Imaging.FrameDimension;
+        Page: System.Drawing.Imaging.FrameDimension;
+        constructor(guid: string);
+        Equals(o: any): boolean;
+        GetHashCode(): number;
+        ToString(): string;
     }
 
-    export interface ColorPalette {
+    export class ColorPalette {
         Flags: number;
         Entries: System.Drawing.Color[];
     }
 
-    enum EmfPlusRecordType {
-        EmfHeader,
-        EmfMin,
-        EmfPolyBezier,
-        EmfPolygon,
-        EmfPolyline,
-        EmfPolyBezierTo,
-        EmfPolyLineTo,
-        EmfPolyPolyline,
-        EmfPolyPolygon,
-        EmfSetWindowExtEx,
-        EmfSetWindowOrgEx,
-        EmfSetViewportExtEx,
-        EmfSetViewportOrgEx,
-        EmfSetBrushOrgEx,
-        EmfEof,
-        EmfSetPixelV,
-        EmfSetMapperFlags,
-        EmfSetMapMode,
-        EmfSetBkMode,
-        EmfSetPolyFillMode,
-        EmfSetROP2,
-        EmfSetStretchBltMode,
-        EmfSetTextAlign,
-        EmfSetColorAdjustment,
-        EmfSetTextColor,
-        EmfSetBkColor,
-        EmfOffsetClipRgn,
-        EmfMoveToEx,
-        EmfSetMetaRgn,
-        EmfExcludeClipRect,
-        EmfIntersectClipRect,
-        EmfScaleViewportExtEx,
-        EmfScaleWindowExtEx,
-        EmfSaveDC,
-        EmfRestoreDC,
-        EmfSetWorldTransform,
-        EmfModifyWorldTransform,
-        EmfSelectObject,
-        EmfCreatePen,
-        EmfCreateBrushIndirect,
-        EmfDeleteObject,
-        EmfAngleArc,
-        EmfEllipse,
-        EmfRectangle,
-        EmfRoundRect,
-        EmfRoundArc,
-        EmfChord,
-        EmfPie,
-        EmfSelectPalette,
-        EmfCreatePalette,
-        EmfSetPaletteEntries,
-        EmfResizePalette,
-        EmfRealizePalette,
-        EmfExtFloodFill,
-        EmfLineTo,
-        EmfArcTo,
-        EmfPolyDraw,
-        EmfSetArcDirection,
-        EmfSetMiterLimit,
-        EmfBeginPath,
-        EmfEndPath,
-        EmfCloseFigure,
-        EmfFillPath,
-        EmfStrokeAndFillPath,
-        EmfStrokePath,
-        EmfFlattenPath,
-        EmfWidenPath,
-        EmfSelectClipPath,
-        EmfAbortPath,
-        EmfReserved069,
-        EmfGdiComment,
-        EmfFillRgn,
-        EmfFrameRgn,
-        EmfInvertRgn,
-        EmfPaintRgn,
-        EmfExtSelectClipRgn,
-        EmfBitBlt,
-        EmfStretchBlt,
-        EmfMaskBlt,
-        EmfPlgBlt,
-        EmfSetDIBitsToDevice,
-        EmfStretchDIBits,
-        EmfExtCreateFontIndirect,
-        EmfExtTextOutA,
-        EmfExtTextOutW,
-        EmfPolyBezier16,
-        EmfPolygon16,
-        EmfPolyline16,
-        EmfPolyBezierTo16,
-        EmfPolylineTo16,
-        EmfPolyPolyline16,
-        EmfPolyPolygon16,
-        EmfPolyDraw16,
-        EmfCreateMonoBrush,
-        EmfCreateDibPatternBrushPt,
-        EmfExtCreatePen,
-        EmfPolyTextOutA,
-        EmfPolyTextOutW,
-        EmfSetIcmMode,
-        EmfCreateColorSpace,
-        EmfSetColorSpace,
-        EmfDeleteColorSpace,
-        EmfGlsRecord,
-        EmfGlsBoundedRecord,
-        EmfPixelFormat,
-        EmfDrawEscape,
-        EmfExtEscape,
-        EmfStartDoc,
-        EmfSmallTextOut,
-        EmfForceUfiMapping,
-        EmfNamedEscpae,
-        EmfColorCorrectPalette,
-        EmfSetIcmProfileA,
-        EmfSetIcmProfileW,
-        EmfAlphaBlend,
-        EmfSetLayout,
-        EmfTransparentBlt,
-        EmfReserved117,
-        EmfGradientFill,
-        EmfSetLinkedUfis,
-        EmfSetTextJustification,
-        EmfColorMatchToTargetW,
-        EmfCreateColorSpaceW,
-        EmfMax,
-        EmfPlusRecordBase,
-        Invalid,
-        Header,
-        Min,
-        EndOfFile,
-        Comment,
-        GetDC,
-        MultiFormatStart,
-        MultiFormatSection,
-        MultiFormatEnd,
-        Object,
-        Clear,
-        FillRects,
-        DrawRects,
-        FillPolygon,
-        DrawLines,
-        FillEllipse,
-        DrawEllipse,
-        FillPie,
-        DrawPie,
-        DrawArc,
-        FillRegion,
-        FillPath,
-        DrawPath,
-        FillClosedCurve,
-        DrawClosedCurve,
-        DrawCurve,
-        DrawBeziers,
-        DrawImage,
-        DrawImagePoints,
-        DrawString,
-        SetRenderingOrigin,
-        SetAntiAliasMode,
-        SetTextRenderingHint,
-        SetTextContrast,
-        SetInterpolationMode,
-        SetPixelOffsetMode,
-        SetCompositingMode,
-        SetCompositingQuality,
-        Save,
-        Restore,
-        BeginContainer,
-        BeginContainerNoParams,
-        EndContainer,
-        SetWorldTransform,
-        ResetWorldTransform,
-        MultiplyWorldTransform,
-        TranslateWorldTransform,
-        ScaleWorldTransform,
-        RotateWorldTransform,
-        SetPageTransform,
-        ResetClip,
-        SetClipRect,
-        SetClipPath,
-        SetClipRegion,
-        OffsetClip,
-        DrawDriverString,
-        Max,
-        Total,
-        WmfRecordBase,
-        WmfSaveDC,
-        WmfRealizePalette,
-        WmfSetPalEntries,
-        WmfCreatePalette,
-        WmfSetBkMode,
-        WmfSetMapMode,
-        WmfSetROP2,
-        WmfSetRelAbs,
-        WmfSetPolyFillMode,
-        WmfSetStretchBltMode,
-        WmfSetTextCharExtra,
-        WmfRestoreDC,
-        WmfInvertRegion,
-        WmfPaintRegion,
-        WmfSelectClipRegion,
-        WmfSelectObject,
-        WmfSetTextAlign,
-        WmfResizePalette,
-        WmfDibCreatePatternBrush,
-        WmfSetLayout,
-        WmfDeleteObject,
-        WmfCreatePatternBrush,
-        WmfSetBkColor,
-        WmfSetTextColor,
-        WmfSetTextJustification,
-        WmfSetWindowOrg,
-        WmfSetWindowExt,
-        WmfSetViewportOrg,
-        WmfSetViewportExt,
-        WmfOffsetWindowOrg,
-        WmfOffsetViewportOrg,
-        WmfLineTo,
-        WmfMoveTo,
-        WmfOffsetCilpRgn,
-        WmfFillRegion,
-        WmfSetMapperFlags,
-        WmfSelectPalette,
-        WmfCreatePenIndirect,
-        WmfCreateFontIndirect,
-        WmfCreateBrushIndirect,
-        WmfPolygon,
-        WmfPolyline,
-        WmfScaleWindowExt,
-        WmfScaleViewportExt,
-        WmfExcludeClipRect,
-        WmfIntersectClipRect,
-        WmfEllipse,
-        WmfFloodFill,
-        WmfRectangle,
-        WmfSetPixel,
-        WmfFrameRegion,
-        WmfAnimatePalette,
-        WmfTextOut,
-        WmfPolyPolygon,
-        WmfExtFloodFill,
-        WmfRoundRect,
-        WmfPatBlt,
-        WmfEscape,
-        WmfCreateRegion,
-        WmfArc,
-        WmfPie,
-        WmfChord,
-        WmfBitBlt,
-        WmfDibBitBlt,
-        WmfExtTextOut,
-        WmfStretchBlt,
-        WmfDibStretchBlt,
-        WmfSetDibToDev,
-        WmfStretchDib
+    export class PropertyItem {
+        Id: number;
+        Len: number;
+        Type: number;
+        Value: any;
     }
 
-    enum EmfType {
-        EmfOnly,
-        EmfPlusOnly,
-        EmfPlusDual
-    }
-
-    export interface Encoder {
+    export class Encoder {
         Compression: System.Drawing.Imaging.Encoder;
         ColorDepth: System.Drawing.Imaging.Encoder;
         ScanMethod: System.Drawing.Imaging.Encoder;
@@ -1920,614 +2117,130 @@ declare module System.Drawing.Imaging {
         ChrominanceTable: System.Drawing.Imaging.Encoder;
         SaveFlag: System.Drawing.Imaging.Encoder;
         Guid: string;
+        constructor(guid: string);
     }
 
-    export interface EncoderParameter {
+    enum EncoderParameterValueType {
+        ValueTypeByte = 1,
+        ValueTypeAscii = 2,
+        ValueTypeShort = 3,
+        ValueTypeLong = 4,
+        ValueTypeRational = 5,
+        ValueTypeLongRange = 6,
+        ValueTypeUndefined = 7,
+        ValueTypeRationalRange = 8
+    }
+
+    export class EncoderParameter {
         Encoder: System.Drawing.Imaging.Encoder;
         Type: System.Drawing.Imaging.EncoderParameterValueType;
         ValueType: System.Drawing.Imaging.EncoderParameterValueType;
         NumberOfValues: number;
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: number);
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: number, undefined: boolean);
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: number);
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: number);
+        constructor(encoder: System.Drawing.Imaging.Encoder, numerator: number, denominator: number);
+        constructor(encoder: System.Drawing.Imaging.Encoder, rangebegin: number, rangeend: number);
+        constructor(encoder: System.Drawing.Imaging.Encoder, numerator1: number, demoninator1: number, numerator2: number, demoninator2: number);
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: string);
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: any);
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: any, undefined: boolean);
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: number[]);
+        constructor(encoder: System.Drawing.Imaging.Encoder, value: number[]);
+        constructor(encoder: System.Drawing.Imaging.Encoder, numerator: number[], denominator: number[]);
+        constructor(encoder: System.Drawing.Imaging.Encoder, rangebegin: number[], rangeend: number[]);
+        constructor(encoder: System.Drawing.Imaging.Encoder, numerator1: number[], denominator1: number[], numerator2: number[], denominator2: number[]);
+        constructor(encoder: System.Drawing.Imaging.Encoder, NumberOfValues: number, Type: number, Value: number);
+        constructor(encoder: System.Drawing.Imaging.Encoder, numberValues: number, type: System.Drawing.Imaging.EncoderParameterValueType, value: number);
+        Dispose(): void;
     }
 
-    export interface EncoderParameters {
+    export class EncoderParameters {
         Param: System.Drawing.Imaging.EncoderParameter[];
+        constructor(count: number);
+        constructor();
+        Dispose(): void;
     }
 
-    enum EncoderParameterValueType {
-        ValueTypeByte,
-        ValueTypeAscii,
-        ValueTypeShort,
-        ValueTypeLong,
-        ValueTypeRational,
-        ValueTypeLongRange,
-        ValueTypeUndefined,
-        ValueTypeRationalRange
-    }
-
-    enum EncoderValue {
-        ColorTypeCMYK,
-        ColorTypeYCCK,
-        CompressionLZW,
-        CompressionCCITT3,
-        CompressionCCITT4,
-        CompressionRle,
-        CompressionNone,
-        ScanMethodInterlaced,
-        ScanMethodNonInterlaced,
-        VersionGif87,
-        VersionGif89,
-        RenderProgressive,
-        RenderNonProgressive,
-        TransformRotate90,
-        TransformRotate180,
-        TransformRotate270,
-        TransformFlipHorizontal,
-        TransformFlipVertical,
-        MultiFrame,
-        LastFrame,
-        Flush,
-        FrameDimensionTime,
-        FrameDimensionResolution,
-        FrameDimensionPage
-    }
-
-    export interface FrameDimension {
-        Guid: string;
-        Time: System.Drawing.Imaging.FrameDimension;
-        Resolution: System.Drawing.Imaging.FrameDimension;
-        Page: System.Drawing.Imaging.FrameDimension;
-    }
-
-    export interface ImageAttributes {
-    }
-
-    enum ImageCodecFlags {
-        Encoder,
-        Decoder,
-        SupportBitmap,
-        SupportVector,
-        SeekableEncode,
-        BlockingDecode,
-        Builtin,
-        System,
-        User
-    }
-
-    export interface ImageCodecInfo {
-        Clsid: string;
-        FormatID: string;
-        CodecName: string;
-        DllName: string;
-        FormatDescription: string;
-        FilenameExtension: string;
-        MimeType: string;
-        Flags: System.Drawing.Imaging.ImageCodecFlags;
-        Version: number;
-        SignaturePatterns: number[][];
-        SignatureMasks: number[][];
-    }
-
-    enum ImageFlags {
-        None,
-        Scalable,
-        HasAlpha,
-        HasTranslucent,
-        PartiallyScalable,
-        ColorSpaceRgb,
-        ColorSpaceCmyk,
-        ColorSpaceGray,
-        ColorSpaceYcbcr,
-        ColorSpaceYcck,
-        HasRealDpi,
-        HasRealPixelSize,
-        ReadOnly,
-        Caching
-    }
-
-    export interface ImageFormat {
-        Guid: string;
-        MemoryBmp: System.Drawing.Imaging.ImageFormat;
-        Bmp: System.Drawing.Imaging.ImageFormat;
-        Emf: System.Drawing.Imaging.ImageFormat;
-        Wmf: System.Drawing.Imaging.ImageFormat;
-        Gif: System.Drawing.Imaging.ImageFormat;
-        Jpeg: System.Drawing.Imaging.ImageFormat;
-        Png: System.Drawing.Imaging.ImageFormat;
-        Tiff: System.Drawing.Imaging.ImageFormat;
-        Exif: System.Drawing.Imaging.ImageFormat;
-        Icon: System.Drawing.Imaging.ImageFormat;
-    }
-
-    enum ImageLockMode {
-        ReadOnly,
-        WriteOnly,
-        ReadWrite,
-        UserInputBuffer
-    }
-
-    export interface Metafile {
-    }
-
-    enum MetafileFrameUnit {
-        Pixel,
-        Point,
-        Inch,
-        Document,
-        Millimeter,
-        GdiCompatible
-    }
-
-    export interface MetafileHeader {
-        Type: System.Drawing.Imaging.MetafileType;
-        MetafileSize: number;
-        Version: number;
-        DpiX: number;
-        DpiY: number;
-        Bounds: System.Drawing.Rectangle;
-        WmfHeader: System.Drawing.Imaging.MetaHeader;
-        EmfPlusHeaderSize: number;
-        LogicalDpiX: number;
-        LogicalDpiY: number;
-    }
-
-    enum MetafileType {
-        Invalid,
-        Wmf,
-        WmfPlaceable,
-        Emf,
-        EmfPlusOnly,
-        EmfPlusDual
-    }
-
-    export interface MetaHeader {
-        Type: number;
-        HeaderSize: number;
-        Version: number;
-        Size: number;
-        NoObjects: number;
-        MaxRecord: number;
-        NoParameters: number;
-    }
-
-    enum PaletteFlags {
-        HasAlpha,
-        GrayScale,
-        Halftone
+    export class BitmapData {
+        Width: number;
+        Height: number;
+        Stride: number;
+        PixelFormat: System.Drawing.Imaging.PixelFormat;
+        Scan0: number;
+        Reserved: number;
+        constructor();
     }
 
     enum PixelFormat {
-        Undefined,
-        DontCare,
-        Max,
-        Indexed,
-        Gdi,
-        Format16bppRgb555,
-        Format16bppRgb565,
-        Format24bppRgb,
-        Format32bppRgb,
-        Format1bppIndexed,
-        Format4bppIndexed,
-        Format8bppIndexed,
-        Alpha,
-        Format16bppArgb1555,
-        PAlpha,
-        Format32bppPArgb,
-        Extended,
-        Format16bppGrayScale,
-        Format48bppRgb,
-        Format64bppPArgb,
-        Canonical,
-        Format32bppArgb,
-        Format64bppArgb
+        Undefined = 0,
+        DontCare = 0,
+        Max = 15,
+        Indexed = 65536,
+        Gdi = 131072,
+        Format16bppRgb555 = 135173,
+        Format16bppRgb565 = 135174,
+        Format24bppRgb = 137224,
+        Format32bppRgb = 139273,
+        Format1bppIndexed = 196865,
+        Format4bppIndexed = 197634,
+        Format8bppIndexed = 198659,
+        Alpha = 262144,
+        Format16bppArgb1555 = 397319,
+        PAlpha = 524288,
+        Format32bppPArgb = 925707,
+        Extended = 1048576,
+        Format16bppGrayScale = 1052676,
+        Format48bppRgb = 1060876,
+        Format64bppPArgb = 1851406,
+        Canonical = 2097152,
+        Format32bppArgb = 2498570,
+        Format64bppArgb = 3424269
     }
 
-    export interface PlayRecordCallback {
+    enum ImageLockMode {
+        ReadOnly = 1,
+        WriteOnly = 2,
+        ReadWrite = 3,
+        UserInputBuffer = 4
     }
-
-    export interface PropertyItem {
-        Id: number;
-        Len: number;
-        Type: number;
-        Value: any;
-    }
-
-    export interface WmfPlaceableFileHeader {
-        Key: number;
-        Hmf: number;
-        BboxLeft: number;
-        BboxTop: number;
-        BboxRight: number;
-        BboxBottom: number;
-        Inch: number;
-        Reserved: number;
-        Checksum: number;
-    }
-
-}
-declare module System.Drawing.Internal {
-
-    export interface ISystemColorTracker {
-    }
-
-}
-declare module System.Drawing.Printing {
-
-    enum Duplex {
-        Default,
-        Simplex,
-        Vertical,
-        Horizontal
-    }
-
-    export interface InvalidPrinterException {
-    }
-
-    export interface Margins {
-        Left: number;
-        Right: number;
-        Top: number;
-        Bottom: number;
-        DoubleLeft: number;
-        DoubleRight: number;
-        DoubleTop: number;
-        DoubleBottom: number;
-    }
-
-    export interface MarginsConverter {
-    }
-
-    export interface PageSettings {
-        Bounds: System.Drawing.Rectangle;
-        Color: boolean;
-        HardMarginX: number;
-        HardMarginY: number;
-        Landscape: boolean;
-        Margins: System.Drawing.Printing.Margins;
-        PaperSize: System.Drawing.Printing.PaperSize;
-        PaperSource: System.Drawing.Printing.PaperSource;
-        PrintableArea: System.Drawing.RectangleF;
-        PrinterResolution: System.Drawing.Printing.PrinterResolution;
-        PrinterSettings: System.Drawing.Printing.PrinterSettings;
-        ExtraBytes: number;
-    }
-
-    enum PaperKind {
-        Custom,
-        Letter,
-        LetterSmall,
-        Tabloid,
-        Ledger,
-        Legal,
-        Statement,
-        Executive,
-        A3,
-        A4,
-        A4Small,
-        A5,
-        B4,
-        B5,
-        Folio,
-        Quarto,
-        Standard10x14,
-        Standard11x17,
-        Note,
-        Number9Envelope,
-        Number10Envelope,
-        Number11Envelope,
-        Number12Envelope,
-        Number14Envelope,
-        CSheet,
-        DSheet,
-        ESheet,
-        DLEnvelope,
-        C5Envelope,
-        C3Envelope,
-        C4Envelope,
-        C6Envelope,
-        C65Envelope,
-        B4Envelope,
-        B5Envelope,
-        B6Envelope,
-        ItalyEnvelope,
-        MonarchEnvelope,
-        PersonalEnvelope,
-        USStandardFanfold,
-        GermanStandardFanfold,
-        GermanLegalFanfold,
-        IsoB4,
-        JapanesePostcard,
-        Standard9x11,
-        Standard10x11,
-        Standard15x11,
-        InviteEnvelope,
-        LetterExtra,
-        LegalExtra,
-        TabloidExtra,
-        A4Extra,
-        LetterTransverse,
-        A4Transverse,
-        LetterExtraTransverse,
-        APlus,
-        BPlus,
-        LetterPlus,
-        A4Plus,
-        A5Transverse,
-        B5Transverse,
-        A3Extra,
-        A5Extra,
-        B5Extra,
-        A2,
-        A3Transverse,
-        A3ExtraTransverse,
-        JapaneseDoublePostcard,
-        A6,
-        JapaneseEnvelopeKakuNumber2,
-        JapaneseEnvelopeKakuNumber3,
-        JapaneseEnvelopeChouNumber3,
-        JapaneseEnvelopeChouNumber4,
-        LetterRotated,
-        A3Rotated,
-        A4Rotated,
-        A5Rotated,
-        B4JisRotated,
-        B5JisRotated,
-        JapanesePostcardRotated,
-        JapaneseDoublePostcardRotated,
-        A6Rotated,
-        JapaneseEnvelopeKakuNumber2Rotated,
-        JapaneseEnvelopeKakuNumber3Rotated,
-        JapaneseEnvelopeChouNumber3Rotated,
-        JapaneseEnvelopeChouNumber4Rotated,
-        B6Jis,
-        B6JisRotated,
-        Standard12x11,
-        JapaneseEnvelopeYouNumber4,
-        JapaneseEnvelopeYouNumber4Rotated,
-        Prc16K,
-        Prc32K,
-        Prc32KBig,
-        PrcEnvelopeNumber1,
-        PrcEnvelopeNumber2,
-        PrcEnvelopeNumber3,
-        PrcEnvelopeNumber4,
-        PrcEnvelopeNumber5,
-        PrcEnvelopeNumber6,
-        PrcEnvelopeNumber7,
-        PrcEnvelopeNumber8,
-        PrcEnvelopeNumber9,
-        PrcEnvelopeNumber10,
-        Prc16KRotated,
-        Prc32KRotated,
-        Prc32KBigRotated,
-        PrcEnvelopeNumber1Rotated,
-        PrcEnvelopeNumber2Rotated,
-        PrcEnvelopeNumber3Rotated,
-        PrcEnvelopeNumber4Rotated,
-        PrcEnvelopeNumber5Rotated,
-        PrcEnvelopeNumber6Rotated,
-        PrcEnvelopeNumber7Rotated,
-        PrcEnvelopeNumber8Rotated,
-        PrcEnvelopeNumber9Rotated,
-        PrcEnvelopeNumber10Rotated
-    }
-
-    export interface PaperSize {
-        Height: number;
-        Kind: System.Drawing.Printing.PaperKind;
-        PaperName: string;
-        RawKind: number;
-        Width: number;
-    }
-
-    export interface PaperSource {
-        Kind: System.Drawing.Printing.PaperSourceKind;
-        RawKind: number;
-        SourceName: string;
-    }
-
-    enum PaperSourceKind {
-        Upper,
-        Lower,
-        Middle,
-        Manual,
-        Envelope,
-        ManualFeed,
-        AutomaticFeed,
-        TractorFeed,
-        SmallFormat,
-        LargeFormat,
-        LargeCapacity,
-        Cassette,
-        FormSource,
-        Custom
-    }
-
-    export interface PreviewPageInfo {
-        Image: System.Drawing.Image;
-        PhysicalSize: System.Drawing.Size;
-    }
-
-    export interface PreviewPrintController {
-        IsPreview: boolean;
-        UseAntiAlias: boolean;
-    }
-
-    enum PrintAction {
-        PrintToFile,
-        PrintToPreview,
-        PrintToPrinter
-    }
-
-    export interface PrintController {
-        IsPreview: boolean;
-    }
-
-    export interface PrintDocument {
-        DefaultPageSettings: System.Drawing.Printing.PageSettings;
-        DocumentName: string;
-        OriginAtMargins: boolean;
-        PrintController: System.Drawing.Printing.PrintController;
-        PrinterSettings: System.Drawing.Printing.PrinterSettings;
-    }
-
-    export interface PrinterResolution {
-        Kind: System.Drawing.Printing.PrinterResolutionKind;
-        X: number;
-        Y: number;
-    }
-
-    enum PrinterResolutionKind {
-        High,
-        Medium,
-        Low,
-        Draft,
-        Custom
-    }
-
-    export interface PrinterSettings {
-        CanDuplex: boolean;
-        Copies: number;
-        Collate: boolean;
-        DefaultPageSettings: System.Drawing.Printing.PageSettings;
-        DriverName: string;
-        Duplex: System.Drawing.Printing.Duplex;
-        FromPage: number;
-        InstalledPrinters: any; // System.Drawing.Printing.PrinterSettings_StringCollection
-        IsDefaultPrinter: boolean;
-        IsPlotter: boolean;
-        IsValid: boolean;
-        LandscapeAngle: number;
-        MaximumCopies: number;
-        MaximumPage: number;
-        MinimumPage: number;
-        OutputPort: string;
-        PrintFileName: string;
-        PaperSizes: System.Drawing.Printing.PrinterSettings_PaperSizeCollection;
-        PaperSources: any; // System.Drawing.Printing.PrinterSettings_PaperSourceCollection
-        PrintDialogDisplayed: boolean;
-        PrintRange: any; // System.Drawing.Printing.PrintRange
-        PrintToFile: boolean;
-        PrinterName: string;
-        PrinterNameInternal: string;
-        PrinterResolutions: any; // System.Drawing.Printing.PrinterSettings_PrinterResolutionCollection
-        SupportsColor: boolean;
-        ToPage: number;
-    }
-
-    export interface PrinterSettings_PaperSizeCollection {
-        Count: number;
-        Item: System.Drawing.Printing.PaperSize;
-    }
-
-    export interface PrinterSettings_PaperSourceCollection {
-        Count: number;
-        Item: System.Drawing.Printing.PaperSource;
-    }
-
-    export interface PrinterSettings_PrinterResolutionCollection {
-        Count: number;
-        Item: System.Drawing.Printing.PrinterResolution;
-    }
-
-    export interface PrinterSettings_StringCollection {
-        Count: number;
-        Item: string;
-    }
-
-    enum PrinterUnit {
-        Display,
-        ThousandthsOfAnInch,
-        HundredthsOfAMillimeter,
-        TenthsOfAMillimeter
-    }
-
-    export interface PrinterUnitConvert {
-    }
-
-    export interface PrintEventArgs {
-        PrintAction: System.Drawing.Printing.PrintAction;
-    }
-
-    export interface PrintEventHandler {
-    }
-
-    export interface PrintingPermission extends System.Security.Permissions.IUnrestrictedPermission {
-        Level: System.Drawing.Printing.PrintingPermissionLevel;
-    }
-
-    export interface PrintingPermissionAttribute {
-        Level: System.Drawing.Printing.PrintingPermissionLevel;
-    }
-
-    enum PrintingPermissionLevel {
-        NoPrinting,
-        SafePrinting,
-        DefaultPrinting,
-        AllPrinting
-    }
-
-    export interface PrintPageEventArgs {
-        Cancel: boolean;
-        Graphics: System.Drawing.Graphics;
-        HasMorePages: boolean;
-        MarginBounds: System.Drawing.Rectangle;
-        PageBounds: System.Drawing.Rectangle;
-        PageSettings: System.Drawing.Printing.PageSettings;
-    }
-
-    export interface PrintPageEventHandler {
-    }
-
-    enum PrintRange {
-        AllPages,
-        Selection,
-        SomePages,
-        CurrentPage
-    }
-
-    export interface QueryPageSettingsEventArgs {
-        PageSettings: System.Drawing.Printing.PageSettings;
-    }
-
-    export interface QueryPageSettingsEventHandler {
-    }
-
-    export interface StandardPrintController {
-    }
-
 }
 declare module System.Drawing.Text {
 
-    export interface FontCollection {
+    export class FontCollection {
         Families: System.Drawing.FontFamily[];
+        Dispose(): void;
     }
 
     enum GenericFontFamilies {
-        Serif,
-        SansSerif,
-        Monospace
+        Serif = 0,
+        SansSerif = 1,
+        Monospace = 2
     }
 
     enum HotkeyPrefix {
-        None,
-        Show,
-        Hide
+        None = 0,
+        Show = 1,
+        Hide = 2
     }
 
-    export interface InstalledFontCollection {
+    export class InstalledFontCollection {
+        constructor();
     }
 
-    export interface PrivateFontCollection {
+    export class PrivateFontCollection {
+        constructor();
+        AddFontFile(filename: string): void;
+        AddMemoryFont(memory: number, length: number): void;
     }
 
     enum TextRenderingHint {
-        SystemDefault,
-        SingleBitPerPixelGridFit,
-        SingleBitPerPixel,
-        AntiAliasGridFit,
-        AntiAlias,
-        ClearTypeGridFit
+        SystemDefault = 0,
+        SingleBitPerPixelGridFit = 1,
+        SingleBitPerPixel = 2,
+        AntiAliasGridFit = 3,
+        AntiAlias = 4,
+        ClearTypeGridFit = 5
     }
-
 }
-

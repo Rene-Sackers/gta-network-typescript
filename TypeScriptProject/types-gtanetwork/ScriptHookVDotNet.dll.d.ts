@@ -9695,7 +9695,7 @@ declare module GTA.UI {
         Hide(): void;
     }
 
-    export class Rectangle extends GTA.UI.IElement {
+    export class Rectangle implements GTA.UI.IElement {
         Enabled: boolean;
         Color: System.Drawing.Color;
         Position: System.Drawing.PointF;
