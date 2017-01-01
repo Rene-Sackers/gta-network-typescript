@@ -578,7 +578,7 @@ declare module GTANetwork.Javascript {
         getCanOpenChat(): boolean;
         setDisplayWastedShard(show: boolean): void;
         getDisplayWastedShard(): boolean;
-        createCefBrowser(width: number, height: number, local: boolean): GTANetwork.GUI.Browser;
+        createCefBrowser(width: number, height: number, local?: boolean): GTANetwork.GUI.Browser;
         destroyCefBrowser(browser: GTANetwork.GUI.Browser): void;
         isCefBrowserInitialized(browser: GTANetwork.GUI.Browser): boolean;
         waitUntilCefBrowserInit(browser: GTANetwork.GUI.Browser): void;
