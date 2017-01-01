@@ -950,9 +950,6 @@ declare module GTANetwork.Javascript {
         onLocalPlayerDamaged: IEvent<(attacker: GTANetwork.Util.LocalHandle, weaponUsed: number, boneHit: number) => void>;
         onLocalPlayerMeleeHit: IEvent<(attacker: GTANetwork.Util.LocalHandle, weaponUsed: number) => void>;
         onLocalPlayerShoot: IEvent<(weaponUsed: number, aimCoords: Vector3) => void>;
-
-        // Custom
-        delay(ms: number, once: boolean, target: () => void);
     }
 
     enum ScriptContext_ReturnType {
