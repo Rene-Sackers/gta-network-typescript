@@ -11,9 +11,9 @@
 
 
 
-declare module NativeUI {
+declare namespace NativeUI {
 
-    export class BarTimerBar {
+    class BarTimerBar {
         Text: string;
         Percentage: number;
         BackgroundColor: System.Drawing.Color;
@@ -22,7 +22,7 @@ declare module NativeUI {
         Draw(interval: number, offset: System.Drawing.Size): void;
     }
 
-    export class BigMessageHandler {
+    class BigMessageHandler {
         constructor();
         Load(): void;
         Dispose(): void;
@@ -36,12 +36,12 @@ declare module NativeUI {
         ShowCustomShard(funcName: string, ...paremeters: any[]): void;
     }
 
-    export class BigMessageThread {
+    class BigMessageThread {
         MessageInstance: NativeUI.BigMessageHandler;
         constructor();
     }
 
-    export class CheckboxChangeEvent {
+    class CheckboxChangeEvent {
         constructor(object: any, method: number);
         Invoke(sender: NativeUI.UIMenu, checkboxItem: NativeUI.UIMenuCheckboxItem, Checked: boolean): void;
         //BeginInvoke(sender: NativeUI.UIMenu, checkboxItem: NativeUI.UIMenuCheckboxItem, Checked: boolean, callback: System.AsyncCallback, object: any): System.IAsyncResult;
@@ -233,14 +233,14 @@ declare module NativeUI {
         HUD_COLOUR_HB_YELLOW = 179
     }
 
-    export class IndexChangedEvent {
+    class IndexChangedEvent {
         constructor(object: any, method: number);
         Invoke(sender: NativeUI.UIMenu, newIndex: number): void;
         BeginInvoke(sender: NativeUI.UIMenu, newIndex: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class InstructionalButton {
+    class InstructionalButton {
         Text: string;
         ItemBind: NativeUI.UIMenuItem;
         constructor(control: GTA.Control, text: string);
@@ -249,56 +249,56 @@ declare module NativeUI {
         GetButtonId(): string;
     }
 
-    export class ItemActivatedEvent {
+    class ItemActivatedEvent {
         constructor(object: any, method: number);
         Invoke(sender: NativeUI.UIMenu, selectedItem: NativeUI.UIMenuItem): void;
         BeginInvoke(sender: NativeUI.UIMenu, selectedItem: NativeUI.UIMenuItem, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ItemCheckboxEvent {
+    class ItemCheckboxEvent {
         constructor(object: any, method: number);
         Invoke(sender: NativeUI.UIMenuCheckboxItem, Checked: boolean): void;
         BeginInvoke(sender: NativeUI.UIMenuCheckboxItem, Checked: boolean, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ItemListEvent {
+    class ItemListEvent {
         constructor(object: any, method: number);
         Invoke(sender: NativeUI.UIMenuListItem, newIndex: number): void;
         BeginInvoke(sender: NativeUI.UIMenuListItem, newIndex: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ItemSelectEvent {
+    class ItemSelectEvent {
         constructor(object: any, method: number);
         Invoke(sender: NativeUI.UIMenu, selectedItem: NativeUI.UIMenuItem, index: number): void;
         BeginInvoke(sender: NativeUI.UIMenu, selectedItem: NativeUI.UIMenuItem, index: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ListChangedEvent {
+    class ListChangedEvent {
         constructor(object: any, method: number);
         Invoke(sender: NativeUI.UIMenu, listItem: NativeUI.UIMenuListItem, newIndex: number): void;
         BeginInvoke(sender: NativeUI.UIMenu, listItem: NativeUI.UIMenuListItem, newIndex: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class MenuChangeEvent {
+    class MenuChangeEvent {
         constructor(object: any, method: number);
         Invoke(oldMenu: NativeUI.UIMenu, newMenu: NativeUI.UIMenu, forward: boolean): void;
         BeginInvoke(oldMenu: NativeUI.UIMenu, newMenu: NativeUI.UIMenu, forward: boolean, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class MenuCloseEvent {
+    class MenuCloseEvent {
         constructor(object: any, method: number);
         Invoke(sender: NativeUI.UIMenu): void;
         BeginInvoke(sender: NativeUI.UIMenu, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class MenuPool {
+    class MenuPool {
         MouseEdgeEnabled: boolean;
         ControlDisablingEnabled: boolean;
         ResetCursorOnOpen: boolean;
@@ -333,7 +333,7 @@ declare module NativeUI {
         ResetKey(menuControl: NativeUI.UIMenu_MenuControls): void;
     }
 
-    export class MiscExtensions {
+    class MiscExtensions {
         //SharedRandom: System.Random;
         SharedRandom: any;
         static AddPoints(left: System.Drawing.Point, right: System.Drawing.Point): System.Drawing.Point;
@@ -345,7 +345,7 @@ declare module NativeUI {
         static QuadraticEasingLerp(start: number, end: number, currentTime: number, duration: number): number;
     }
 
-    export class Sprite {
+    class Sprite {
         Position: System.Drawing.Point;
         Size: System.Drawing.Size;
         Color: System.Drawing.Color;
@@ -364,23 +364,23 @@ declare module NativeUI {
         static WriteFileFromResources(yourAssembly: any, fullResourceName: string, savePath: string): string;
     }
 
-    export class StringMeasurer {
+    class StringMeasurer {
         static MeasureString(input: string): number;
     }
 
-    export class TextTimerBar {
+    class TextTimerBar {
         Text: string;
         constructor(label: string, text: string);
         Draw(interval: number, offset: System.Drawing.Size): void;
     }
 
-    export class TimerBarBase {
+    class TimerBarBase {
         Label: string;
         constructor(label: string);
         Draw(interval: number, offset: System.Drawing.Size): void;
     }
 
-    export class TimerBarPool {
+    class TimerBarPool {
         Offset: System.Drawing.Size;
         constructor();
         ToList(): NativeUI.TimerBarBase[];
@@ -389,7 +389,7 @@ declare module NativeUI {
         Draw(): void;
     }
 
-    export class UIMenu {
+    class UIMenu {
         AUDIO_LIBRARY: string;
         AUDIO_UPDOWN: string;
         AUDIO_LEFTRIGHT: string;
@@ -474,7 +474,7 @@ declare module NativeUI {
         Back = 5
     }
 
-    export class UIMenuItem {
+    class UIMenuItem {
         Selected: boolean;
         Hovered: boolean;
         Description: string;
@@ -496,7 +496,7 @@ declare module NativeUI {
         Activated: IEvent<(sender: NativeUI.UIMenu, selectedItem: NativeUI.UIMenuItem) => void>;
     }
 
-    export class UIMenuCheckboxItem extends UIMenuItem {
+    class UIMenuCheckboxItem extends UIMenuItem {
         Checked: boolean;
         constructor(text: string, check: boolean);
         constructor(text: string, check: boolean, description: string);
@@ -509,7 +509,7 @@ declare module NativeUI {
         CheckboxEvent: IEvent<(sender: NativeUI.UIMenuCheckboxItem, Checked: boolean) => void>;
     }
 
-    export class UIMenuColoredItem extends UIMenuItem {
+    class UIMenuColoredItem extends UIMenuItem {
         MainColor: System.Drawing.Color;
         HighlightColor: System.Drawing.Color;
         TextColor: System.Drawing.Color;
@@ -545,7 +545,7 @@ declare module NativeUI {
         Tick = 22
     }
 
-    export class UIMenuListItem extends UIMenuItem {
+    class UIMenuListItem extends UIMenuItem {
         Index: number;
         constructor(text: string, items: any, index: number);
         constructor(text: string, items: any, index: number, description: string);
@@ -559,7 +559,7 @@ declare module NativeUI {
         OnListChanged: IEvent<(sender: NativeUI.UIMenuListItem, newIndex: number) => void>;
     }
 
-    export class UIResRectangle extends UIMenuItem {
+    class UIResRectangle extends UIMenuItem {
         constructor();
         constructor(pos: System.Drawing.Point, size: System.Drawing.Size);
         constructor(pos: System.Drawing.Point, size: System.Drawing.Size, color: System.Drawing.Color);
@@ -567,7 +567,7 @@ declare module NativeUI {
         Draw(offset: System.Drawing.SizeF): void;
     }
 
-    export class UIResText {
+    class UIResText {
         TextAlignment: NativeUI.UIResText_Alignment;
         DropShadow: boolean;
         Outline: boolean;
@@ -588,9 +588,9 @@ declare module NativeUI {
     }
 
 }
-declare module NativeUI.PauseMenu {
+declare namespace NativeUI.PauseMenu {
 
-    export class MissionInformation {
+    class MissionInformation {
         Name: string;
         Description: string;
         Logo: NativeUI.PauseMenu.MissionLogo;
@@ -602,21 +602,21 @@ declare module NativeUI.PauseMenu {
         constructor(name: string, description: string, info: any);
     }
 
-    export class MissionLogo {
+    class MissionLogo {
         FileName: string;
         DictionaryName: string;
         constructor(filepath: string);
         constructor(textureDict: string, textureName: string);
     }
 
-    export class OnItemSelect {
+    class OnItemSelect {
         constructor(object: any, method: number);
         Invoke(selectedItem: NativeUI.PauseMenu.MissionInformation): void;
         BeginInvoke(selectedItem: NativeUI.PauseMenu.MissionInformation, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class TabInteractiveListItem {
+    class TabInteractiveListItem {
         Items: NativeUI.UIMenuItem[];
         Index: number;
         IsInList: boolean;
@@ -628,7 +628,7 @@ declare module NativeUI.PauseMenu {
         Draw(): void;
     }
 
-    export class TabItem {
+    class TabItem {
         DrawBg: boolean;
         Visible: boolean;
         Focused: boolean;
@@ -650,13 +650,13 @@ declare module NativeUI.PauseMenu {
         DrawInstructionalButtons: IEvent<(sender: any, e: System.EventArgs) => void>;
     }
 
-    export class TabItemSimpleList {
+    class TabItemSimpleList {
         Dictionary: string[];
         constructor(title: string, dict: string);
         Draw(): void;
     }
 
-    export class TabMissionSelectItem {
+    class TabMissionSelectItem {
         Heists: NativeUI.PauseMenu.MissionInformation[];
         Index: number;
         _noLogo: NativeUI.Sprite;
@@ -666,7 +666,7 @@ declare module NativeUI.PauseMenu {
         OnItemSelect: IEvent<(selectedItem: NativeUI.PauseMenu.MissionInformation) => void>;
     }
 
-    export class TabSubmenuItem {
+    class TabSubmenuItem {
         Items: NativeUI.PauseMenu.TabItem[];
         Index: number;
         IsInList: boolean;
@@ -677,7 +677,7 @@ declare module NativeUI.PauseMenu {
         Draw(): void;
     }
 
-    export class TabTextItem {
+    class TabTextItem {
         TextTitle: string;
         Text: string;
         WordWrap: number;
@@ -686,7 +686,7 @@ declare module NativeUI.PauseMenu {
         Draw(): void;
     }
 
-    export class TabView {
+    class TabView {
         Index: number;
         Title: string;
         Photo: NativeUI.Sprite;

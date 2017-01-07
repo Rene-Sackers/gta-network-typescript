@@ -9,9 +9,9 @@
 //
 //****************************************************************
 
-declare module GTANetwork.GUI {
+declare namespace GTANetwork.GUI {
 
-    export class Browser {
+    class Browser {
         Headless: boolean;
         Position: System.Drawing.Point;
         Pinned: System.Drawing.PointF[];
@@ -21,7 +21,7 @@ declare module GTANetwork.GUI {
         Dispose(): void;
     }
 
-    export class BrowserJavascriptCallback {
+    class BrowserJavascriptCallback {
         constructor(parent: any, wrapper: GTANetwork.GUI.Browser);
         constructor();
         call(functionName: string, ...argumentss: any[]): any;
@@ -29,7 +29,7 @@ declare module GTANetwork.GUI {
         addEventHandler(eventName: string, action: any[]): void;
     }
 
-    export class CefController {
+    class CefController {
         _lastMousePoint: System.Drawing.PointF;
         GameFPS: number;
         ShowCursor: boolean;
@@ -37,7 +37,7 @@ declare module GTANetwork.GUI {
         static GetMouseModifiers(leftbutton: boolean, rightButton: boolean): any;
     }
 
-    export interface IChat {
+    interface IChat {
         IsFocused: boolean;
         CurrentInput: string;
         Init(): void;
@@ -48,7 +48,7 @@ declare module GTANetwork.GUI {
         OnComplete: IEvent<(sender: any, e: System.EventArgs) => void>;
     }
 
-    export class Chat implements GTANetwork.GUI.IChat {
+    class Chat implements GTANetwork.GUI.IChat {
         HasInitialized: boolean;
         IsFocused: boolean;
         CurrentInput: string;
@@ -66,11 +66,11 @@ declare module GTANetwork.GUI {
         OnComplete: IEvent<(sender: any, e: System.EventArgs) => void>;
     }
 
-    export class ChatThread {
+    class ChatThread {
         constructor();
     }
 
-    export class ClassicChat implements GTANetwork.GUI.IChat {
+    class ClassicChat implements GTANetwork.GUI.IChat {
         HasInitialized: boolean;
         MAX_CHAT_MESSAGE: number;
         IsFocused: boolean;
@@ -90,7 +90,7 @@ declare module GTANetwork.GUI {
         OnComplete: IEvent<(sender: any, e: System.EventArgs) => void>;
     }
 
-    export class SecureCefResourceHandler {
+    class SecureCefResourceHandler {
         DefaultMimeType: string;
         FilePath: string;
         MimeType: string;
@@ -115,7 +115,7 @@ declare module GTANetwork.GUI {
         static FromStream(stream: any, mimeType: string): GTANetwork.GUI.SecureCefResourceHandler;
     }
 
-    export class TabButton {
+    class TabButton {
         Visible: boolean;
         Focused: boolean;
         Active: boolean;
@@ -130,7 +130,7 @@ declare module GTANetwork.GUI {
         Activated: IEvent<(sender: any, e: System.EventArgs) => void>;
     }
 
-    export class TabButtonArrayItem {
+    class TabButtonArrayItem {
         Buttons: GTANetwork.GUI.TabButton[];
         Visible: boolean;
         Index: number;
@@ -139,7 +139,7 @@ declare module GTANetwork.GUI {
         Draw(): void;
     }
 
-    export class TabMapItem {
+    class TabMapItem {
         MAP_PATH: string;
         BLIP_PATH: string;
         Position: System.Drawing.PointF;
@@ -155,23 +155,23 @@ declare module GTANetwork.GUI {
         DrawSprite(dict: string, name: string, pos: System.Drawing.PointF, size: System.Drawing.SizeF, col: System.Drawing.Color): void;
     }
 
-    export class TabWelcomeMessageItem {
+    class TabWelcomeMessageItem {
         PromoPicturePath: string;
         constructor(defaultTitle: string, defaultText: string);
         Draw(): void;
     }
 
-    export class V8Array {
+    class V8Array {
         Item: any;
         length: number;
     }
 
-    export class V8Helper {
+    class V8Helper {
         static GetValue(val: Xilium.CefGlue.CefV8Value): any;
         static CreateValue(value: any): Xilium.CefGlue.CefV8Value;
     }
 
-    export class Warning {
+    class Warning {
         Header: string;
         Message: string;
         Visible: boolean;
@@ -184,14 +184,14 @@ declare module GTANetwork.GUI {
     }
 
 }
-declare module GTANetwork.GUI.DirectXHook.Hook.Common {
+declare namespace GTANetwork.GUI.DirectXHook.Hook.Common {
 
-    export interface IOverlayElement {
+    interface IOverlayElement {
         Hidden: boolean;
         Frame(): void;
     }
 
-    export class Element implements GTANetwork.GUI.DirectXHook.Hook.Common.IOverlayElement {
+    class Element implements GTANetwork.GUI.DirectXHook.Hook.Common.IOverlayElement {
         Hidden: boolean;
         Frame(): void;
         Clone(): any;
@@ -199,7 +199,7 @@ declare module GTANetwork.GUI.DirectXHook.Hook.Common {
         InitializeLifetimeService(): any;
     }
 
-    export class ImageElement {
+    class ImageElement {
         Dirty: boolean;
         SwitchLock: any;
         Bitmap: System.Drawing.Bitmap;
@@ -215,11 +215,11 @@ declare module GTANetwork.GUI.DirectXHook.Hook.Common {
         SetBitmap(bmp: System.Drawing.Bitmap): void;
     }
 
-    export interface IOverlay extends GTANetwork.GUI.DirectXHook.Hook.Common.IOverlayElement {
+    interface IOverlay extends GTANetwork.GUI.DirectXHook.Hook.Common.IOverlayElement {
         Elements: GTANetwork.GUI.DirectXHook.Hook.Common.IOverlayElement[];
     }
 
-    export class Overlay implements GTANetwork.GUI.DirectXHook.Hook.Common.IOverlay, GTANetwork.GUI.DirectXHook.Hook.Common.IOverlayElement {
+    class Overlay implements GTANetwork.GUI.DirectXHook.Hook.Common.IOverlay, GTANetwork.GUI.DirectXHook.Hook.Common.IOverlayElement {
         Elements: GTANetwork.GUI.DirectXHook.Hook.Common.IOverlayElement[];
         Hidden: boolean;
         constructor();
@@ -227,7 +227,7 @@ declare module GTANetwork.GUI.DirectXHook.Hook.Common {
         Clone(): any;
     }
 
-    export class TextElement {
+    class TextElement {
         Text: string;
         Font: System.Drawing.Font;
         Color: System.Drawing.Color;
@@ -237,9 +237,9 @@ declare module GTANetwork.GUI.DirectXHook.Hook.Common {
     }
 
 }
-declare module GTANetwork.GUI.DirectXHook.Hook {
+declare namespace GTANetwork.GUI.DirectXHook.Hook {
 
-    export class D10Text {
+    class D10Text {
         Text: string;
         //FontDescription: SharpDX.Direct3D10.FontDescription;
         FontDescription: any;
@@ -249,7 +249,7 @@ declare module GTANetwork.GUI.DirectXHook.Hook {
         Color: any;
     }
 
-    export class Hook {
+    class Hook {
         FuncToHook: number;
         //NewFunc: System.Delegate;
         NewFunc: Function;
@@ -264,29 +264,29 @@ declare module GTANetwork.GUI.DirectXHook.Hook {
         Dispose(): void;
     }
 
-    //export class Hook<T> {
+    //class Hook<T> {
     //    Original: T;
     //    constructor(funcToHook: number, newFunc: System.Delegate, owner: any);
     //}
 
-    export interface IDXHook {
+    interface IDXHook {
         Hook(): void;
         Cleanup(): void;
     }
 
-    export class SafeHGlobal {
+    class SafeHGlobal {
         IsInvalid: boolean;
         constructor(sizeInBytes: number);
     }
 
 }
-declare module GTANetwork.GUI.DirectXHook.Hook.DX11 {
+declare namespace GTANetwork.GUI.DirectXHook.Hook.DX11 {
 
-    export class ContextState {
+    class ContextState {
         constructor();
     }
 
-    export class DeviceManager {
+    class DeviceManager {
         //Direct3DDevice: SharpDX.Direct3D11.Device;
         Direct3DDevice: any;
         //Direct3DContext: SharpDX.Direct3D11.DeviceContext;
@@ -295,7 +295,7 @@ declare module GTANetwork.GUI.DirectXHook.Hook.DX11 {
         constructor(device: any);
     }
 
-    export class DXFont {
+    class DXFont {
         //constructor(device: SharpDX.Direct3D11.Device, deviceContext: SharpDX.Direct3D11.DeviceContext);
         constructor(device: any, deviceContext: any);
         Dispose(): void;
@@ -308,7 +308,7 @@ declare module GTANetwork.GUI.DirectXHook.Hook.DX11 {
         GetCharHeight(): number;
     }
 
-    export class DXImage {
+    class DXImage {
         Width: number;
         Height: number;
         //Device: SharpDX.Direct3D11.Device;
@@ -321,7 +321,7 @@ declare module GTANetwork.GUI.DirectXHook.Hook.DX11 {
         GetSRV(): any;
     }
 
-    export class DXSprite {
+    class DXSprite {
         //constructor(device: SharpDX.Direct3D11.Device, deviceContext: SharpDX.Direct3D11.DeviceContext);
         constructor(device: any, deviceContext: any);
         Initialize(): boolean;
@@ -334,7 +334,7 @@ declare module GTANetwork.GUI.DirectXHook.Hook.DX11 {
         Draw(destinationRect: any, sourceRect: any, color: any, scale: number, angle: number, z: number): void;
     }
 
-    export class RendererBase {
+    class RendererBase {
         //World: SharpDX.Matrix;
         World: any;
         DeviceManager: GTANetwork.GUI.DirectXHook.Hook.DX11.DeviceManager;
@@ -346,7 +346,7 @@ declare module GTANetwork.GUI.DirectXHook.Hook.DX11 {
         Render(context: any): void;
     }
 
-    export class ScreenAlignedQuadRenderer {
+    class ScreenAlignedQuadRenderer {
         UseLinearSampling: boolean;
         //ShaderResource: SharpDX.Direct3D11.ShaderResourceView;
         ShaderResource: any;
@@ -358,29 +358,29 @@ declare module GTANetwork.GUI.DirectXHook.Hook.DX11 {
     }
 
 }
-declare module GTANetwork.GUI.DirectXHook {
+declare namespace GTANetwork.GUI.DirectXHook {
 
-    export class InjectionFailedException {
+    class InjectionFailedException {
         //constructor(innerException: System.Exception);
         constructor(innerException: any);
     }
 
-    export class ProcessAlreadyHookedException {
+    class ProcessAlreadyHookedException {
         constructor();
     }
 
-    export class ProcessHasNoWindowHandleException {
+    class ProcessHasNoWindowHandleException {
         constructor();
     }
 
-    export class SwapchainHooker {
+    class SwapchainHooker {
         constructor();
     }
 
 }
-declare module GTANetwork.GUI.Extern {
+declare namespace GTANetwork.GUI.Extern {
 
-    export class FastBitmap {
+    class FastBitmap {
         Width: number;
         Height: number;
         CompositingMode: System.Drawing.Drawing2D.CompositingMode;
@@ -393,12 +393,12 @@ declare module GTANetwork.GUI.Extern {
         Clear(oColor: GTANetwork.GUI.Extern.RGBColor): void;
     }
 
-    export class QuadDistort {
+    class QuadDistort {
         constructor();
         static DrawBitmap(oTexture: GTANetwork.GUI.Extern.FastBitmap, topLeft: System.Drawing.Point, topRight: System.Drawing.Point, bottomRight: System.Drawing.Point, bottomLeft: System.Drawing.Point, oCanvas: GTANetwork.GUI.Extern.FastBitmap): void;
     }
 
-    export class RGBColor {
+    class RGBColor {
         Transparent: GTANetwork.GUI.Extern.RGBColor;
         Black: GTANetwork.GUI.Extern.RGBColor;
         White: GTANetwork.GUI.Extern.RGBColor;
@@ -427,16 +427,17 @@ declare module GTANetwork.GUI.Extern {
     }
 
 }
-declare module GTANetwork.Javascript {
 
-    export class BooleanEvent {
+declare namespace GTANetwork.Javascript {
+
+    class BooleanEvent {
         constructor(object: any, method: number);
         Invoke(value: boolean): void;
         BeginInvoke(value: boolean, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class CameraManager {
+    class CameraManager {
         constructor();
         Reset(): void;
         GetActive(): GTANetwork.Javascript.GlobalCamera;
@@ -446,12 +447,12 @@ declare module GTANetwork.Javascript {
         SetActiveWithInterp(cam: GTANetwork.Javascript.GlobalCamera, duration: number, easePos: boolean, easeRot: boolean): void;
     }
 
-    export class ClientResourceSettings {
+    class ClientResourceSettings {
         Settings: string[];
         constructor();
     }
 
-    export class GlobalCamera {
+    class GlobalCamera {
         Position: Vector3;
         Rotation: Vector3;
         EntityPointing: number;
@@ -469,14 +470,14 @@ declare module GTANetwork.Javascript {
         constructor();
     }
 
-    export class IntegerEvent {
+    class IntegerEvent {
         constructor(object: any, method: number);
         Invoke(value: number): void;
         BeginInvoke(value: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class JavascriptChat implements GTANetwork.GUI.IChat {
+    class JavascriptChat implements GTANetwork.GUI.IChat {
         SanitationLevel: number;
         IsFocused: boolean;
         CurrentInput: string;
@@ -498,7 +499,7 @@ declare module GTANetwork.Javascript {
         onChatHideRequest: IEvent<(value: boolean) => void>;
     }
 
-    export class JavascriptHook {
+    class JavascriptHook {
         MousePosition: System.Drawing.PointF;
         MouseClick: boolean;
         TextElements: NativeUI.UIResText[];
@@ -511,7 +512,7 @@ declare module GTANetwork.Javascript {
         constructor();
     }
 
-    export class LoopStream {
+    class LoopStream {
         EnableLooping: boolean;
         //WaveFormat: NAudio.Wave.WaveFormat;
         WaveFormat: any;
@@ -522,14 +523,14 @@ declare module GTANetwork.Javascript {
         Read(buffer: any, offset: number, count: number): number;
     }
 
-    export class MessageEvent {
+    class MessageEvent {
         constructor(object: any, method: number);
         Invoke(msg: string, hasColor: boolean, r: number, g: number, b: number): void;
         BeginInvoke(msg: string, hasColor: boolean, r: number, g: number, b: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext {
+    class ScriptContext {
         //constructor(engine: Microsoft.ClearScript.V8.V8ScriptEngine);
         constructor(engine: any);
         startCoroutine(target: any): void;
@@ -570,7 +571,7 @@ declare module GTANetwork.Javascript {
         screenToWorldMantainRatio(pos: System.Drawing.PointF): Vector3;
         screenToWorld(pos: System.Drawing.PointF, camPos: Vector3, camRot: Vector3): Vector3;
         screenToWorldMantainRatio(pos: System.Drawing.PointF, camPos: Vector3, camrot: Vector3): Vector3;
-        createRaycast(start: Vector3, end: Vector3, flag: number, ignoreEntity: GTANetwork.Util.LocalHandle): GTANetwork.Javascript.ScriptContext_Raycast;
+        createRaycast(start: Vector3, end: Vector3, flag: Enums.IntersectOptions, ignoreEntity: GTANetwork.Util.LocalHandle): GTANetwork.Javascript.ScriptContext_Raycast;
         getGameplayCamPos(): Vector3;
         getGameplayCamRot(): Vector3;
         getGameplayCamDir(): Vector3;
@@ -886,18 +887,18 @@ declare module GTANetwork.Javascript {
         setMenuTitle(menu: NativeUI.UIMenu, title: string): void;
         setMenuSubtitle(menu: NativeUI.UIMenu, text: string): void;
         getUserInput(defaultText: string, maxlen: number): string;
-        isControlJustPressed(control: number): boolean;
-        isControlPressed(control: number): boolean;
-        isDisabledControlJustReleased(control: number): boolean;
-        isDisabledControlJustPressed(control: number): boolean;
-        isDisabledControlPressed(control: number): boolean;
-        isControlJustReleased(control: number): boolean;
-        disableControlThisFrame(control: number): void;
-        enableControlThisFrame(control: number): void;
+        isControlJustPressed(control: Enums.Controls): boolean;
+        isControlPressed(control: Enums.Controls): boolean;
+        isDisabledControlJustReleased(control: Enums.Controls): boolean;
+        isDisabledControlJustPressed(control: Enums.Controls): boolean;
+        isDisabledControlPressed(control: Enums.Controls): boolean;
+        isControlJustReleased(control: Enums.Controls): boolean;
+        disableControlThisFrame(control: Enums.Controls): void;
+        enableControlThisFrame(control: Enums.Controls): void;
         disableAllControlsThisFrame(): void;
-        getControlNormal(control: number): number;
-        getDisabledControlNormal(control: number): number;
-        setControlNormal(control: number, value: number): void;
+        getControlNormal(control: Enums.Controls): number;
+        getDisabledControlNormal(control: Enums.Controls): number;
+        setControlNormal(control: Enums.Controls, value: number): void;
         isChatOpen(): boolean;
         loadAnimationDict(dict: string): void;
         loadModel(model: number): void;
@@ -965,103 +966,103 @@ declare module GTANetwork.Javascript {
         Handle = 9
     }
 
-    export class ScriptContext_Raycast {
+    class ScriptContext_Raycast {
         didHitAnything: boolean;
         didHitEntity: boolean;
         hitEntity: GTANetwork.Util.LocalHandle;
         hitCoords: Vector3;
     }
 
-    export class ScriptContext_fArg {
+    class ScriptContext_fArg {
         Value: number;
         constructor(f: number);
     }
 
-    export class ScriptContext_ServerEventTrigger {
+    class ScriptContext_ServerEventTrigger {
         constructor(object: any, method: number);
         Invoke(eventName: string, argumentss: any[]): void;
         BeginInvoke(eventName: string, argumentss: any[], callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_ChatEvent {
+    class ScriptContext_ChatEvent {
         constructor(object: any, method: number);
         Invoke(msg: string): void;
         BeginInvoke(msg: string, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_StreamEvent {
+    class ScriptContext_StreamEvent {
         constructor(object: any, method: number);
         Invoke(item: GTANetwork.Util.LocalHandle, entityType: number): void;
         BeginInvoke(item: GTANetwork.Util.LocalHandle, entityType: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_DataChangedEvent {
+    class ScriptContext_DataChangedEvent {
         constructor(object: any, method: number);
         Invoke(entity: GTANetwork.Util.LocalHandle, key: string, oldValue: any): void;
         BeginInvoke(entity: GTANetwork.Util.LocalHandle, key: string, oldValue: any, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_CustomDataReceived {
+    class ScriptContext_CustomDataReceived {
         constructor(object: any, method: number);
         Invoke(data: string): void;
         BeginInvoke(data: string, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_EmptyEvent {
+    class ScriptContext_EmptyEvent {
         constructor(object: any, method: number);
         Invoke(): void;
         BeginInvoke(callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_EntityEvent {
+    class ScriptContext_EntityEvent {
         constructor(object: any, method: number);
         Invoke(entity: GTANetwork.Util.LocalHandle): void;
         BeginInvoke(entity: GTANetwork.Util.LocalHandle, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_PlayerKilledEvent {
+    class ScriptContext_PlayerKilledEvent {
         constructor(object: any, method: number);
         Invoke(killer: GTANetwork.Util.LocalHandle, weapon: number): void;
         BeginInvoke(killer: GTANetwork.Util.LocalHandle, weapon: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_IntChangeEvent {
+    class ScriptContext_IntChangeEvent {
         constructor(object: any, method: number);
         Invoke(oldValue: number): void;
         BeginInvoke(oldValue: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_BoolChangeEvent {
+    class ScriptContext_BoolChangeEvent {
         constructor(object: any, method: number);
         Invoke(oldValue: boolean): void;
         BeginInvoke(oldValue: boolean, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_PlayerDamageEvent {
+    class ScriptContext_PlayerDamageEvent {
         constructor(object: any, method: number);
         Invoke(attacker: GTANetwork.Util.LocalHandle, weaponUsed: number, boneHit: number): void;
         BeginInvoke(attacker: GTANetwork.Util.LocalHandle, weaponUsed: number, boneHit: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_PlayerMeleeDamageEvent {
+    class ScriptContext_PlayerMeleeDamageEvent {
         constructor(object: any, method: number);
         Invoke(attacker: GTANetwork.Util.LocalHandle, weaponUsed: number): void;
         BeginInvoke(attacker: GTANetwork.Util.LocalHandle, weaponUsed: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export class ScriptContext_WeaponShootEvent {
+    class ScriptContext_WeaponShootEvent {
         constructor(object: any, method: number);
         Invoke(weaponUsed: number, aimCoords: Vector3): void;
         BeginInvoke(weaponUsed: number, aimCoords: Vector3, callback: System.AsyncCallback, object: any): System.IAsyncResult;
@@ -1075,14 +1076,14 @@ declare module GTANetwork.Javascript {
         All = 3
     }
 
-    export class xmlElement {
+    class xmlElement {
         name: string;
         constructor();
         hasElementData(elementName: string): boolean;
         getElementData(elementName: string, returnType: number): any;
     }
 
-    export class XmlGroup {
+    class XmlGroup {
         constructor();
         getSubgroup(groupName: string): GTANetwork.Javascript.XmlGroup;
         hasAnyElementOfType(typeName: string): boolean;
@@ -1092,14 +1093,14 @@ declare module GTANetwork.Javascript {
     }
 
 }
-declare module GTANetwork {
+declare namespace GTANetwork {
 
-    export class MasterServerList {
+    class MasterServerList {
         list: string[];
         constructor();
     }
 
-    export class WelcomeSchema {
+    class WelcomeSchema {
         Title: string;
         Message: string;
         Picture: string;
@@ -1107,9 +1108,9 @@ declare module GTANetwork {
     }
 
 }
-declare module GTANetwork.Misc {
+declare namespace GTANetwork.Misc {
 
-    export class BiDictionary<TFirst, TSecond> {
+    class BiDictionary<TFirst, TSecond> {
         Reverse: TSecond[];
         Count: number;
         //System.Collections.ICollection.SyncRoot: any;
@@ -1141,235 +1142,235 @@ declare module GTANetwork.Misc {
         CopyTo(array: any, arrayIndex: number): void;
     }
 
-    export class ChatData {
+    class ChatData {
         Id: number;
         Sender: string;
         Message: string;
         constructor();
     }
 
-    export class GameScript {
+    class GameScript {
         static DisableAll(disableeditor: boolean): void;
         static Pulse(): void;
     }
 
-    export class GameSettings {
+    class GameSettings {
         constructor();
         static LoadGameSettings(): GTANetwork.Misc.GameSettings_Settings;
         static SaveSettings(sets: GTANetwork.Misc.GameSettings_Settings): void;
     }
 
-    export class GameSettings_Version {
+    class GameSettings_Version {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Tessellation {
+    class GameSettings_Tessellation {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_LodScale {
+    class GameSettings_LodScale {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_PedLodBias {
+    class GameSettings_PedLodBias {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_VehicleLodBias {
+    class GameSettings_VehicleLodBias {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_ShadowQuality {
+    class GameSettings_ShadowQuality {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_ReflectionQuality {
+    class GameSettings_ReflectionQuality {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_ReflectionMSAA {
+    class GameSettings_ReflectionMSAA {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_SSAO {
+    class GameSettings_SSAO {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_AnisotropicFiltering {
+    class GameSettings_AnisotropicFiltering {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_MSAA {
+    class GameSettings_MSAA {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_MSAAFragments {
+    class GameSettings_MSAAFragments {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_MSAAQuality {
+    class GameSettings_MSAAQuality {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_SamplingMode {
+    class GameSettings_SamplingMode {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_TextureQuality {
+    class GameSettings_TextureQuality {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_ParticleQuality {
+    class GameSettings_ParticleQuality {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_WaterQuality {
+    class GameSettings_WaterQuality {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_GrassQuality {
+    class GameSettings_GrassQuality {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_ShaderQuality {
+    class GameSettings_ShaderQuality {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Shadow_SoftShadows {
+    class GameSettings_Shadow_SoftShadows {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_UltraShadows_Enabled {
+    class GameSettings_UltraShadows_Enabled {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_Shadow_ParticleShadows {
+    class GameSettings_Shadow_ParticleShadows {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_Shadow_Distance {
+    class GameSettings_Shadow_Distance {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Shadow_LongShadows {
+    class GameSettings_Shadow_LongShadows {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_Shadow_SplitZStart {
+    class GameSettings_Shadow_SplitZStart {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Shadow_SplitZEnd {
+    class GameSettings_Shadow_SplitZEnd {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Shadow_aircraftExpWeight {
+    class GameSettings_Shadow_aircraftExpWeight {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Shadow_DisableScreenSizeCheck {
+    class GameSettings_Shadow_DisableScreenSizeCheck {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_Reflection_MipBlur {
+    class GameSettings_Reflection_MipBlur {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_FXAA_Enabled {
+    class GameSettings_FXAA_Enabled {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_TXAA_Enabled {
+    class GameSettings_TXAA_Enabled {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_Lighting_FogVolumes {
+    class GameSettings_Lighting_FogVolumes {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_Shader_SSA {
+    class GameSettings_Shader_SSA {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_DX_Version {
+    class GameSettings_DX_Version {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_CityDensity {
+    class GameSettings_CityDensity {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_PedVarietyMultiplier {
+    class GameSettings_PedVarietyMultiplier {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_VehicleVarietyMultiplier {
+    class GameSettings_VehicleVarietyMultiplier {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_PostFX {
+    class GameSettings_PostFX {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_DoF {
+    class GameSettings_DoF {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_HdStreamingInFlight {
+    class GameSettings_HdStreamingInFlight {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_MaxLodScale {
+    class GameSettings_MaxLodScale {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_MotionBlurStrength {
+    class GameSettings_MotionBlurStrength {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Graphics {
+    class GameSettings_Graphics {
         Tessellation: GTANetwork.Misc.GameSettings_Tessellation;
         LodScale: GTANetwork.Misc.GameSettings_LodScale;
         PedLodBias: GTANetwork.Misc.GameSettings_PedLodBias;
@@ -1414,27 +1415,27 @@ declare module GTANetwork.Misc {
         constructor();
     }
 
-    export class GameSettings_NumBytesPerReplayBlock {
+    class GameSettings_NumBytesPerReplayBlock {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_NumReplayBlocks {
+    class GameSettings_NumReplayBlocks {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_MaxSizeOfStreamingReplay {
+    class GameSettings_MaxSizeOfStreamingReplay {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_MaxFileStoreSize {
+    class GameSettings_MaxFileStoreSize {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_System {
+    class GameSettings_System {
         NumBytesPerReplayBlock: GTANetwork.Misc.GameSettings_NumBytesPerReplayBlock;
         NumReplayBlocks: GTANetwork.Misc.GameSettings_NumReplayBlocks;
         MaxSizeOfStreamingReplay: GTANetwork.Misc.GameSettings_MaxSizeOfStreamingReplay;
@@ -1442,77 +1443,77 @@ declare module GTANetwork.Misc {
         constructor();
     }
 
-    export class GameSettings_Audio3d {
+    class GameSettings_Audio3d {
         Value: boolean;
         constructor();
     }
 
-    export class GameSettings_Audio {
+    class GameSettings_Audio {
         Audio3d: GTANetwork.Misc.GameSettings_Audio3d;
         constructor();
     }
 
-    export class GameSettings_AdapterIndex {
+    class GameSettings_AdapterIndex {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_OutputIndex {
+    class GameSettings_OutputIndex {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_ScreenWidth {
+    class GameSettings_ScreenWidth {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_ScreenHeight {
+    class GameSettings_ScreenHeight {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_RefreshRate {
+    class GameSettings_RefreshRate {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Windowed {
+    class GameSettings_Windowed {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_VSync {
+    class GameSettings_VSync {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Stereo {
+    class GameSettings_Stereo {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Convergence {
+    class GameSettings_Convergence {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Separation {
+    class GameSettings_Separation {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_PauseOnFocusLoss {
+    class GameSettings_PauseOnFocusLoss {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_AspectRatio {
+    class GameSettings_AspectRatio {
         Value: number;
         constructor();
     }
 
-    export class GameSettings_Video {
+    class GameSettings_Video {
         AdapterIndex: GTANetwork.Misc.GameSettings_AdapterIndex;
         OutputIndex: GTANetwork.Misc.GameSettings_OutputIndex;
         ScreenWidth: GTANetwork.Misc.GameSettings_ScreenWidth;
@@ -1528,7 +1529,7 @@ declare module GTANetwork.Misc {
         constructor();
     }
 
-    export class GameSettings_Settings {
+    class GameSettings_Settings {
         Version: GTANetwork.Misc.GameSettings_Version;
         ConfigSource: string;
         Graphics: GTANetwork.Misc.GameSettings_Graphics;
@@ -1539,12 +1540,12 @@ declare module GTANetwork.Misc {
         constructor();
     }
 
-    export class KeyValuePairExts {
+    class KeyValuePairExts {
         //static Reverse(this: TKey): System.Collections.Generic.KeyValuePair<TValue,TKey>;
         static Reverse(thiss: any): any;
     }
 
-    export class Program {
+    class Program {
         Location: string;
         static Main(args: string[]): void;
         static ProcessMessages(sender: any): void;
@@ -1552,7 +1553,7 @@ declare module GTANetwork.Misc {
         static SerializeBinary(data: any): any;
     }
 
-    export class WeaponDataProvider {
+    class WeaponDataProvider {
         static IsWeaponAutomatic(hash: GTA.WeaponHash): boolean;
         static DoesVehicleHaveParallelWeapon(model: GTA.VehicleHash, rockets: boolean): boolean;
         static DoesVehiclesMuzzleDifferFromVehicleGunPos(model: GTA.VehicleHash): boolean;
@@ -1567,9 +1568,9 @@ declare module GTANetwork.Misc {
     }
 
 }
-declare module GTANetwork.Networking {
+declare namespace GTANetwork.Networking {
 
-    export class DeltaCompressor {
+    class DeltaCompressor {
         DataReceived: number[];
         LastPacketReceived: any;
         LastSentObject: any;
@@ -1578,11 +1579,11 @@ declare module GTANetwork.Networking {
         static CompressData(fullPacket: any): any;
     }
 
-    export interface ILocalHandleable {
+    interface ILocalHandleable {
         LocalHandle: number;
     }
 
-    export interface IStreamedItem {
+    interface IStreamedItem {
         RemoteHandle: number;
         LocalOnly: boolean;
         StreamedIn: boolean;
@@ -1595,12 +1596,12 @@ declare module GTANetwork.Networking {
         RotationMovement: Movement;
     }
 
-    export class PedThread {
+    class PedThread {
         constructor();
         static OnTick(sender: any, e: System.EventArgs): void;
     }
 
-    export class RemoteBlip implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
+    class RemoteBlip implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
         LocalHandle: number;
         RemoteHandle: number;
         LocalOnly: boolean;
@@ -1618,7 +1619,7 @@ declare module GTANetwork.Networking {
         RotationMovement: Movement;
     }
 
-    export class RemoteMarker implements GTANetwork.Networking.IStreamedItem {
+    class RemoteMarker implements GTANetwork.Networking.IStreamedItem {
         RemoteHandle: number;
         LocalOnly: boolean;
         StreamedIn: boolean;
@@ -1635,34 +1636,16 @@ declare module GTANetwork.Networking {
         RotationMovement: Movement;
     }
 
-    export class RemoteParticle implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
-        RemoteHandle: number;
-        LocalOnly: boolean;
-        StreamedIn: boolean;
-        LocalHandle: number;
-        Position: Vector3;
-        constructor();
-        GetHashCode(): number;
-
-        //
-        EntityType: number;
-        Dimension: number;
-        AttachedTo: Attachment;
-        Attachables: number[];
-        PositionMovement: Movement;
-        RotationMovement: Movement;
-    }
-
-    export class RemotePed implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
+    class RemoteParticle implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
         RemoteHandle: number;
         LocalOnly: boolean;
         StreamedIn: boolean;
         LocalHandle: number;
+        Position: Vector3;
         constructor();
         GetHashCode(): number;
 
         //
-        Position: Vector3;
         EntityType: number;
         Dimension: number;
         AttachedTo: Attachment;
@@ -1671,25 +1654,7 @@ declare module GTANetwork.Networking {
         RotationMovement: Movement;
     }
 
-    export class RemotePickup implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
-        LocalHandle: number;
-        RemoteHandle: number;
-        LocalOnly: boolean;
-        StreamedIn: boolean;
-        constructor();
-        GetHashCode(): number;
-
-        //
-        Position: Vector3;
-        EntityType: number;
-        Dimension: number;
-        AttachedTo: Attachment;
-        Attachables: number[];
-        PositionMovement: Movement;
-        RotationMovement: Movement;
-    }
-
-    export class RemotePlayer implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
+    class RemotePed implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
         RemoteHandle: number;
         LocalOnly: boolean;
         StreamedIn: boolean;
@@ -1707,7 +1672,7 @@ declare module GTANetwork.Networking {
         RotationMovement: Movement;
     }
 
-    export class RemoteProp implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
+    class RemotePickup implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
         LocalHandle: number;
         RemoteHandle: number;
         LocalOnly: boolean;
@@ -1725,10 +1690,11 @@ declare module GTANetwork.Networking {
         RotationMovement: Movement;
     }
 
-    export class RemoteTextLabel implements GTANetwork.Networking.IStreamedItem {
+    class RemotePlayer implements GTANetwork.Networking.IStreamedItem, GTANetwork.Networking.ILocalHandleable {
         RemoteHandle: number;
         LocalOnly: boolean;
         StreamedIn: boolean;
+        LocalHandle: number;
         constructor();
         GetHashCode(): number;
 
@@ -1742,7 +1708,7 @@ declare module GTANetwork.Networking {
         RotationMovement: Movement;
     }
 
-    export class RemoteVehicle implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
+    class RemoteProp implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
         LocalHandle: number;
         RemoteHandle: number;
         LocalOnly: boolean;
@@ -1760,14 +1726,49 @@ declare module GTANetwork.Networking {
         RotationMovement: Movement;
     }
 
-    export class SyncCollector {
+    class RemoteTextLabel implements GTANetwork.Networking.IStreamedItem {
+        RemoteHandle: number;
+        LocalOnly: boolean;
+        StreamedIn: boolean;
+        constructor();
+        GetHashCode(): number;
+
+        //
+        Position: Vector3;
+        EntityType: number;
+        Dimension: number;
+        AttachedTo: Attachment;
+        Attachables: number[];
+        PositionMovement: Movement;
+        RotationMovement: Movement;
+    }
+
+    class RemoteVehicle implements GTANetwork.Networking.ILocalHandleable, GTANetwork.Networking.IStreamedItem {
+        LocalHandle: number;
+        RemoteHandle: number;
+        LocalOnly: boolean;
+        StreamedIn: boolean;
+        constructor();
+        GetHashCode(): number;
+
+        //
+        Position: Vector3;
+        EntityType: number;
+        Dimension: number;
+        AttachedTo: Attachment;
+        Attachables: number[];
+        PositionMovement: Movement;
+        RotationMovement: Movement;
+    }
+
+    class SyncCollector {
         constructor();
     }
 
 }
-declare module GTANetwork.Util {
+declare namespace GTANetwork.Util {
 
-    export class CachedString {
+    class CachedString {
         LastAccess: Date;
         Data: string;
         Pointer: number;
@@ -1777,7 +1778,7 @@ declare module GTANetwork.Util {
         Allocate(text: string): void;
     }
 
-    export class ConstantVehicleData {
+    class ConstantVehicleData {
         DisplayName: string;
         MaxSpeed: number;
         MaxBraking: number;
@@ -1792,11 +1793,11 @@ declare module GTANetwork.Util {
         VehicleClass: number;
     }
 
-    export class DataCollector {
+    class DataCollector {
         static Collect(): void;
     }
 
-    export class DebugWindow {
+    class DebugWindow {
         Visible: boolean;
         PlayerIndex: number;
         constructor();
@@ -1848,7 +1849,7 @@ declare module GTANetwork.Util {
         JUMPING_FINISHING_JUMP = 422
     }
 
-    export class GTAMemory {
+    class GTAMemory {
         static GetGlobalAddress(index: number): number;
     }
 
@@ -1858,7 +1859,7 @@ declare module GTANetwork.Util {
         NetHandle = 2
     }
 
-    export class InputboxThread {
+    class InputboxThread {
         //ThreadJumper: System.Action[];
         ThreadJumper: Function[];
         constructor();
@@ -1870,7 +1871,7 @@ declare module GTANetwork.Util {
         static GetUserInput(spinner: Function): string;
     }
 
-    export class Interpolator<T> {
+    class Interpolator<T> {
         constructor();
         Push(newData: T, ticks: number): void;
         Pop(): void;
@@ -1881,7 +1882,7 @@ declare module GTANetwork.Util {
         Clear(): void;
     }
 
-    export class LocalHandle {
+    class LocalHandle {
         HandleType: GTANetwork.Util.HandleType;
         Raw: number;
         Value: number;
@@ -1895,7 +1896,7 @@ declare module GTANetwork.Util {
         ToString(): string;
     }
 
-    export class LogManager {
+    class LogManager {
         LogDirectory: string;
         errorLogLock: any;
         constructor();
@@ -1907,7 +1908,7 @@ declare module GTANetwork.Util {
         static LogException(ex: any, source: string): void;
     }
 
-    export class Memory {
+    class Memory {
         BaseAddress: number;
         ModuleSize: number;
         static FindPattern(pattern: string): number;
@@ -1937,28 +1938,28 @@ declare module GTANetwork.Util {
         static WriteBytes(ptr: number, buffer: any): void;
     }
 
-    export class MimeTypes {
+    class MimeTypes {
         constructor();
         static GetMimeType(file: any, fileName: string): string;
     }
 
-    export class ModelSpoofer {
+    class ModelSpoofer {
         constructor(ent: GTA.Entity, fakeModel: number);
         Pulse(): void;
         static Spoof(ent: GTA.Entity, model: number): void;
     }
 
-    export class NativeWhitelist {
+    class NativeWhitelist {
         static Init(): void;
         static IsAllowed(native: number): boolean;
     }
 
-    export class Screenshot {
+    class Screenshot {
         constructor();
         static TakeScreenshot(name: string): void;
     }
 
-    export class ScriptTable {
+    class ScriptTable {
         Count: number;
         IsTableInitialised: boolean;
         static GetScriptAddress(hash: number): number;
@@ -1966,16 +1967,16 @@ declare module GTANetwork.Util {
         static IsScriptLoaded(hash: number): boolean;
     }
 
-    export class ScriptTable_ScriptTableItem {
+    class ScriptTable_ScriptTableItem {
         ScriptStartAddress: number;
         ScriptHash: number;
     }
 
-    export class StickyBombTracker {
+    class StickyBombTracker {
         constructor();
     }
 
-    export class StringCache {
+    class StringCache {
         Timeout: number;
         createdCache: boolean;
         constructor();
@@ -1984,7 +1985,7 @@ declare module GTANetwork.Util {
         Dispose(): void;
     }
 
-    export class Subtask {
+    class Subtask {
         static IsSubtaskActive(ped: GTA.Ped, sub: GTANetwork.Util.ESubtask): boolean;
         static IsSubtaskActive(ped: GTA.Ped, sub: number): boolean;
         static IsSubtaskActive(ped: number, sub: GTANetwork.Util.ESubtask): boolean;
@@ -1992,21 +1993,21 @@ declare module GTANetwork.Util {
         static Debug(): void;
     }
 
-    export class User32 {
+    class User32 {
         constructor();
         //static GetWindowRect(hWnd: number, rect: GTANetwork.Util.User32_Rect&): number;
         static GetWindowRect(hWnd: number, rect: GTANetwork.Util.User32_Rect): number;
         static PrintWindow(hwnd: number, hdc: number, nFlags: number): boolean;
     }
 
-    export class User32_Rect {
+    class User32_Rect {
         left: number;
         top: number;
         right: number;
         bottom: number;
     }
 
-    export class Util {
+    class Util {
         ModelRequest: boolean;
         TickCount: number;
         //static Clamp(min: T, value: T, max: T): T;
@@ -2072,7 +2073,7 @@ declare module GTANetwork.Util {
         static QuaternionToEuler(quat: GTA.Math.Quaternion): GTA.Math.Vector3;
     }
 
-    export class VectorExtensions {
+    class VectorExtensions {
         static ToQuaternion(q: Quaternion): GTA.Math.Quaternion;
         static ToVector(v: Vector3): GTA.Math.Vector3;
         static ToLVector(vec: GTA.Math.Vector3): Vector3;

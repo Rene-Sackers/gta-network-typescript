@@ -11,7 +11,7 @@
 
 
 
-declare module GTA {
+declare namespace GTA {
 
     enum AnimationFlags {
         None = 0,
@@ -4107,7 +4107,7 @@ declare module GTA {
     }
 
 }
-declare module GTA.Math {
+declare namespace GTA.Math {
 
     export class Matrix {
         M11: number;
@@ -4312,7 +4312,7 @@ declare module GTA.Math {
     }
 
 }
-declare module GTA.Native {
+declare namespace GTA.Native {
 
     export class Function {
         static Call(hash: GTA.Native.Hash, ...argumentss: GTA.Native.InputArgument[]): void;
@@ -7700,7 +7700,7 @@ declare module GTA.Native {
     }
 
 }
-declare module GTA.NaturalMotion {
+declare namespace GTA.NaturalMotion {
 
     export class ActivePoseHelper {
         Mask: string;
@@ -9575,7 +9575,7 @@ declare module GTA.NaturalMotion {
     }
 
 }
-declare module GTA.UI {
+declare namespace GTA.UI {
 
     enum Alignment {
         Center = 0,

@@ -1,6 +1,6 @@
 ﻿
-declare module System {
-    export class TimeSpan {
+declare namespace System {
+    class TimeSpan {
         TicksPerMillisecond: number;
         TicksPerSecond: number;
         TicksPerMinute: number;
@@ -58,7 +58,7 @@ declare module System {
         //ToString(format: string, formatProvider: System.IFormatProvider): string;
     }
 
-    export interface IAsyncResult {
+    interface IAsyncResult {
         IsCompleted: boolean;
         //AsyncWaitHandle: System.Threading.WaitHandle;
         AsyncWaitHandle: any;
@@ -66,19 +66,19 @@ declare module System {
         CompletedSynchronously: boolean;
     }
 
-    export class AsyncCallback {
+    class AsyncCallback {
         constructor(object: any, method: number);
         Invoke(ar: System.IAsyncResult): void;
         BeginInvoke(ar: System.IAsyncResult, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
-    export interface EventArgs {
+    interface EventArgs {
     }
 
-    export module Windows {
-        export module Forms {
-            export class KeyEventArgs {
+    namespace Windows {
+        namespace Forms {
+            class KeyEventArgs {
                 Alt: boolean;
                 Control: boolean;
                 Handled: boolean;
@@ -91,7 +91,7 @@ declare module System {
                 constructor(keyData: System.Windows.Forms.Keys);
             }
 
-            export enum Keys {
+            enum Keys {
                 None = 0,
                 Cancel = 1,
                 Back = 2,
