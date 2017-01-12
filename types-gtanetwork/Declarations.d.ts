@@ -6,8 +6,7 @@ import Point = System.Drawing.Point;
 import PointF = System.Drawing.PointF;
 import Size = System.Drawing.Size;
 
-declare namespace resource {
-}
+declare var resource: any;
 
 declare interface IEvent<THandler> {
     connect(handler: THandler): void;
