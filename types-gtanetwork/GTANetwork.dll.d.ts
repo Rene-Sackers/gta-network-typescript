@@ -596,7 +596,7 @@ declare namespace GTANetwork.Javascript {
         loadHtmlCefBrowser(browser: GTANetwork.GUI.Browser, html: string): void;
         isCefBrowserLoading(browser: GTANetwork.GUI.Browser): boolean;
         callNative(hash: string, ...args: any[]): void;
-        returnNative(hash: string, returnType: number, ...args: any[]): any;
+        returnNative(hash: string, returnType: Enums.NativeReturnTypes, ...args: any[]): any;
         setUiColor(r: number, g: number, b: number): void;
         getHashKey(input: string): number;
         setEntitySyncedData(entity: GTANetwork.Util.LocalHandle, key: string, data: any): boolean;
@@ -631,10 +631,10 @@ declare namespace GTANetwork.Javascript {
         getLocalPlayerInvincible(): boolean;
         createParticleEffectOnPosition(ptfxLibrary: string, ptfxName: string, position: Vector3, rotation: Vector3, scale: number): void;
         createParticleEffectOnEntity(ptfxLibrary: string, ptfxName: string, entity: GTANetwork.Util.LocalHandle, offset: Vector3, rotation: Vector3, scale: number, boneIndex: number): void;
-        createExplosion(explosionType: number, position: Vector3, damageScale: number): void;
-        createOwnedExplosion(owner: GTANetwork.Util.LocalHandle, explosionType: number, position: Vector3, damageScale: number): void;
-        createProjectile(weapon: number, start: Vector3, target: Vector3, damage: number, speed: number, dimension: number): void;
-        createOwnedProjectile(owner: GTANetwork.Util.LocalHandle, weapon: number, start: Vector3, target: Vector3, damage: number, speed: number, dimension: number): void;
+        createExplosion(explosionType: Enums.ExplosionType, position: Vector3, damageScale: number): void;
+        createOwnedExplosion(owner: GTANetwork.Util.LocalHandle, explosionType: Enums.ExplosionType, position: Vector3, damageScale: number): void;
+        createProjectile(weapon: Enums.WeaponHash, start: Vector3, target: Vector3, damage: number, speed: number, dimension: number): void;
+        createOwnedProjectile(owner: GTANetwork.Util.LocalHandle, weapon: Enums.WeaponHash, start: Vector3, target: Vector3, damage: number, speed: number, dimension: number): void;
         setVehicleLivery(vehicle: GTANetwork.Util.LocalHandle, livery: number): void;
         getVehicleLivery(vehicle: GTANetwork.Util.LocalHandle): number;
         setVehicleLocked(vehicle: GTANetwork.Util.LocalHandle, locked: boolean): void;
@@ -730,12 +730,12 @@ declare namespace GTANetwork.Javascript {
         setEntityPositionFrozen(entity: GTANetwork.Util.LocalHandle, frozen: boolean): void;
         setEntityVelocity(entity: GTANetwork.Util.LocalHandle, velocity: Vector3): void;
         getPlayerVehicleSeat(player: GTANetwork.Util.LocalHandle): number;
-        setPlayerWeaponTint(weapon: number, tint: number): void;
-        getPlayerWeaponTint(weapon: number): number;
-        givePlayerWeaponComponent(weapon: number, component: number): void;
-        removePlayerWeaponComponent(weapon: number, component: number): void;
-        hasPlayerWeaponComponent(weapon: number, component: number): boolean;
-        getAllWeaponComponents(weapon: GTA.WeaponHash): GTA.WeaponComponent[];
+        setPlayerWeaponTint(weapon: Enums.WeaponHash, tint: Enums.WeaponTint): void;
+        getPlayerWeaponTint(weapon: Enums.WeaponHash): number;
+        givePlayerWeaponComponent(weapon: Enums.WeaponHash, component: Enums.WeaponComponent): void;
+        removePlayerWeaponComponent(weapon: Enums.WeaponHash, component: Enums.WeaponComponent): void;
+        hasPlayerWeaponComponent(weapon: Enums.WeaponHash, component: Enums.WeaponComponent): boolean;
+        getAllWeaponComponents(weapon: Enums.WeaponHash): GTA.WeaponComponent[];
         getPlayerCurrentWeapon(): number;
         disconnect(reason: string): void;
         setEntityPosition(ent: GTANetwork.Util.LocalHandle, pos: Vector3): void;
@@ -754,7 +754,7 @@ declare namespace GTANetwork.Javascript {
         playSoundFrontEnd(audioLib: string, audioName: string): void;
         showShard(text: string, timeout: number): void;
         showColorShard(text: string, description: string, color1: number, color2: number, time: number): void;
-        showWeaponPurchasedShard(text: string, weaponName: string, weapon: number, time: number): void;
+        showWeaponPurchasedShard(text: string, weaponName: string, weapon: Enums.WeaponHash, time: number): void;
         loadConfig(config: string): GTANetwork.Javascript.XmlGroup;
         fromJson(json: string): any;
         toJson(data: any): string;
@@ -871,10 +871,10 @@ declare namespace GTANetwork.Javascript {
         triggerServerEvent(eventName: string, ...argumentss: any[]): void;
         toString(obj: any): string;
         getBoneName(bone: number): string;
-        getWeaponName(weapon: number): string;
+        getWeaponName(weapon: Enums.WeaponHash): string;
         getVehicleModelName(model: number): string;
-        createMenu(banner: string, subtitle: string, x: number, y: number, anchor: number): NativeUI.UIMenu;
-        createMenu(subtitle: string, x: number, y: number, anchor: number): NativeUI.UIMenu;
+        createMenu(banner: string, subtitle: string, x: number, y: number, anchor: Enums.MenuAnchor): NativeUI.UIMenu;
+        createMenu(subtitle: string, x: number, y: number, anchor: Enums.MenuAnchor): NativeUI.UIMenu;
         createMenuItem(label: string, description: string): NativeUI.UIMenuItem;
         createColoredItem(label: string, description: string, hexColor: string, hexHighlightColor: string): NativeUI.UIMenuColoredItem;
         createCheckboxItem(label: string, description: string, isChecked: boolean): NativeUI.UIMenuCheckboxItem;
@@ -910,12 +910,12 @@ declare namespace GTANetwork.Javascript {
         setEntityDimension(entity: GTANetwork.Util.LocalHandle, dimension: number): void;
         getEntityDimension(entity: GTANetwork.Util.LocalHandle): number;
         getEntityModel(entity: GTANetwork.Util.LocalHandle): number;
-        givePlayerWeapon(weapon: number, ammo: number, equipNow: boolean, ammoLoaded: boolean): void;
+        givePlayerWeapon(weapon: Enums.WeaponHash, ammo: number, equipNow: boolean, ammoLoaded: boolean): void;
         removeAllPlayerWeapons(): void;
-        doesPlayerHaveWeapon(weapon: number): boolean;
-        removePlayerWeapon(weapon: number): void;
-        setWeather(weather: number): void;
-        getWeather(): number;
+        doesPlayerHaveWeapon(weapon: Enums.WeaponHash): boolean;
+        removePlayerWeapon(weapon: Enums.WeaponHash): void;
+        setWeather(weather: Enums.Weather): void;
+        getWeather(): Enums.Weather;
         resetWeather(): void;
         setTime(hours: number, minutes: number): void;
         getTime(): System.TimeSpan;
@@ -933,7 +933,7 @@ declare namespace GTANetwork.Javascript {
         onEntityStreamOut: IEvent<(item: GTANetwork.Util.LocalHandle, entityType: number) => void>;
         onEntityDataChange: IEvent<(entity: GTANetwork.Util.LocalHandle, key: string, oldValue: any) => void>;
         onCustomDataReceived: IEvent<(data: string) => void>;
-        onPlayerDeath: IEvent<(killer: GTANetwork.Util.LocalHandle, weapon: number) => void>;
+        onPlayerDeath: IEvent<(killer: GTANetwork.Util.LocalHandle, weapon: Enums.WeaponHash) => void>;
         onPlayerRespawn: IEvent<() => void>;
         onPlayerPickup: IEvent<(entity: GTANetwork.Util.LocalHandle) => void>;
         onPlayerEnterVehicle: IEvent<(entity: GTANetwork.Util.LocalHandle) => void>;
@@ -1029,8 +1029,8 @@ declare namespace GTANetwork.Javascript {
 
     class ScriptContext_PlayerKilledEvent {
         constructor(object: any, method: number);
-        Invoke(killer: GTANetwork.Util.LocalHandle, weapon: number): void;
-        BeginInvoke(killer: GTANetwork.Util.LocalHandle, weapon: number, callback: System.AsyncCallback, object: any): System.IAsyncResult;
+        Invoke(killer: GTANetwork.Util.LocalHandle, weapon: Enums.WeaponHash): void;
+        BeginInvoke(killer: GTANetwork.Util.LocalHandle, weapon: Enums.WeaponHash, callback: System.AsyncCallback, object: any): System.IAsyncResult;
         EndInvoke(result: System.IAsyncResult): void;
     }
 
@@ -1554,7 +1554,7 @@ declare namespace GTANetwork.Misc {
     }
 
     class WeaponDataProvider {
-        static IsWeaponAutomatic(hash: GTA.WeaponHash): boolean;
+        static IsWeaponAutomatic(hash: Enums.WeaponHash): boolean;
         static DoesVehicleHaveParallelWeapon(model: GTA.VehicleHash, rockets: boolean): boolean;
         static DoesVehiclesMuzzleDifferFromVehicleGunPos(model: GTA.VehicleHash): boolean;
         static DoesVehicleSeatHaveMountedGuns(vehicle: GTA.VehicleHash): boolean;
@@ -1564,7 +1564,7 @@ declare namespace GTANetwork.Misc {
         static GetVehicleTurretLength(veh: GTA.VehicleHash): number;
         static IsVehicleWeaponRocket(hash: number): boolean;
         static DoesVehicleSeatHaveGunPosition(vehicle: GTA.VehicleHash, vehiclepos: number, anySeat: boolean): boolean;
-        static GetWeaponDamage(weapon: GTA.WeaponHash): number;
+        static GetWeaponDamage(weapon: Enums.WeaponHash): number;
     }
 
 }
