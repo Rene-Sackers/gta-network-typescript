@@ -603,10 +603,12 @@ declare namespace GTANetwork.Javascript {
         resetEntitySyncedData(entity: GTANetwork.Util.LocalHandle, key: string): void;
         hasEntitySyncedData(entity: GTANetwork.Util.LocalHandle, key: string): boolean;
         getEntitySyncedData(entity: GTANetwork.Util.LocalHandle, key: string): any;
+        getAllEntitySyncedData(entity: GTANetwork.Util.LocalHandle): string[]
         setWorldSyncedData(key: string, data: any): boolean;
         resetWorldSyncedData(key: string): void;
         hasWorldSyncedData(key: string): boolean;
         getWorldSyncedData(key: string): any;
+        getAllWorldSyncedData(): string[];
         getGamePlayer(): number;
         getLocalPlayer(): GTANetwork.Util.LocalHandle;
         getEntityPosition(entity: GTANetwork.Util.LocalHandle): Vector3;

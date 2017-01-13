@@ -5,6 +5,7 @@ import Keys = System.Windows.Forms.Keys;
 import Point = System.Drawing.Point;
 import PointF = System.Drawing.PointF;
 import Size = System.Drawing.Size;
+import LocalHandle = GTANetwork.Util.LocalHandle;
 
 declare var resource: any;
 
