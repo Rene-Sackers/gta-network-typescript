@@ -928,7 +928,7 @@ declare namespace GTANetwork.Javascript {
         onUpdate: IEvent<() => void>;
         onKeyDown: IEvent<(sender: any, e: System.Windows.Forms.KeyEventArgs) => void>;
         onKeyUp: IEvent<(sender: any, e: System.Windows.Forms.KeyEventArgs) => void>;
-        onServerEventTrigger: IEvent<(eventName: string, argumentss: any[]) => void>;
+        onServerEventTrigger: IEvent<(eventName: string, argumentss: System.Array<any>) => void>;
         onChatMessage: IEvent<(msg: string) => void>;
         onChatCommand: IEvent<(msg: string) => void>;
         onEntityStreamIn: IEvent<(item: GTANetwork.Util.LocalHandle, entityType: number) => void>;
