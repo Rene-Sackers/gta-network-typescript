@@ -9,8 +9,12 @@ import LocalHandle = GTANetwork.Util.LocalHandle;
 
 declare var resource: any;
 
+declare interface IConnectedEvent {
+    disconnect(): void;
+}
+
 declare interface IEvent<THandler> {
-    connect(handler: THandler): void;
+    connect(handler: THandler): IConnectedEvent;
 }
 
 declare module Enums {
