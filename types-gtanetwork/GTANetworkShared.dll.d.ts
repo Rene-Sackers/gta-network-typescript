@@ -951,9 +951,7 @@ declare class Vector3 {
     static RandomXY(): Vector3;
     Around(distance: number): Vector3;
     DistanceToSquared(right: Vector3): number;
-    static DistanceSquared(right: Vector3, left: Vector3): number;
     DistanceTo(right: Vector3): number;
-    static Distance(right: Vector3, left: Vector3): number;
     DistanceToSquared2D(right: Vector3): number;
     DistanceTo2D(right: Vector3): number;
 }
@@ -963,35 +961,6 @@ declare class Vector3Argument {
     Y: number;
     Z: number;
     constructor();
-}
-
-declare class Matrix4
-{
-    constructor();
-    constructor(v: number);
-    constructor(v: number);
-
-    constructor(
-            _m00: number, _m01: number, _m02: number, _m03: number,
-            _m10: number, _m11: number, _m12: number, _m13: number,
-            _m20: number, _m21: number, _m22: number, _m23: number,
-            _m30: number, _m31: number, _m32: number, _m33: number);
-
-    Transform(x: number, y: number, z: number): Vector3;
-    Transform(x: number, y: number, z: number): Vector3;
-    Transform(v: Vector3): Vector3;
-
-    Multiply(other: Matrix4): Matrix4;
-    ToString(): string;
-
-    Identity: Matrix4;
-
-    static CreateRotationX(rot: number): Matrix4;
-    static CreateRotationY(rot: number): Matrix4;
-    static CreateRotationZ(rot: number): Matrix4;
-    static CreateScale(v: number): Matrix4;
-    static CreateScale(x: number, y: number, z: number): Matrix4;
-    static CreateTranslation(x: number, y: number, z: number): Matrix4;
 }
 
 declare class VehicleDamageModel {
