@@ -651,4 +651,17 @@ namespace Enums {
         ProxMine = 37,
         Valkyrie = 38
     }
+
+    export const enum EntityType {
+        Vehicle = 1,
+        Prop = 2,
+        Blip = 3,
+        Marker = 4,
+        Pickup = 5,
+        Player = 6,
+        TextLabel = 7,
+        Ped = 8,
+        Particle = 9,
+        World = 255
+    }
 }
