@@ -815,9 +815,9 @@ declare namespace GTANetwork.Javascript {
         setHudVisible(visible: boolean): void;
         isSpectating(): boolean;
         getHudVisible(): boolean;
-        createMarker(markerType: number, pos: Vector3, dir: Vector3, rot: Vector3, scale: Vector3, r: number, g: number, b: number, alpha: number): GTANetwork.Util.LocalHandle;
-        setMarkerType(marker: GTANetwork.Util.LocalHandle, type: number): void;
-        getMarkerType(marker: GTANetwork.Util.LocalHandle): number;
+        createMarker(markerType: Enums.MarkerType, pos: Vector3, dir: Vector3, rot: Vector3, scale: Vector3, r: number, g: number, b: number, alpha: number): GTANetwork.Util.LocalHandle;
+        setMarkerType(marker: GTANetwork.Util.LocalHandle, type: Enums.MarkerType): void;
+        getMarkerType(marker: GTANetwork.Util.LocalHandle): Enums.MarkerType;
         setMarkerColor(marker: GTANetwork.Util.LocalHandle, alpha: number, r: number, g: number, b: number): void;
         getMarkerColor(marker: GTANetwork.Util.LocalHandle): System.Drawing.Color;
         setMarkerScale(marker: GTANetwork.Util.LocalHandle, scale: Vector3): void;
