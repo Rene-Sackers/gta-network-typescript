@@ -6,6 +6,7 @@ import Point = System.Drawing.Point;
 import PointF = System.Drawing.PointF;
 import Size = System.Drawing.Size;
 import LocalHandle = GTANetwork.Util.LocalHandle;
+import menuControl = NativeUI.UIMenu_MenuControls;
 
 declare var resource: any;
 
