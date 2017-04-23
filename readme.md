@@ -51,6 +51,41 @@ This will compile all the .ts files in the folder that the .json file is placed 
 
 However, the order at which the files are put into the single compile JavaScript isn't certain, therefore, you should only call code from the files after `API.onResourceStart`.
 
+For example:
+
+```js
+// resources/MyResource/Main.ts
+class Main {
+    private anotherClass: AnotherClass;
+
+    constructor() {
+        this.anotherClass = new AnotherClass();
+
+        API.onUpdate.connect(this.onUpdateHandler);
+    }
+
+    private onUpdateHandler = () => {
+        this.AnotherClass.doSomething();
+    }
+}
+
+API.onResourceStart.connect(() => {
+    new Main();
+});
+```
+
+```js
+// resources/MyResource/AnotherClass.ts
+class AnotherClass {
+    public doSomething = () => {
+        // ...
+    }
+}
+```
+
+This will call the constructor of the `Main` class, which will in turn construct the `AnotherClass` object.  
+Because we are doing this in an `API.onResourceStart` it means all code has loaded, resolving the issue where `Main` might be defined BEFORE `AnotherClass` in the output .js file, preventing `AnotherClass is not defined` errors.
+
 ## Feedback and further development
 
 I plan to keep these definitions up to date for as long as I work with GTA Network myself.
