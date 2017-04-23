@@ -47,7 +47,7 @@ Here's a reccommended `tsconfig.json` file:
 }
 ```
 
-This will compile all the .ts files in the folder that the .json file is placed into in VisualStudio, to a single `Compiled.js` file. This allows youto have separate files for each class, but without having to include a lot of .js files in `meta.xml`.
+This will compile all the .ts files in the folder that the .json file is placed into in VisualStudio, to a single `Compiled.js` file. This allows you to have separate files for each class, but without having to include a lot of .js files in `meta.xml`.
 
 However, the order at which the files are put into the single compile JavaScript isn't certain, therefore, you should only call code from the files after `API.onResourceStart`.
 
