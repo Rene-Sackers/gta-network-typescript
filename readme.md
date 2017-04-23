@@ -49,7 +49,7 @@ Here's a reccommended `tsconfig.json` file:
 
 This will compile all the .ts files in the folder that the .json file is placed into in VisualStudio, to a single `Compiled.js` file. This allows you to have separate files for each class, but without having to include a lot of .js files in `meta.xml`.
 
-However, the order at which the files are put into the single compile JavaScript isn't certain, therefore, you should only call code from the files after `API.onResourceStart`.
+However, the order at which the files are put into the single compiled JavaScript isn't certain, therefore, you should only call code from the files after `API.onResourceStart`.
 
 For example:
 
@@ -85,6 +85,11 @@ class AnotherClass {
 
 This will call the constructor of the `Main` class, which will in turn construct the `AnotherClass` object.  
 Because we are doing this in an `API.onResourceStart` it means all code has loaded, resolving the issue where `Main` might be defined BEFORE `AnotherClass` in the output .js file, preventing `AnotherClass is not defined` errors.
+
+Just beware that doing it this way, also means that everything will be in the same exact namespace. So defining 2 variables or classes in the root of your file with the exact same name, will either cause errors, or unexpected behavior with one overriding the other.  
+Make sure you either put stuff in namespaces, or you give everything a unique name.
+
+Personally, I like to only work from classes. So 1 file = 1 class, and all code is within classes. That way (if you also make sure the class name is equal to the file name, as it should be), you can never write duplicate class or variable names.
 
 ## Feedback and further development
 
