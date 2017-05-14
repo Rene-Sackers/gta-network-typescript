@@ -1,5 +1,7 @@
 # GTA Network TypeScript Definitions
 
+**NOTE:** No longer being maintained. Pull requests will be reviewed and accepted.
+
 ## About
 
 Because dynamically typed languages are sometimes unpredictible, hard to maintain, and require mental mapping, and intellisense generally doesn't work well in JavaScript, I've created these TypeScript definition files for the GTA Network mod.
